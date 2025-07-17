@@ -151,6 +151,9 @@ const result = await build({
   define: {
     "process.env.NODE_ENV": JSON.stringify("production"),
   },
+  alias: {
+    "@": path.resolve(process.cwd(), "src"),
+  },
   ...cliConfig, // Merge in any CLI-provided options
 });
 
