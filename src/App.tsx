@@ -10,7 +10,7 @@ export function App() {
       </div>
 
       <div className="space-y-6">
-        <Card>
+        {/* <Card>
           <CardHeader>
             <CardTitle>Getting Started</CardTitle>
           </CardHeader>
@@ -25,9 +25,9 @@ export function App() {
               <li>Start moving and watch your progress!</li>
             </ul>
           </CardContent>
-        </Card>
+        </Card> */}
 
-        <Card>
+        {/* <Card>
           <CardHeader>
             <CardTitle>Common Issues</CardTitle>
           </CardHeader>
@@ -53,19 +53,19 @@ export function App() {
               </div>
             </div>
           </CardContent>
-        </Card>
+        </Card> */}
 
-        <Card>
+        {/* <Card>
           <CardHeader>
             <CardTitle>Privacy & Data</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              Your movement data is stored locally on your device and only shared with health platforms (if enabled). 
+              Your movement data is stored locally on your device and only shared with health platforms (if enabled).
               We do not collect or share your personal information with third parties.
             </p>
           </CardContent>
-        </Card>
+        </Card> */}
 
         <Card>
           <CardHeader>
@@ -76,9 +76,18 @@ export function App() {
               Need help with something not covered here? We're here to help!
             </p>
             <div className="bg-muted/50 p-4 rounded-lg">
+              {/* <p className="font-medium mb-2">Support Form:</p> */}
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeOpCWZYp8dD2lPWSu5dPNjbx_TdKtl0UCe7t-ku3O9Zth12Q/viewform"
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
+                Support Form
+              </a>
+            </div>
+            <div className="bg-muted/50 p-4 rounded-lg">
               <p className="font-medium mb-2">Email Support:</p>
-              <a 
-                href="mailto:movastaysinmotionar@gmail.com" 
+              <a
+                href="mailto:movastaysinmotionar@gmail.com"
                 className="text-blue-600 hover:text-blue-800 underline"
               >
                 movastaysinmotionar@gmail.com
