@@ -1,7 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Changelog } from "@/components/Changelog";
 import "./index.css";
+import { useState, useEffect } from "react";
 
-export function App() {
+interface SupportPageProps {
+  currentPage: 'support' | 'changelog';
+  setCurrentPage: (page: 'support' | 'changelog') => void;
+}
+
+function SupportPage({ currentPage, setCurrentPage }: SupportPageProps) {
   return (
     <div className="container mx-auto p-8 max-w-4xl">
       <div className="text-center mb-8">
@@ -10,62 +17,29 @@ export function App() {
       </div>
 
       <div className="space-y-6">
-        {/* <Card>
-          <CardHeader>
-            <CardTitle>Getting Started</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="mb-4">
-              Mova helps you track your movement and stay active throughout the day.
-            </p>
-            <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-              <li>Download and install the app from your device's app store</li>
-              <li>Grant necessary permissions for motion tracking</li>
-              <li>Set your daily activity goals</li>
-              <li>Start moving and watch your progress!</li>
-            </ul>
-          </CardContent>
-        </Card> */}
-
-        {/* <Card>
-          <CardHeader>
-            <CardTitle>Common Issues</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div>
-                <h3 className="font-semibold mb-2">App not tracking movement</h3>
-                <p className="text-muted-foreground text-sm">
-                  Make sure you've granted motion and fitness permissions in your device settings.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Data not syncing</h3>
-                <p className="text-muted-foreground text-sm">
-                  Check your internet connection and ensure the app is up to date from your device's app store.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Battery usage concerns</h3>
-                <p className="text-muted-foreground text-sm">
-                  The app is optimized for minimal battery usage. You can adjust tracking frequency in app settings.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card> */}
-
-        {/* <Card>
-          <CardHeader>
-            <CardTitle>Privacy & Data</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              Your movement data is stored locally on your device and only shared with health platforms (if enabled).
-              We do not collect or share your personal information with third parties.
-            </p>
-          </CardContent>
-        </Card> */}
+        {/* Navigation */}
+        <div className="flex justify-center space-x-4 mb-8">
+          <button
+            onClick={() => setCurrentPage('support')}
+            className={`px-4 py-2 rounded-lg ${
+              currentPage === 'support' 
+                ? 'bg-blue-600 text-white' 
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+          >
+            Support
+          </button>
+          <button
+            onClick={() => setCurrentPage('changelog')}
+            className={`px-4 py-2 rounded-lg ${
+              currentPage === 'changelog' 
+                ? 'bg-blue-600 text-white' 
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+          >
+            Changelog
+          </button>
+        </div>
 
         <Card>
           <CardHeader>
@@ -75,8 +49,7 @@ export function App() {
             <p className="mb-4">
               Need help with something not covered here? We're here to help!
             </p>
-            <div className="bg-muted/50 p-4 rounded-lg">
-              {/* <p className="font-medium mb-2">Support Form:</p> */}
+            <div className="bg-muted/50 p-4 rounded-lg mb-4">
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSeOpCWZYp8dD2lPWSu5dPNjbx_TdKtl0UCe7t-ku3O9Zth12Q/viewform"
                 className="text-blue-600 hover:text-blue-800 underline"
@@ -101,6 +74,78 @@ export function App() {
       </div>
     </div>
   );
+}
+
+interface ChangelogPageProps {
+  currentPage: 'support' | 'changelog';
+  setCurrentPage: (page: 'support' | 'changelog') => void;
+}
+
+function ChangelogPage({ currentPage, setCurrentPage }: ChangelogPageProps) {
+  return (
+    <div>
+      {/* Navigation */}
+      <div className="flex justify-center space-x-4 mb-8 pt-8">
+        <button
+          onClick={() => setCurrentPage('support')}
+          className={`px-4 py-2 rounded-lg ${
+            currentPage === 'support' 
+              ? 'bg-blue-600 text-white' 
+              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+          }`}
+        >
+          Support
+        </button>
+        <button
+          onClick={() => setCurrentPage('changelog')}
+          className={`px-4 py-2 rounded-lg ${
+            currentPage === 'changelog' 
+              ? 'bg-blue-600 text-white' 
+              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+          }`}
+        >
+          Changelog
+        </button>
+      </div>
+      <Changelog />
+    </div>
+  );
+}
+
+export function App() {
+  const [currentPage, setCurrentPage] = useState<'support' | 'changelog'>('support');
+
+  // Handle URL changes
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname;
+      if (path === '/changelog') {
+        setCurrentPage('changelog');
+      } else {
+        setCurrentPage('support');
+      }
+    };
+
+    // Check initial URL
+    handlePopState();
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Update URL when page changes
+  useEffect(() => {
+    const newPath = currentPage === 'changelog' ? '/changelog' : '/';
+    if (window.location.pathname !== newPath) {
+      window.history.pushState(null, '', newPath);
+    }
+  }, [currentPage]);
+
+  if (currentPage === 'changelog') {
+    return <ChangelogPage currentPage={currentPage} setCurrentPage={setCurrentPage} />;
+  }
+
+  return <SupportPage currentPage={currentPage} setCurrentPage={setCurrentPage} />;
 }
 
 export default App;
