@@ -10,18 +10,25 @@
   }
 }
 
-/* cool Bun background animation 😎 */
+/* cool background animation 😎 */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  opacity: 0.05;
+  opacity: 0.03;
   background: url("./app-icon.png");
-  background-size: 256px;
+  background-size: 128px;
   transform: rotate(-12deg) scale(1.35);
   animation: slide 30s linear infinite;
   pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  body::before {
+    opacity: 0.05;
+    background-size: 256px;
+  }
 }
 
 @keyframes slide {

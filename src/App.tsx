@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Changelog } from "@/components/Changelog";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import "./index.css";
 import { useState, useEffect } from "react";
 
@@ -10,31 +11,37 @@ interface SupportPageProps {
 
 function SupportPage({ currentPage, setCurrentPage }: SupportPageProps) {
   return (
-    <div className="container mx-auto p-8 max-w-4xl">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Mova</h1>
-        <p className="text-xl text-muted-foreground">Help & Support</p>
+    <div className="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl">
+      {/* Header with theme toggle */}
+      <div className="flex justify-between items-start mb-8">
+        <div className="text-center flex-1">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Mova</h1>
+          <p className="text-lg md:text-xl text-muted-foreground">Help & Support</p>
+        </div>
+        <div className="ml-4 mt-1">
+          <ThemeToggle />
+        </div>
       </div>
 
       <div className="space-y-6">
         {/* Navigation */}
-        <div className="flex justify-center space-x-4 mb-8">
+        <div className="flex justify-center space-x-2 sm:space-x-4 mb-8">
           <button
             onClick={() => setCurrentPage('support')}
-            className={`px-4 py-2 rounded-lg ${
+            className={`px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base ${
               currentPage === 'support' 
-                ? 'bg-blue-600 text-white' 
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                ? 'bg-primary text-primary-foreground' 
+                : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
             }`}
           >
             Support
           </button>
           <button
             onClick={() => setCurrentPage('changelog')}
-            className={`px-4 py-2 rounded-lg ${
+            className={`px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base ${
               currentPage === 'changelog' 
-                ? 'bg-blue-600 text-white' 
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                ? 'bg-primary text-primary-foreground' 
+                : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
             }`}
           >
             Changelog
@@ -52,7 +59,7 @@ function SupportPage({ currentPage, setCurrentPage }: SupportPageProps) {
             <div className="bg-muted/50 p-4 rounded-lg mb-4">
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSeOpCWZYp8dD2lPWSu5dPNjbx_TdKtl0UCe7t-ku3O9Zth12Q/viewform"
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="text-primary hover:text-primary/80 underline transition-colors"
               >
                 Support Form
               </a>
@@ -61,7 +68,7 @@ function SupportPage({ currentPage, setCurrentPage }: SupportPageProps) {
               <p className="font-medium mb-2">Email Support:</p>
               <a
                 href="mailto:movastaysinmotionar@gmail.com"
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="text-primary hover:text-primary/80 underline transition-colors"
               >
                 movastaysinmotionar@gmail.com
               </a>
@@ -84,24 +91,29 @@ interface ChangelogPageProps {
 function ChangelogPage({ currentPage, setCurrentPage }: ChangelogPageProps) {
   return (
     <div>
+      {/* Header with theme toggle */}
+      <div className="flex justify-end p-8 pb-0">
+        <ThemeToggle />
+      </div>
+      
       {/* Navigation */}
-      <div className="flex justify-center space-x-4 mb-8 pt-8">
+      <div className="flex justify-center space-x-2 sm:space-x-4 mb-8 pt-4">
         <button
           onClick={() => setCurrentPage('support')}
-          className={`px-4 py-2 rounded-lg ${
+          className={`px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base ${
             currentPage === 'support' 
-              ? 'bg-blue-600 text-white' 
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              ? 'bg-primary text-primary-foreground' 
+              : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
           }`}
         >
           Support
         </button>
         <button
           onClick={() => setCurrentPage('changelog')}
-          className={`px-4 py-2 rounded-lg ${
+          className={`px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base ${
             currentPage === 'changelog' 
-              ? 'bg-blue-600 text-white' 
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              ? 'bg-primary text-primary-foreground' 
+              : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
           }`}
         >
           Changelog
