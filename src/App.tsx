@@ -1,163 +1,149 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Changelog } from "@/components/Changelog";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import "./index.css";
 import { useState, useEffect } from "react";
-
-interface SupportPageProps {
-  currentPage: 'support' | 'changelog';
-  setCurrentPage: (page: 'support' | 'changelog') => void;
-}
-
-function SupportPage({ currentPage, setCurrentPage }: SupportPageProps) {
-  return (
-    <div className="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl">
-      {/* Header with theme toggle */}
-      <div className="flex justify-between items-start mb-8">
-        <div className="text-center flex-1">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Mova</h1>
-          <p className="text-lg md:text-xl text-muted-foreground">Help & Support</p>
-        </div>
-        <div className="ml-4 mt-1">
-          <ThemeToggle />
-        </div>
-      </div>
-
-      <div className="space-y-6">
-        {/* Navigation */}
-        <div className="flex justify-center space-x-2 sm:space-x-4 mb-8">
-          <button
-            onClick={() => setCurrentPage('support')}
-            className={`px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base ${
-              currentPage === 'support' 
-                ? 'bg-primary text-primary-foreground' 
-                : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-            }`}
-          >
-            Support
-          </button>
-          <button
-            onClick={() => setCurrentPage('changelog')}
-            className={`px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base ${
-              currentPage === 'changelog' 
-                ? 'bg-primary text-primary-foreground' 
-                : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-            }`}
-          >
-            Changelog
-          </button>
-        </div>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Contact Support</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="mb-4">
-              Need help with something not covered here? We're here to help!
-            </p>
-            <div className="bg-muted/50 p-4 rounded-lg mb-4">
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeOpCWZYp8dD2lPWSu5dPNjbx_TdKtl0UCe7t-ku3O9Zth12Q/viewform"
-                className="text-primary hover:text-primary/80 underline transition-colors"
-              >
-                Support Form
-              </a>
-            </div>
-            <div className="bg-muted/50 p-4 rounded-lg">
-              <p className="font-medium mb-2">Email Support:</p>
-              <a
-                href="mailto:movastaysinmotionar@gmail.com"
-                className="text-primary hover:text-primary/80 underline transition-colors"
-              >
-                movastaysinmotionar@gmail.com
-              </a>
-            </div>
-            <p className="text-sm text-muted-foreground mt-4">
-              Please include your device model and operating system version when contacting support.
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
-  );
-}
-
-interface ChangelogPageProps {
-  currentPage: 'support' | 'changelog';
-  setCurrentPage: (page: 'support' | 'changelog') => void;
-}
-
-function ChangelogPage({ currentPage, setCurrentPage }: ChangelogPageProps) {
-  return (
-    <div>
-      {/* Header with theme toggle */}
-      <div className="flex justify-end p-8 pb-0">
-        <ThemeToggle />
-      </div>
-      
-      {/* Navigation */}
-      <div className="flex justify-center space-x-2 sm:space-x-4 mb-8 pt-4">
-        <button
-          onClick={() => setCurrentPage('support')}
-          className={`px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base ${
-            currentPage === 'support' 
-              ? 'bg-primary text-primary-foreground' 
-              : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-          }`}
-        >
-          Support
-        </button>
-        <button
-          onClick={() => setCurrentPage('changelog')}
-          className={`px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base ${
-            currentPage === 'changelog' 
-              ? 'bg-primary text-primary-foreground' 
-              : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-          }`}
-        >
-          Changelog
-        </button>
-      </div>
-      <Changelog />
-    </div>
-  );
-}
+import { Navigation } from "@/components/Navigation";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { SupportSection } from "@/components/sections/SupportSection";
+import { ChangelogSection } from "@/components/sections/ChangelogSection";
+import { DownloadSection } from "@/components/sections/DownloadSection";
+import "./index.css";
 
 export function App() {
-  const [currentPage, setCurrentPage] = useState<'support' | 'changelog'>('support');
+  const [activeSection, setActiveSection] = useState('hero');
 
-  // Handle URL changes
+  // Handle scroll-based section detection
   useEffect(() => {
-    const handlePopState = () => {
-      const path = window.location.pathname;
-      if (path === '/changelog') {
-        setCurrentPage('changelog');
-      } else {
-        setCurrentPage('support');
+    const handleScroll = () => {
+      const sections = ['hero', 'about', 'support', 'changelog', 'download'];
+      const scrollPosition = window.scrollY + 100; // Offset for header
+
+      for (const sectionId of sections.reverse()) {
+        const element = document.getElementById(sectionId);
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(sectionId);
+          break;
+        }
       }
     };
 
-    // Check initial URL
-    handlePopState();
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
 
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Update URL when page changes
-  useEffect(() => {
-    const newPath = currentPage === 'changelog' ? '/changelog' : '/';
-    if (window.location.pathname !== newPath) {
-      window.history.pushState(null, '', newPath);
+  const handleDownloadClick = () => {
+    const element = document.getElementById('download');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [currentPage]);
+  };
 
-  if (currentPage === 'changelog') {
-    return <ChangelogPage currentPage={currentPage} setCurrentPage={setCurrentPage} />;
-  }
+  const handleLearnMoreClick = () => {
+    const element = document.getElementById('about');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-  return <SupportPage currentPage={currentPage} setCurrentPage={setCurrentPage} />;
+  return (
+    <div className="flex flex-col flex-1">
+      {/* Sticky Navigation */}
+      <Navigation activeSection={activeSection} />
+
+      {/* Main Content */}
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section id="hero" className="hero-background">
+          <HeroSection 
+            onDownloadClick={handleDownloadClick}
+            onLearnMoreClick={handleLearnMoreClick}
+          />
+        </section>
+
+        {/* About Section */}
+        <AboutSection />
+
+        {/* Support Section */}
+        <SupportSection />
+
+        {/* Changelog Section */}
+        <ChangelogSection />
+
+        {/* Download Section */}
+        <DownloadSection />
+      </main>
+
+      {/* Footer */}
+      <footer className="py-12 bg-secondary/50 border-t border-border">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Brand */}
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-accent-energy">Mova</h3>
+              <p className="text-muted-foreground">
+                Transform your playlists into perfect interval workouts. 
+                Stay in motion with music that moves you.
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div className="space-y-4">
+              <h4 className="font-semibold">Quick Links</h4>
+              <div className="space-y-2">
+                <button 
+                  onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="block text-muted-foreground hover:text-accent-energy transition-colors"
+                >
+                  About Mova
+                </button>
+                <button 
+                  onClick={() => document.getElementById('support')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="block text-muted-foreground hover:text-accent-progress transition-colors"
+                >
+                  Get Support
+                </button>
+                <button 
+                  onClick={() => document.getElementById('changelog')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="block text-muted-foreground hover:text-accent-intensity transition-colors"
+                >
+                  What's New
+                </button>
+              </div>
+            </div>
+
+            {/* Contact */}
+            <div className="space-y-4">
+              <h4 className="font-semibold">Get in Touch</h4>
+              <div className="space-y-2">
+                <a 
+                  href="mailto:movastaysinmotionar@gmail.com"
+                  className="block text-muted-foreground hover:text-accent-energy transition-colors"
+                >
+                  movastaysinmotionar@gmail.com
+                </a>
+                <a 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSeOpCWZYp8dD2lPWSu5dPNjbx_TdKtl0UCe7t-ku3O9Zth12Q/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-muted-foreground hover:text-accent-progress transition-colors"
+                >
+                  Support Form
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="border-t border-border mt-8 pt-8 text-center">
+            <p className="text-sm text-muted-foreground">
+              © {new Date().getFullYear()} Mova. All rights reserved. 
+              Keep moving, keep growing.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
 }
 
 export default App;

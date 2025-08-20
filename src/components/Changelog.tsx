@@ -1,9 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { changelogData, type ChangelogEntry } from "@/data/changelog";
+import { changelogData, type ChangelogEntry } from "@/data/changelog-public";
 
 const typeColors = {
   major: "bg-destructive/10 text-destructive border-destructive/20",
-  minor: "bg-primary/10 text-primary border-primary/20", 
+  minor: "bg-primary/10 text-primary border-primary/20",
   patch: "bg-accent text-accent-foreground border-accent/50"
 };
 
@@ -36,7 +36,7 @@ const ChangelogEntry = ({ entry }: { entry: ChangelogEntry }) => (
           </ul>
         </div>
       )}
-      
+
       {entry.features && entry.features.length > 0 && (
         <div>
           <h4 className="font-semibold text-primary mb-2">✨ New Features</h4>
@@ -47,7 +47,7 @@ const ChangelogEntry = ({ entry }: { entry: ChangelogEntry }) => (
           </ul>
         </div>
       )}
-      
+
       {entry.improvements && entry.improvements.length > 0 && (
         <div>
           <h4 className="font-semibold text-accent-foreground mb-2">🚀 Improvements</h4>
@@ -58,7 +58,7 @@ const ChangelogEntry = ({ entry }: { entry: ChangelogEntry }) => (
           </ul>
         </div>
       )}
-      
+
       {entry.bugfixes && entry.bugfixes.length > 0 && (
         <div>
           <h4 className="font-semibold text-muted-foreground mb-2">🐛 Bug Fixes</h4>
