@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Play, User, Zap } from "lucide-react";
+import { Card, CardContent } from '@/components/ui/card';
+import { Play, User, Zap } from 'lucide-react';
 
 interface FeatureCardProps {
   icon: React.ReactNode;
@@ -12,13 +12,8 @@ function FeatureCard({ icon, title, description, delay }: FeatureCardProps) {
   return (
     <Card className="feature-card h-full transition-all duration-300 hover:shadow-lg">
       <CardContent className="p-6 text-center">
-        <div
-          className="mb-4 flex justify-center"
-          style={{ animationDelay: delay }}
-        >
-          <div className="p-3 rounded-full bg-gradient-to-br from-accent-energy/20 to-accent-progress/20">
-            {icon}
-          </div>
+        <div className="mb-4 flex justify-center" style={{ animationDelay: delay }}>
+          <div className="p-3 rounded-full bg-gradient-to-br from-accent-energy/20 to-accent-progress/20">{icon}</div>
         </div>
         <h3 className="text-xl font-bold mb-3">{title}</h3>
         <p className="text-muted-foreground leading-relaxed">{description}</p>
@@ -32,9 +27,7 @@ export function AboutSection() {
     <section id="about" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 scroll-reveal">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Why Mova?
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Why Mova?</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             The perfect blend of music and movement for your fitness journey
           </p>
@@ -72,7 +65,7 @@ export function AboutSection() {
                   Transform your music into the perfect workout companion
                 </p>
                 {/* Placeholder for phone mockups */}
-                {/* <div className="grid md:grid-cols-3 gap-6">
+        {/* <div className="grid md:grid-cols-3 gap-6">
                   <div className="bg-card rounded-xl p-6 shadow-sm">
                     <div className="h-32 bg-gradient-to-br from-accent-energy/20 to-accent-progress/20 rounded-lg mb-4"></div>
                     <p className="text-sm font-medium">Convert Playlist</p>

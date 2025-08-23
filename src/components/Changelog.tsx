@@ -1,10 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { changelogData, type ChangelogEntry } from "@/data/changelog-public";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { changelogData, type ChangelogEntry } from '@/data/changelog-public';
 
 const typeColors = {
-  major: "bg-destructive/10 text-destructive border-destructive/20",
-  minor: "bg-primary/10 text-primary border-primary/20",
-  patch: "bg-accent text-accent-foreground border-accent/50"
+  major: 'bg-destructive/10 text-destructive border-destructive/20',
+  minor: 'bg-primary/10 text-primary border-primary/20',
+  patch: 'bg-accent text-accent-foreground border-accent/50',
 };
 
 const TypeBadge = ({ type }: { type: ChangelogEntry['type'] }) => (
@@ -31,7 +31,9 @@ const ChangelogEntry = ({ entry }: { entry: ChangelogEntry }) => (
           <h4 className="font-semibold text-destructive mb-2">⚠️ Breaking Changes</h4>
           <ul className="list-disc list-inside space-y-1 text-sm">
             {entry.breaking.map((item, index) => (
-              <li key={index} className="text-destructive/80">{item}</li>
+              <li key={index} className="text-destructive/80">
+                {item}
+              </li>
             ))}
           </ul>
         </div>

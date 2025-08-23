@@ -1,11 +1,8 @@
-import { render, RenderOptions } from "@testing-library/react";
-import { ReactElement } from "react";
+import { render, RenderOptions } from '@testing-library/react';
+import { ReactElement } from 'react';
 
 // Custom render function that can be extended with providers if needed
-export function renderWithProviders(
-  ui: ReactElement,
-  options?: Omit<RenderOptions, "wrapper">
-) {
+export function renderWithProviders(ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) {
   return render(ui, {
     // Can add providers here in the future (theme, router, etc.)
     ...options,
@@ -14,14 +11,14 @@ export function renderWithProviders(
 
 // Mock data generators for tests
 export const mockChangelogEntry = {
-  version: "1.0.0",
-  date: "January 1, 2024",
-  type: "major" as const,
-  title: "Test Release",
-  features: ["Test feature"],
-  improvements: ["Test improvement"],
-  bugfixes: ["Test bugfix"],
-  breaking: ["Test breaking change"]
+  version: '1.0.0',
+  date: 'January 1, 2024',
+  type: 'major' as const,
+  title: 'Test Release',
+  features: ['Test feature'],
+  improvements: ['Test improvement'],
+  bugfixes: ['Test bugfix'],
+  breaking: ['Test breaking change'],
 };
 
 // Helper to mock window.matchMedia for responsive tests
@@ -74,7 +71,7 @@ export function mockReducedMotion(preferReduced: boolean = true) {
 
 // Helper to mock smooth scrolling
 export function mockSmoothScroll() {
-  Element.prototype.scrollIntoView = function(options) {
+  Element.prototype.scrollIntoView = function (options) {
     // Mock implementation that doesn't actually scroll
     return;
   };
@@ -86,7 +83,7 @@ export function mockExternalLinks() {
     writable: true,
     value: () => null,
   });
-  
+
   Object.defineProperty(window, 'location', {
     writable: true,
     value: {
@@ -98,4 +95,4 @@ export function mockExternalLinks() {
 }
 
 // Re-export everything from @testing-library/react
-export * from "@testing-library/react";
+export * from '@testing-library/react';

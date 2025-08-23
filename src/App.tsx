@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
-import { Navigation } from "@/components/Navigation";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { AboutSection } from "@/components/sections/AboutSection";
-import { SupportSection } from "@/components/sections/SupportSection";
-import { ChangelogSection } from "@/components/sections/ChangelogSection";
-import { DownloadSection } from "@/components/sections/DownloadSection";
-import "./index.css";
+import { useState, useEffect } from 'react';
+import { Navigation } from '@/components/Navigation';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { AboutSection } from '@/components/sections/AboutSection';
+import { SupportSection } from '@/components/sections/SupportSection';
+import { ChangelogSection } from '@/components/sections/ChangelogSection';
+import { DownloadSection } from '@/components/sections/DownloadSection';
+import './index.css';
 
 export function App() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -54,10 +54,7 @@ export function App() {
       <main className="flex-1">
         {/* Hero Section */}
         <section id="hero" className="hero-background">
-          <HeroSection 
-            onDownloadClick={handleDownloadClick}
-            onLearnMoreClick={handleLearnMoreClick}
-          />
+          <HeroSection onDownloadClick={handleDownloadClick} onLearnMoreClick={handleLearnMoreClick} />
         </section>
 
         {/* About Section */}
@@ -81,8 +78,7 @@ export function App() {
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-accent-energy">Mova</h3>
               <p className="text-muted-foreground">
-                Transform your playlists into perfect interval workouts. 
-                Stay in motion with music that moves you.
+                Transform your playlists into perfect interval workouts. Stay in motion with music that moves you.
               </p>
             </div>
 
@@ -90,19 +86,19 @@ export function App() {
             <div className="space-y-4">
               <h4 className="font-semibold">Quick Links</h4>
               <div className="space-y-2">
-                <button 
+                <button
                   onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
                   className="block text-muted-foreground hover:text-accent-energy transition-colors"
                 >
                   About Mova
                 </button>
-                <button 
+                <button
                   onClick={() => document.getElementById('support')?.scrollIntoView({ behavior: 'smooth' })}
                   className="block text-muted-foreground hover:text-accent-progress transition-colors"
                 >
                   Get Support
                 </button>
-                <button 
+                <button
                   onClick={() => document.getElementById('changelog')?.scrollIntoView({ behavior: 'smooth' })}
                   className="block text-muted-foreground hover:text-accent-intensity transition-colors"
                 >
@@ -115,13 +111,13 @@ export function App() {
             <div className="space-y-4">
               <h4 className="font-semibold">Get in Touch</h4>
               <div className="space-y-2">
-                <a 
+                <a
                   href="mailto:movastaysinmotionar@gmail.com"
                   className="block text-muted-foreground hover:text-accent-energy transition-colors"
                 >
                   movastaysinmotionar@gmail.com
                 </a>
-                <a 
+                <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLSeOpCWZYp8dD2lPWSu5dPNjbx_TdKtl0UCe7t-ku3O9Zth12Q/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -136,8 +132,7 @@ export function App() {
           {/* Copyright */}
           <div className="border-t border-border mt-8 pt-8 text-center">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Mova. All rights reserved. 
-              Keep moving, keep growing.
+              © {new Date().getFullYear()} Mova. All rights reserved. Keep moving, keep growing.
             </p>
           </div>
         </div>

@@ -10,7 +10,8 @@
     "start": "NODE_ENV=production bun src/index.tsx",
     "build": "bun run build.ts",
     "build:pages": "bun run build.ts --outdir=dist --minify --source-map=linked",
-    "preview": "cd dist && bun --port 3000 --serve ."
+    "preview": "cd dist && bun --port 3000 --serve .",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.0",
@@ -30,8 +31,9 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@types/bun": "latest",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/bun": "latest"
+    "prettier": "^3.2.5"
   }
 }

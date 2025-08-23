@@ -9,7 +9,7 @@ This website uses **Bun's native web stack** for maximum performance and develop
 - **⚡ Runtime**: Bun (not Node.js) for fast builds and development
 - **⚙️ Server**: Bun.serve() with native routing and hot reload
 - **⚛️ Frontend**: React 19 with TypeScript
-- **🎨 Styling**: TailwindCSS v4 with Radix UI components  
+- **🎨 Styling**: TailwindCSS v4 with Radix UI components
 - **📦 Bundling**: Bun's built-in bundler (no Webpack/Vite needed)
 - **🔥 Development**: Hot module reloading with instant updates
 
@@ -65,6 +65,7 @@ bun run preview
 ## 🔧 Development Commands
 
 ### Main Workflow
+
 ```bash
 bun dev              # Hot reload development (recommended)
 bun start            # Production server
@@ -73,6 +74,7 @@ bun run preview      # Serve built files locally
 ```
 
 ### Build Options
+
 ```bash
 bun run build              # Standard build
 bun run build:pages        # Optimized build with minification and source maps
@@ -81,13 +83,15 @@ bun run build:pages        # Optimized build with minification and source maps
 ## 🛠️ Tech Stack Deep Dive
 
 ### Bun Native Features
+
 - **Zero Config**: No webpack.config.js, vite.config.js, or complex setup
 - **Built-in Bundling**: Automatic TypeScript, JSX, and CSS processing
 - **Hot Reloading**: Instant updates without losing application state
 - **Fast Installs**: Lightning-fast package installation and caching
 - **Native APIs**: Built-in file serving, routing, and WebSocket support
 
-### Frontend Stack  
+### Frontend Stack
+
 - **React 19**: Latest React with concurrent features
 - **TypeScript**: Full type safety with automatic compilation
 - **TailwindCSS v4**: Utility-first styling with latest features
@@ -95,6 +99,7 @@ bun run build:pages        # Optimized build with minification and source maps
 - **Lucide Icons**: Beautiful, consistent iconography
 
 ### Development Experience
+
 - **Instant Feedback**: Sub-second hot reloads
 - **Type Safety**: TypeScript checking without separate build step
 - **Modern CSS**: PostCSS processing and CSS imports
@@ -103,6 +108,7 @@ bun run build:pages        # Optimized build with minification and source maps
 ## 🏛️ Architecture Details
 
 ### Bun.serve() Routing
+
 ```typescript
 // Native routing with HTTP methods
 const server = serve({
@@ -124,11 +130,12 @@ const server = serve({
 ```
 
 ### HTML + React Integration
+
 ```html
 <!-- index.html - Direct imports work! -->
 <html>
   <head>
-    <link rel="stylesheet" href="./styles/globals.css">
+    <link rel="stylesheet" href="./styles/globals.css" />
   </head>
   <body>
     <div id="root"></div>
@@ -138,14 +145,16 @@ const server = serve({
 ```
 
 ### Component Architecture
+
 - **Radix UI Primitives**: Accessible components with custom styling
-- **TailwindCSS**: Utility classes for rapid UI development  
+- **TailwindCSS**: Utility classes for rapid UI development
 - **TypeScript**: Full type safety across components and props
 - **React Hook Form**: Form handling with Zod validation
 
 ## 📋 Key Features
 
 ### Marketing Website Essentials
+
 - **Landing Page**: Hero section with clear value proposition
 - **Feature Showcase**: Interactive demonstrations of Mova capabilities
 - **API Testing**: Built-in tools for testing backend integration
@@ -153,6 +162,7 @@ const server = serve({
 - **Performance**: Fast loading with optimized bundles
 
 ### Developer Experience
+
 - **Instant Builds**: Bun's native bundler for sub-second compilation
 - **Hot Reloading**: Preserve component state during development
 - **Type Safety**: Comprehensive TypeScript without configuration
@@ -160,6 +170,7 @@ const server = serve({
 - **Component Library**: Radix UI for accessible, customizable components
 
 ### Production Ready
+
 - **Optimized Builds**: Minification, tree shaking, and source maps
 - **Static Generation**: Export static files for CDN deployment
 - **Browser Support**: Modern browser compatibility
@@ -168,6 +179,7 @@ const server = serve({
 ## 🎨 Design System
 
 ### TailwindCSS v4 Features
+
 ```css
 /* Native CSS layer support */
 @layer base {
@@ -187,12 +199,14 @@ const server = serve({
 ```
 
 ### Component Library
+
 - **Button**: Multiple variants with hover/focus states
 - **Card**: Content containers with proper spacing
 - **Form**: Input fields with validation styling
 - **Navigation**: Responsive header and mobile menu
 
 ### Responsive Design
+
 - **Mobile First**: Tailwind's responsive prefix system
 - **Flexible Grid**: CSS Grid and Flexbox layouts
 - **Touch Friendly**: Proper touch targets and gestures
@@ -201,6 +215,7 @@ const server = serve({
 ## 🚀 Deployment
 
 ### Static Site Generation
+
 ```bash
 # Build static files for deployment
 bun run build:pages
@@ -210,6 +225,7 @@ bun run build:pages
 ```
 
 ### Production Server
+
 ```bash
 # Self-hosted with Bun
 NODE_ENV=production bun start
@@ -219,6 +235,7 @@ pm2 start "bun start" --name stays-in-motion-site
 ```
 
 ### Environment Configuration
+
 ```bash
 # No .env file needed - Bun loads automatically
 PORT=3000                    # Server port (optional)
@@ -230,6 +247,7 @@ NODE_ENV=production          # Environment mode
 ### Common Issues
 
 **Bun installation problems:**
+
 ```bash
 # Reinstall Bun
 curl -fsSL https://bun.sh/install | bash
@@ -239,6 +257,7 @@ bun --version
 ```
 
 **Hot reload not working:**
+
 ```bash
 # Restart development server
 bun dev
@@ -248,12 +267,14 @@ bun pm cache rm
 ```
 
 **TypeScript errors:**
+
 ```bash
 # Bun handles TypeScript natively, no additional setup needed
 # Check for syntax errors in .tsx files
 ```
 
 **Build failures:**
+
 ```bash
 # Clear node_modules and reinstall
 rm -rf node_modules bun.lockb
@@ -271,6 +292,7 @@ bun install
 ## 📈 Performance Benefits
 
 ### Bun Advantages
+
 - **3x faster installs** compared to npm/yarn
 - **20x faster bundling** compared to Webpack/Vite
 - **Instant hot reloads** with state preservation
@@ -278,6 +300,7 @@ bun install
 - **Smaller bundles** with automatic optimization
 
 ### Runtime Performance
+
 - **Server-side rendering** with React 19 features
 - **Optimized CSS** with TailwindCSS purging
 - **Image optimization** with proper loading strategies
@@ -286,6 +309,7 @@ bun install
 ## 🤝 Contributing
 
 ### Code Standards
+
 ```bash
 # Bun automatically formats and type-checks
 bun dev              # Development with hot reload
@@ -293,12 +317,14 @@ bun run build        # Validate production build
 ```
 
 ### Adding Features
+
 1. **Components**: Create in `src/components/` with TypeScript
 2. **Styles**: Use TailwindCSS utilities with Radix UI primitives
 3. **API Routes**: Add to Bun.serve() routes object
 4. **Pages**: Extend React Router or add static pages
 
 ### Best Practices
+
 - **Use Bun APIs**: Prefer native Bun functions over Node.js
 - **TypeScript First**: Write typed components and functions
 - **Mobile First**: Design for mobile, enhance for desktop

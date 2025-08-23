@@ -11,7 +11,7 @@ bun run build            # Build for production
 bun run preview          # Preview production build
 
 # Quality
-bun run lint             # ESLint validation  
+bun run lint             # ESLint validation
 bun run type-check       # TypeScript validation
 bun test                 # Run test suite
 ```
@@ -47,23 +47,25 @@ stays-in-motion-site/
 ## Development Patterns
 
 ### Bun Server Pattern
+
 ```typescript
 // index.tsx - Entry point with Bun.serve()
 import App from './App';
 
 Bun.serve({
   routes: {
-    "/": () => new Response(/* HTML with React app */),
-    "/api/*": handleApi,
+    '/': () => new Response(/* HTML with React app */),
+    '/api/*': handleApi,
   },
   development: {
     hmr: true,
     console: true,
-  }
+  },
 });
 ```
 
 ### Component Structure
+
 ```typescript
 // Use TailwindCSS v4 classes
 export function HeroSection() {
@@ -83,6 +85,7 @@ export function HeroSection() {
 ```
 
 ### Radix UI Integration
+
 ```typescript
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -102,6 +105,7 @@ export function FeatureCard({ title, description }) {
 ```
 
 ### Theme System
+
 ```typescript
 // Theme toggle with system preference detection
 export function ThemeToggle() {
@@ -128,40 +132,40 @@ export function ThemeToggle() {
 ## Styling Guidelines
 
 ### TailwindCSS v4 Usage
+
 - Use utility classes for rapid prototyping
 - Follow mobile-first responsive design
 - Leverage Tailwind's design tokens for consistency
 
 ### Component Variants
+
 ```typescript
 // Use class-variance-authority for component variants
-import { cva } from "class-variance-authority";
+import { cva } from 'class-variance-authority';
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-      },
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-      },
+const buttonVariants = cva('inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors', {
+  variants: {
+    variant: {
+      default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+      secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
     },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
+    size: {
+      default: 'h-10 px-4 py-2',
+      sm: 'h-9 rounded-md px-3',
+      lg: 'h-11 rounded-md px-8',
     },
-  }
-);
+  },
+  defaultVariants: {
+    variant: 'default',
+    size: 'default',
+  },
+});
 ```
 
 ## Testing
 
 ### Component Testing
+
 ```typescript
 import { test, expect } from "bun:test";
 import { render, screen } from "@testing-library/react";
@@ -174,13 +178,14 @@ test("renders hero section with title", () => {
 ```
 
 ### Integration Testing
+
 ```typescript
 test("navigation works correctly", async () => {
   render(<App />);
-  
+
   const downloadButton = screen.getByText(/Download Now/);
   fireEvent.click(downloadButton);
-  
+
   expect(screen.getByText(/Download Section/)).toBeVisible();
 });
 ```
@@ -188,21 +193,24 @@ test("navigation works correctly", async () => {
 ## Build & Deploy
 
 ### Bun Build Script
+
 ```typescript
 // build.ts - Custom build configuration
-import { build } from "bun";
+import { build } from 'bun';
 
 const result = await build({
-  entrypoints: ["./src/index.tsx"],
-  outdir: "./dist",
-  target: "browser",
+  entrypoints: ['./src/index.tsx'],
+  outdir: './dist',
+  target: 'browser',
   minify: true,
   splitting: true,
 });
 ```
 
 ### Deployment
+
 The site is a static single-page application that can be deployed to:
+
 - Vercel (recommended)
 - Netlify
 - Cloudflare Pages
@@ -211,6 +219,7 @@ The site is a static single-page application that can be deployed to:
 ## Environment Variables
 
 No environment variables required for basic functionality. Add to `.env.local` if needed:
+
 ```bash
 # Optional analytics or API keys
 VITE_ANALYTICS_ID=your-analytics-id
@@ -232,7 +241,7 @@ VITE_ANALYTICS_ID=your-analytics-id
 
 ## Performance Targets
 
-- Lighthouse score: 95+ 
+- Lighthouse score: 95+
 - First Contentful Paint: < 1.2s
 - Largest Contentful Paint: < 2.5s
 - Cumulative Layout Shift: < 0.1

@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 interface NavigationProps {
   activeSection: string;
@@ -33,17 +33,15 @@ export function Navigation({ activeSection }: NavigationProps) {
       const elementPosition = element.offsetTop - offset;
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-background/95 backdrop-blur-sm border-b border-border shadow-sm' 
-          : 'bg-transparent'
+        isScrolled ? 'bg-background/95 backdrop-blur-sm border-b border-border shadow-sm' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6">
@@ -64,9 +62,7 @@ export function Navigation({ activeSection }: NavigationProps) {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`text-sm font-medium transition-colors hover:text-accent-energy ${
-                  activeSection === item.id 
-                    ? 'text-accent-energy' 
-                    : 'text-muted-foreground'
+                  activeSection === item.id ? 'text-accent-energy' : 'text-muted-foreground'
                 }`}
                 aria-label={`Navigate to ${item.label} section`}
               >

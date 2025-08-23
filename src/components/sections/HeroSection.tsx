@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 
 interface HeroSectionProps {
   onDownloadClick: () => void;
@@ -12,7 +12,8 @@ export function HeroSection({ onDownloadClick, onLearnMoreClick }: HeroSectionPr
       <div
         className="absolute inset-0 opacity-8"
         style={{
-          background: 'linear-gradient(135deg, hsl(var(--accent-intensity) / 0.08) 0%, transparent 40%, hsl(var(--accent-progress) / 0.06) 100%)'
+          background:
+            'linear-gradient(135deg, hsl(var(--accent-intensity) / 0.08) 0%, transparent 40%, hsl(var(--accent-progress) / 0.06) 100%)',
         }}
       />
 
@@ -23,8 +24,14 @@ export function HeroSection({ onDownloadClick, onLearnMoreClick }: HeroSectionPr
         <div className="absolute bottom-40 left-20 w-3 h-3 bg-accent-intensity rounded-full opacity-35 animate-particle-sway" />
         <div className="absolute bottom-20 right-10 w-2 h-2 bg-accent-energy rounded-full opacity-50 animate-particle-pulse" />
         {/* Additional subtle elements for visual interest */}
-        <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-accent-progress rounded-full opacity-25 animate-particle-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-accent-intensity rounded-full opacity-30 animate-particle-drift" style={{ animationDelay: '1.5s' }} />
+        <div
+          className="absolute top-1/3 left-1/4 w-1 h-1 bg-accent-progress rounded-full opacity-25 animate-particle-float"
+          style={{ animationDelay: '2s' }}
+        />
+        <div
+          className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-accent-intensity rounded-full opacity-30 animate-particle-drift"
+          style={{ animationDelay: '1.5s' }}
+        />
       </div>
 
       {/* Main content */}

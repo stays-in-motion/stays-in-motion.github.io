@@ -1,10 +1,10 @@
-import { beforeAll, mock } from "bun:test";
+import { beforeAll, mock } from 'bun:test';
 
 // Mock window.open and window.location for tests
 beforeAll(() => {
   // Mock window.open
   global.window.open = mock(() => null);
-  
+
   // Mock window.location.href setter
   Object.defineProperty(global.window, 'location', {
     value: {
@@ -19,7 +19,7 @@ beforeAll(() => {
   const mockStyle = {
     textContent: '',
   };
-  
+
   global.document.createElement = mock((tagName: string) => {
     if (tagName === 'style') {
       return {

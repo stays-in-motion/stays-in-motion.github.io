@@ -1,6 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { changelogData, type ChangelogEntry } from "@/data/changelog-public";
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { changelogData, type ChangelogEntry } from '@/data/changelog-public';
 
 interface TimelineEntryProps {
   release: ChangelogEntry;
@@ -11,10 +11,14 @@ interface TimelineEntryProps {
 function TimelineEntry({ release, index, isLast }: TimelineEntryProps) {
   const getBadgeColor = (type: string) => {
     switch (type) {
-      case 'major': return 'bg-accent-intensity text-white';
-      case 'minor': return 'bg-accent-progress text-white';
-      case 'patch': return 'bg-accent-energy text-black';
-      default: return 'bg-secondary';
+      case 'major':
+        return 'bg-accent-intensity text-white';
+      case 'minor':
+        return 'bg-accent-progress text-white';
+      case 'patch':
+        return 'bg-accent-energy text-black';
+      default:
+        return 'bg-secondary';
     }
   };
 
@@ -22,25 +26,21 @@ function TimelineEntry({ release, index, isLast }: TimelineEntryProps) {
     <div className="relative">
       {/* Timeline dot */}
       <div className="absolute left-8 top-6 w-4 h-4 bg-primary rounded-full border-4 border-background z-10"></div>
-      
+
       {/* Timeline line */}
-      {!isLast && (
-        <div className="absolute left-10 top-10 w-0.5 h-full bg-border"></div>
-      )}
-      
+      {!isLast && <div className="absolute left-10 top-10 w-0.5 h-full bg-border"></div>}
+
       {/* Content */}
       <div className="ml-20 pb-12">
         <Card className="transition-all duration-300 hover:shadow-lg">
           <CardContent className="p-6">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
-              <Badge className={`${getBadgeColor(release.type)} font-semibold`}>
-                v{release.version}
-              </Badge>
+              <Badge className={`${getBadgeColor(release.type)} font-semibold`}>v{release.version}</Badge>
               <span className="text-sm text-muted-foreground">{release.date}</span>
             </div>
-            
+
             <h3 className="text-xl font-bold mb-3">{release.title}</h3>
-            
+
             {release.features && release.features.length > 0 && (
               <div className="mb-4">
                 <h4 className="font-semibold text-accent-energy mb-2">✨ New Features</h4>
@@ -53,7 +53,7 @@ function TimelineEntry({ release, index, isLast }: TimelineEntryProps) {
                 </ul>
               </div>
             )}
-            
+
             {release.improvements && release.improvements.length > 0 && (
               <div className="mb-4">
                 <h4 className="font-semibold text-accent-progress mb-2">🚀 Improvements</h4>
@@ -66,7 +66,7 @@ function TimelineEntry({ release, index, isLast }: TimelineEntryProps) {
                 </ul>
               </div>
             )}
-            
+
             {release.bugfixes && release.bugfixes.length > 0 && (
               <div className="mb-4">
                 <h4 className="font-semibold text-accent-intensity mb-2">🐛 Bug Fixes</h4>
@@ -79,7 +79,7 @@ function TimelineEntry({ release, index, isLast }: TimelineEntryProps) {
                 </ul>
               </div>
             )}
-            
+
             {release.breaking && release.breaking.length > 0 && (
               <div>
                 <h4 className="font-semibold text-destructive mb-2">⚠️ Breaking Changes</h4>
@@ -99,28 +99,25 @@ function TimelineEntry({ release, index, isLast }: TimelineEntryProps) {
   );
 }
 
-
 export function ChangelogSection() {
   return (
     <section id="changelog" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 scroll-reveal">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            App Evolution
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">App Evolution</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Follow Mova's journey as we continuously improve your workout experience
           </p>
         </div>
-        
+
         {/* Timeline */}
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Main timeline line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border"></div>
-            
+
             {changelogData.map((release, index) => (
-              <TimelineEntry 
+              <TimelineEntry
                 key={release.version}
                 release={release}
                 index={index}
@@ -129,7 +126,7 @@ export function ChangelogSection() {
             ))}
           </div>
         </div>
-        
+
         {/* Progress indicator */}
         <div className="text-center mt-12 scroll-reveal">
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-card rounded-full shadow-sm">
