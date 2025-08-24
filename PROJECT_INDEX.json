@@ -1,5 +1,5 @@
 {
-  "indexed_at": "2025-08-17T11:25:49.892919",
+  "indexed_at": "2025-08-24T09:04:47.127501",
   "root": ".",
   "project_structure": {
     "type": "tree",
@@ -69,7 +69,18 @@
       "architecture_hints": []
     },
     "CLAUDE.md": {
-      "sections": ["APIs", "Testing", "Frontend"],
+      "sections": [
+        "Stays in Motion Site Development Guide",
+        "Quick Start",
+        "Development",
+        "Quality",
+        "Architecture",
+        "Project Structure",
+        "Development Patterns",
+        "Bun Server Pattern",
+        "Component Structure",
+        "Radix UI Integration"
+      ],
       "architecture_hints": []
     },
     ".github/copilot-instructions.md": {
@@ -84,6 +95,15 @@
         "React 19 Component Patterns"
       ],
       "architecture_hints": []
+    },
+    ".claude/agents/frontend-architect.md": {
+      "sections": [
+        "Operating Context (Mova Workspace)",
+        "Tech Baseline",
+        "Always Follow This Flow",
+        "Output Contract (XML + checklists)"
+      ],
+      "architecture_hints": []
     }
   },
   "directory_purposes": {
@@ -95,18 +115,18 @@
     "src/components/sections/__tests__": "Test files and test utilities"
   },
   "stats": {
-    "total_files": 42,
-    "total_directories": 16,
+    "total_files": 43,
+    "total_directories": 18,
     "fully_parsed": {
       "typescript": 34,
       "javascript": 1
     },
     "listed_only": {
-      "json": 4,
+      "json": 5,
       "css": 2,
       "html": 1
     },
-    "markdown_files": 5
+    "markdown_files": 6
   },
   "files": {
     "bun.config.test.ts": {
@@ -118,6 +138,10 @@
       "language": "javascript",
       "parsed": false,
       "purpose": "Configuration"
+    },
+    ".prettierrc.json": {
+      "language": "json",
+      "parsed": false
     },
     "package.json": {
       "language": "json",
@@ -151,19 +175,32 @@
     "build.ts": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["bun", "bun-plugin-tailwind", "fs", "fs/promises", "path"],
+      "imports": [
+        "bun",
+        "bun-plugin-tailwind",
+        "fs",
+        "fs/promises",
+        "path"
+      ],
       "functions": {
         "parseArgs": {
-          "calls": ["parseValue", "toCamelCase"],
+          "calls": [
+            "parseValue",
+            "toCamelCase"
+          ],
           "signature": "(): Partial<BuildConfig>"
         },
         "toCamelCase": {
           "signature": "(str: string): string",
-          "called_by": ["parseArgs"]
+          "called_by": [
+            "parseArgs"
+          ]
         },
         "parseValue": {
           "signature": "(value: string): any",
-          "called_by": ["parseArgs"]
+          "called_by": [
+            "parseArgs"
+          ]
         },
         "formatFileSize": "(bytes: number): string"
       },
@@ -214,12 +251,16 @@
       ],
       "functions": {
         "App": {
-          "calls": ["handleScroll"],
+          "calls": [
+            "handleScroll"
+          ],
           "signature": "()"
         },
         "handleScroll": {
           "signature": "()",
-          "called_by": ["App"]
+          "called_by": [
+            "App"
+          ]
         },
         "handleDownloadClick": "()",
         "handleLearnMoreClick": "()"
@@ -244,16 +285,21 @@
       "language": "typescript",
       "parsed": true,
       "purpose": "Test file",
-      "imports": ["@testing-library/react", "react"],
+      "imports": [
+        "@testing-library/react",
+        "react"
+      ],
       "functions": {
-        "renderWithProviders": "(ui: ReactElement, options?: Omit<RenderOptions, \"wrapper\">)",
+        "renderWithProviders": "(ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>)",
         "mockMatchMedia": "(matches: boolean = false)",
         "mockReducedMotion": "(preferReduced: boolean = true)",
         "mockSmoothScroll": "()",
         "mockExternalLinks": "()"
       },
       "classes": {},
-      "variables": ["mockChangelogEntry"],
+      "variables": [
+        "mockChangelogEntry"
+      ],
       "call_graph": {}
     },
     "src/index.css": {
@@ -270,13 +316,29 @@
       "language": "typescript",
       "parsed": true,
       "purpose": "Test file",
-      "imports": ["@/components/ui/button", "@/components/ui/input", "@/components/ui/select", "@/lib/utils", "react"],
+      "imports": [
+        "@/components/ui/button",
+        "@/components/ui/input",
+        "@/components/ui/select",
+        "@/lib/utils",
+        "react"
+      ],
       "functions": {
         "APITester": "()",
         "testEndpoint": "async (e: FormEvent<HTMLFormElement>)"
       },
       "classes": {},
-      "variables": ["responseInputRef", "testEndpoint", "form", "formData", "endpoint", "url", "method", "res", "data"],
+      "variables": [
+        "responseInputRef",
+        "testEndpoint",
+        "form",
+        "formData",
+        "endpoint",
+        "url",
+        "method",
+        "res",
+        "data"
+      ],
       "call_graph": {}
     },
     "src/frontend.tsx": {
@@ -286,16 +348,19 @@
     "src/__mocks__/ui-components.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["bun:test", "react"],
+      "imports": [
+        "bun:test",
+        "react"
+      ],
       "functions": {
-        "Card": "({ children, className, onClick }: { children: ReactNode; className?: string; onClick?: ()",
-        "CardContent": "({ children, className }: { children: ReactNode; className?: string; })",
-        "CardHeader": "({ children, className }: { children: ReactNode; className?: string; })",
-        "CardTitle": "({ children, className }: { children: ReactNode; className?: string; })",
-        "Button": "({ children, className, onClick, variant, size }: { children: ReactNode; className?: string; onClick?: ()",
-        "Badge": "({ children, className }: { children: ReactNode; className?: string; })",
+        "Card": "({ children, className, onClick, }: { children: ReactNode; className?: string; onClick?: ()",
+        "CardContent": "({ children, className }: { children: ReactNode; className?: string })",
+        "CardHeader": "({ children, className }: { children: ReactNode; className?: string })",
+        "CardTitle": "({ children, className }: { children: ReactNode; className?: string })",
+        "Button": "({ children, className, onClick, variant, size, }: { children: ReactNode; className?: string; onClick?: ()",
+        "Badge": "({ children, className }: { children: ReactNode; className?: string })",
         "Input": "({ className, ...props }: any)",
-        "Label": "({ children, className }: { children: ReactNode; className?: string; })"
+        "Label": "({ children, className }: { children: ReactNode; className?: string })"
       },
       "classes": {},
       "call_graph": {}
@@ -303,48 +368,80 @@
     "src/components/ThemeToggle.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["react", "@/components/ui/button", "lucide-react"],
+      "imports": [
+        "react",
+        "@/components/ui/button",
+        "lucide-react"
+      ],
       "functions": {
         "ThemeToggle": "()",
         "toggleTheme": "()"
       },
       "classes": {},
-      "variables": ["isDark", "toggleTheme", "newTheme", "savedTheme", "systemPrefersDark"],
+      "variables": [
+        "isDark",
+        "toggleTheme",
+        "newTheme",
+        "savedTheme",
+        "systemPrefersDark"
+      ],
       "call_graph": {}
     },
     "src/components/Changelog.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["@/components/ui/card", "@/data/changelog-public"],
+      "imports": [
+        "@/components/ui/card",
+        "@/data/changelog-public"
+      ],
       "functions": {
         "Changelog": "()",
         "TypeBadge": "({ type }: { type: ChangelogEntry['type'] })",
         "ChangelogEntry": "({ entry }: { entry: ChangelogEntry })"
       },
       "classes": {},
-      "variables": ["typeColors"],
+      "variables": [
+        "typeColors"
+      ],
       "call_graph": {}
     },
     "src/components/Navigation.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["react", "@/components/ui/button", "@/components/ThemeToggle"],
+      "imports": [
+        "react",
+        "@/components/ui/button",
+        "@/components/ThemeToggle"
+      ],
       "functions": {
         "Navigation": {
-          "calls": ["scrollToSection"],
+          "calls": [
+            "scrollToSection"
+          ],
           "signature": "({ activeSection }: NavigationProps)"
         },
         "handleScroll": {
           "signature": "()",
-          "called_by": ["App"]
+          "called_by": [
+            "App"
+          ]
         },
         "scrollToSection": {
           "signature": "(sectionId: string)",
-          "called_by": ["Navigation"]
+          "called_by": [
+            "Navigation"
+          ]
         }
       },
       "classes": {},
-      "variables": ["handleScroll", "navItems", "scrollToSection", "element", "offset", "elementPosition"],
+      "variables": [
+        "handleScroll",
+        "navItems",
+        "scrollToSection",
+        "element",
+        "offset",
+        "elementPosition"
+      ],
       "interfaces": {
         "NavigationProps": {}
       },
@@ -364,7 +461,10 @@
       "language": "typescript",
       "parsed": true,
       "purpose": "Utility functions",
-      "imports": ["clsx", "tailwind-merge"],
+      "imports": [
+        "clsx",
+        "tailwind-merge"
+      ],
       "functions": {
         "cn": "(...inputs: ClassValue[])"
       },
@@ -382,14 +482,17 @@
     "src/components/ui/card.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["react", "@/lib/utils"],
+      "imports": [
+        "react",
+        "@/lib/utils"
+      ],
       "functions": {
-        "Card": "({ className, ...props }: React.ComponentProps<\"div\">)",
-        "CardHeader": "({ className, ...props }: React.ComponentProps<\"div\">)",
-        "CardTitle": "({ className, ...props }: React.ComponentProps<\"div\">)",
-        "CardDescription": "({ className, ...props }: React.ComponentProps<\"div\">)",
-        "CardContent": "({ className, ...props }: React.ComponentProps<\"div\">)",
-        "CardFooter": "({ className, ...props }: React.ComponentProps<\"div\">)"
+        "Card": "({ className, ...props }: React.ComponentProps<'div'>)",
+        "CardHeader": "({ className, ...props }: React.ComponentProps<'div'>)",
+        "CardTitle": "({ className, ...props }: React.ComponentProps<'div'>)",
+        "CardDescription": "({ className, ...props }: React.ComponentProps<'div'>)",
+        "CardContent": "({ className, ...props }: React.ComponentProps<'div'>)",
+        "CardFooter": "({ className, ...props }: React.ComponentProps<'div'>)"
       },
       "classes": {},
       "call_graph": {}
@@ -397,7 +500,11 @@
     "src/components/ui/label.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["@radix-ui/react-label", "react", "@/lib/utils"],
+      "imports": [
+        "@radix-ui/react-label",
+        "react",
+        "@/lib/utils"
+      ],
       "functions": {
         "Label": "({ className, ...props }: React.ComponentProps<typeof LabelPrimitive.Root>)"
       },
@@ -407,15 +514,24 @@
     "src/components/ui/badge.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["react", "class-variance-authority", "@/lib/utils"],
+      "imports": [
+        "react",
+        "class-variance-authority",
+        "@/lib/utils"
+      ],
       "functions": {
         "Badge": "({ className, variant, ...props }: BadgeProps)"
       },
       "classes": {},
-      "variables": ["badgeVariants"],
+      "variables": [
+        "badgeVariants"
+      ],
       "interfaces": {
         "BadgeProps": {
-          "extends": ["React.HTMLAttributes<HTMLDivElement>", "VariantProps<typeof badgeVariants>"]
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement>",
+            "VariantProps<typeof badgeVariants>"
+          ]
         }
       },
       "call_graph": {}
@@ -423,24 +539,36 @@
     "src/components/ui/button.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["@radix-ui/react-slot", "class-variance-authority", "react", "@/lib/utils"],
+      "imports": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "react",
+        "@/lib/utils"
+      ],
       "functions": {
-        "Button": "({ className, variant, size, asChild = false, ...props }: React.ComponentProps<\"button\"> & VariantProps<typeof buttonVariants> & { asChild?: boolean; })"
+        "Button": "({ className, variant, size, asChild = false, ...props }: React.ComponentProps<'button'> & VariantProps<typeof buttonVariants> & { asChild?: boolean; })"
       },
       "classes": {},
-      "variables": ["buttonVariants"],
+      "variables": [
+        "buttonVariants"
+      ],
       "call_graph": {}
     },
     "src/components/ui/select.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["@radix-ui/react-select", "lucide-react", "react", "@/lib/utils"],
+      "imports": [
+        "@radix-ui/react-select",
+        "lucide-react",
+        "react",
+        "@/lib/utils"
+      ],
       "functions": {
         "Select": "({ ...props }: React.ComponentProps<typeof SelectPrimitive.Root>)",
         "SelectGroup": "({ ...props }: React.ComponentProps<typeof SelectPrimitive.Group>)",
         "SelectValue": "({ ...props }: React.ComponentProps<typeof SelectPrimitive.Value>)",
         "SelectTrigger": "({ className, children, ...props }: React.ComponentProps<typeof SelectPrimitive.Trigger>)",
-        "SelectContent": "({ className, children, position = \"popper\", ...props }: React.ComponentProps<typeof SelectPrimitive.Content>)",
+        "SelectContent": "({ className, children, position = 'popper', ...props }: React.ComponentProps<typeof SelectPrimitive.Content>)",
         "SelectLabel": "({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Label>)",
         "SelectItem": "({ className, children, ...props }: React.ComponentProps<typeof SelectPrimitive.Item>)",
         "SelectSeparator": "({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Separator>)",
@@ -453,9 +581,12 @@
     "src/components/ui/input.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["react", "@/lib/utils"],
+      "imports": [
+        "react",
+        "@/lib/utils"
+      ],
       "functions": {
-        "Input": "({ className, type, ...props }: React.ComponentProps<\"input\">)"
+        "Input": "({ className, type, ...props }: React.ComponentProps<'input'>)"
       },
       "classes": {},
       "call_graph": {}
@@ -472,30 +603,51 @@
         "@/lib/utils"
       ],
       "functions": {
-        "FormItem": "({ className, ...props }: React.ComponentProps<\"div\">)",
+        "FormItem": "({ className, ...props }: React.ComponentProps<'div'>)",
         "FormLabel": {
-          "calls": ["useFormField"],
+          "calls": [
+            "useFormField"
+          ],
           "signature": "({ className, ...props }: React.ComponentProps<typeof LabelPrimitive.Root>)"
         },
         "FormControl": {
-          "calls": ["useFormField"],
+          "calls": [
+            "useFormField"
+          ],
           "signature": "({ ...props }: React.ComponentProps<typeof Slot>)"
         },
         "FormDescription": {
-          "calls": ["useFormField"],
-          "signature": "({ className, ...props }: React.ComponentProps<\"p\">)"
+          "calls": [
+            "useFormField"
+          ],
+          "signature": "({ className, ...props }: React.ComponentProps<'p'>)"
         },
         "FormMessage": {
-          "calls": ["useFormField"],
-          "signature": "({ className, ...props }: React.ComponentProps<\"p\">)"
+          "calls": [
+            "useFormField"
+          ],
+          "signature": "({ className, ...props }: React.ComponentProps<'p'>)"
         },
         "useFormField": {
           "signature": "()",
-          "called_by": ["FormLabel", "FormControl", "FormDescription", "FormMessage"]
+          "called_by": [
+            "FormLabel",
+            "FormControl",
+            "FormDescription",
+            "FormMessage"
+          ]
         }
       },
       "classes": {},
-      "variables": ["useFormField", "fieldContext", "itemContext", "formState", "fieldState", "id", "body"],
+      "variables": [
+        "useFormField",
+        "fieldContext",
+        "itemContext",
+        "formState",
+        "fieldState",
+        "id",
+        "body"
+      ],
       "type_aliases": {
         "FormItemContextValue": "{ id: string; }"
       },
@@ -504,13 +656,19 @@
     "src/components/sections/AboutSection.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["@/components/ui/card", "lucide-react"],
+      "imports": [
+        "@/components/ui/card",
+        "lucide-react"
+      ],
       "functions": {
         "FeatureCard": "({ icon, title, description, delay }: FeatureCardProps)",
         "AboutSection": "()"
       },
       "classes": {},
-      "variables": ["styles", "styleElement"],
+      "variables": [
+        "styles",
+        "styleElement"
+      ],
       "interfaces": {
         "FeatureCardProps": {}
       },
@@ -519,7 +677,12 @@
     "src/components/sections/SupportSection.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["react", "@/components/ui/card", "@/components/ui/button", "lucide-react"],
+      "imports": [
+        "react",
+        "@/components/ui/card",
+        "@/components/ui/button",
+        "lucide-react"
+      ],
       "functions": {
         "HelpCategory": "({ icon, title, onClick, active }: HelpCategoryProps)",
         "ContactCard": "({ type, title, description, action, onClick }: ContactCardProps)",
@@ -528,7 +691,14 @@
         "handleEmailSupport": "()"
       },
       "classes": {},
-      "variables": ["isClickable", "icon", "handleSupportForm", "handleEmailSupport", "styles", "styleElement"],
+      "variables": [
+        "isClickable",
+        "icon",
+        "handleSupportForm",
+        "handleEmailSupport",
+        "styles",
+        "styleElement"
+      ],
       "interfaces": {
         "HelpCategoryProps": {},
         "ContactCardProps": {}
@@ -538,12 +708,17 @@
     "src/components/sections/HeroSection.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["@/components/ui/button"],
+      "imports": [
+        "@/components/ui/button"
+      ],
       "functions": {
         "HeroSection": "({ onDownloadClick, onLearnMoreClick }: HeroSectionProps)"
       },
       "classes": {},
-      "variables": ["styles", "styleElement"],
+      "variables": [
+        "styles",
+        "styleElement"
+      ],
       "interfaces": {
         "HeroSectionProps": {}
       },
@@ -552,7 +727,11 @@
     "src/components/sections/DownloadSection.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["@/assets/qr-app-store.png", "@/components/ui/button", "lucide-react"],
+      "imports": [
+        "@/assets/qr-app-store.png",
+        "@/components/ui/button",
+        "lucide-react"
+      ],
       "functions": {
         "AppStoreBadge": "({ platform, onClick }: AppStoreBadgeProps)",
         "QRCode": "({ value }: { value: string })",
@@ -561,7 +740,13 @@
         "handleIOSDownload": "()"
       },
       "classes": {},
-      "variables": ["isIOS", "size", "handleIOSDownload", "styles", "styleElement"],
+      "variables": [
+        "isIOS",
+        "size",
+        "handleIOSDownload",
+        "styles",
+        "styleElement"
+      ],
       "interfaces": {
         "AppStoreBadgeProps": {}
       },
@@ -570,21 +755,33 @@
     "src/components/sections/ChangelogSection.tsx": {
       "language": "typescript",
       "parsed": true,
-      "imports": ["@/components/ui/card", "@/components/ui/badge", "@/data/changelog-public"],
+      "imports": [
+        "@/components/ui/card",
+        "@/components/ui/badge",
+        "@/data/changelog-public"
+      ],
       "functions": {
         "TimelineEntry": {
-          "calls": ["getBadgeColor"],
+          "calls": [
+            "getBadgeColor"
+          ],
           "signature": "({ release, index, isLast }: TimelineEntryProps)"
         },
         "ChangelogSection": "()",
         "BadgeComponent": "({ children, className }: { children: React.ReactNode; className?: string })",
         "getBadgeColor": {
           "signature": "(type: string)",
-          "called_by": ["TimelineEntry"]
+          "called_by": [
+            "TimelineEntry"
+          ]
         }
       },
       "classes": {},
-      "variables": ["getBadgeColor", "styles", "styleElement"],
+      "variables": [
+        "getBadgeColor",
+        "styles",
+        "styleElement"
+      ],
       "interfaces": {
         "TimelineEntryProps": {}
       },
@@ -599,7 +796,11 @@
       "language": "typescript",
       "parsed": true,
       "purpose": "Test file",
-      "imports": ["bun:test", "@testing-library/react", "../DownloadSection"],
+      "imports": [
+        "bun:test",
+        "@testing-library/react",
+        "../DownloadSection"
+      ],
       "functions": {},
       "classes": {
         "is": {
@@ -634,10 +835,25 @@
       "language": "typescript",
       "parsed": false,
       "purpose": "Test file"
+    },
+    "../mova-native/eslint.config.js": {
+      "language": "javascript",
+      "parsed": false,
+      "functions": {},
+      "classes": {},
+      "updated_by_hook": true,
+      "updated_at": "2025-08-24T09:07:00.897497",
+      "purpose": "Configuration"
     }
   },
   "dependency_graph": {
-    "build.ts": ["bun", "bun-plugin-tailwind", "fs", "fs/promises", "path"],
+    "build.ts": [
+      "bun",
+      "bun-plugin-tailwind",
+      "fs",
+      "fs/promises",
+      "path"
+    ],
     "src/App.tsx": [
       "react",
       "@/components/Navigation",
@@ -647,7 +863,10 @@
       "@/components/sections/ChangelogSection",
       "@/components/sections/DownloadSection"
     ],
-    "src/test-utils.tsx": ["@testing-library/react", "react"],
+    "src/test-utils.tsx": [
+      "@testing-library/react",
+      "react"
+    ],
     "src/APITester.tsx": [
       "@/components/ui/button",
       "@/components/ui/input",
@@ -655,17 +874,58 @@
       "@/lib/utils",
       "react"
     ],
-    "src/__mocks__/ui-components.tsx": ["bun:test", "react"],
-    "src/components/ThemeToggle.tsx": ["react", "@/components/ui/button", "lucide-react"],
-    "src/components/Changelog.tsx": ["@/components/ui/card", "@/data/changelog-public"],
-    "src/components/Navigation.tsx": ["react", "@/components/ui/button", "@/components/ThemeToggle"],
-    "src/lib/utils.ts": ["clsx", "tailwind-merge"],
-    "src/components/ui/card.tsx": ["react", "@/lib/utils"],
-    "src/components/ui/label.tsx": ["@radix-ui/react-label", "react", "@/lib/utils"],
-    "src/components/ui/badge.tsx": ["react", "class-variance-authority", "@/lib/utils"],
-    "src/components/ui/button.tsx": ["@radix-ui/react-slot", "class-variance-authority", "react", "@/lib/utils"],
-    "src/components/ui/select.tsx": ["@radix-ui/react-select", "lucide-react", "react", "@/lib/utils"],
-    "src/components/ui/input.tsx": ["react", "@/lib/utils"],
+    "src/__mocks__/ui-components.tsx": [
+      "bun:test",
+      "react"
+    ],
+    "src/components/ThemeToggle.tsx": [
+      "react",
+      "@/components/ui/button",
+      "lucide-react"
+    ],
+    "src/components/Changelog.tsx": [
+      "@/components/ui/card",
+      "@/data/changelog-public"
+    ],
+    "src/components/Navigation.tsx": [
+      "react",
+      "@/components/ui/button",
+      "@/components/ThemeToggle"
+    ],
+    "src/lib/utils.ts": [
+      "clsx",
+      "tailwind-merge"
+    ],
+    "src/components/ui/card.tsx": [
+      "react",
+      "@/lib/utils"
+    ],
+    "src/components/ui/label.tsx": [
+      "@radix-ui/react-label",
+      "react",
+      "@/lib/utils"
+    ],
+    "src/components/ui/badge.tsx": [
+      "react",
+      "class-variance-authority",
+      "@/lib/utils"
+    ],
+    "src/components/ui/button.tsx": [
+      "@radix-ui/react-slot",
+      "class-variance-authority",
+      "react",
+      "@/lib/utils"
+    ],
+    "src/components/ui/select.tsx": [
+      "@radix-ui/react-select",
+      "lucide-react",
+      "react",
+      "@/lib/utils"
+    ],
+    "src/components/ui/input.tsx": [
+      "react",
+      "@/lib/utils"
+    ],
     "src/components/ui/form.tsx": [
       "@radix-ui/react-label",
       "@radix-ui/react-slot",
@@ -674,14 +934,19 @@
       "@/components/ui/label",
       "@/lib/utils"
     ],
-    "src/components/sections/AboutSection.tsx": ["@/components/ui/card", "lucide-react"],
+    "src/components/sections/AboutSection.tsx": [
+      "@/components/ui/card",
+      "lucide-react"
+    ],
     "src/components/sections/SupportSection.tsx": [
       "react",
       "@/components/ui/card",
       "@/components/ui/button",
       "lucide-react"
     ],
-    "src/components/sections/HeroSection.tsx": ["@/components/ui/button"],
+    "src/components/sections/HeroSection.tsx": [
+      "@/components/ui/button"
+    ],
     "src/components/sections/DownloadSection.tsx": [
       "@/assets/qr-app-store.png",
       "@/components/ui/button",
@@ -698,5 +963,5 @@
       "src/components/sections/DownloadSection.tsx"
     ]
   },
-  "staleness_check": 1754843150.045392
+  "staleness_check": 1755439487.295231
 }
