@@ -12,7 +12,9 @@ Applies to `stays-in-motion-site/`.
 - Reuse utility functions; avoid duplication across site and native.
 
 ## Checklist (Site Change)
-- [ ] Format clean
-- [ ] Type check / build passes
-- [ ] Lint clean
+- [ ] Format clean (`bun run format` or Prettier)
+- [ ] Type check / build passes (`bun run build`)
+- [ ] Lint clean (`bun run lint`)
 - [ ] No duplicated utilities (prefer shared extraction)
+- [ ] Tests pass if applicable (`bun test`)
+- [ ] No new `any` types - use proper interfaces

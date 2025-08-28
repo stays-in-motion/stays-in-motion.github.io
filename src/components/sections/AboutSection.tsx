@@ -55,7 +55,7 @@ export function AboutSection() {
           />
         </div>
 
-        {/* App screenshots placeholder */}
+        {/* TODO: App screenshots placeholder */}
         {/* <div className="text-center scroll-reveal">
           <div className="max-w-4xl mx-auto">
             <div className="relative">
