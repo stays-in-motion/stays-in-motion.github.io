@@ -1,0 +1,5 @@
+node_modules/
+dist/
+coverage/
+PROJECT_INDEX.json
+**/*.md

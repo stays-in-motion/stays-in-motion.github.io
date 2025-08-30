@@ -2,19 +2,21 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "allowJs": true,
+    "target": "ES2022",
 
     // Bundler mode
     "moduleResolution": "bundler",
-    "module": "Preserve",
+    "module": "ESNext",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "noEmit": true,
+    "downlevelIteration": true,
 
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["dist", "node_modules"]
+  "include": ["**/*.ts", "**/*.tsx", "bun-env.d.ts"],
+  "exclude": ["dist", "node_modules", "build.ts"]
 }

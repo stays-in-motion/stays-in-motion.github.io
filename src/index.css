@@ -4,55 +4,293 @@
   :root {
     @apply font-sans;
   }
-
+  
   body {
-    @apply grid place-items-center min-w-[320px] min-h-screen relative m-0 bg-background text-foreground;
+    @apply min-w-[320px] relative m-0 p-0 bg-background text-foreground;
+    /* Remove centering for full page layout */
+  }
+  
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
 }
 
-/* cool background animation 😎 */
-body::before {
+/* Subtle animated background pattern for hero section - Performance optimized */
+.hero-background::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   opacity: 0.03;
-  background: url("./app-icon.png");
-  background-size: 128px;
-  transform: rotate(-12deg) scale(1.35);
-  animation: slide 30s linear infinite;
+  background: 
+    radial-gradient(circle at 20% 50%, hsl(var(--accent-energy) / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, hsl(var(--accent-progress) / 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, hsl(var(--accent-intensity) / 0.06) 0%, transparent 50%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      hsl(var(--accent-energy) / 0.02) 40px,
+      hsl(var(--accent-energy) / 0.02) 41px
+    );
+  background-size: 120px 120px;
+  animation: hero-drift 45s linear infinite;
   pointer-events: none;
 }
 
-@media (min-width: 640px) {
-  body::before {
-    opacity: 0.05;
-    background-size: 256px;
-  }
-}
-
-@keyframes slide {
-  from {
+/* Keyframes for subtle hero background drift */
+@keyframes hero-drift {
+  0% {
     background-position: 0 0;
   }
-  to {
-    background-position: 256px 224px;
+  100% {
+    background-position: 120px 120px;
   }
 }
 
-@keyframes spin {
+@media (min-width: 640px) {
+  .hero-background::before {
+    opacity: 0.05;
+    background: 
+      radial-gradient(circle at 20% 50%, hsl(var(--accent-energy) / 0.15) 0%, transparent 60%),
+      radial-gradient(circle at 80% 20%, hsl(var(--accent-progress) / 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 40% 80%, hsl(var(--accent-intensity) / 0.08) 0%, transparent 60%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 60px,
+        hsl(var(--accent-energy) / 0.03) 60px,
+        hsl(var(--accent-energy) / 0.03) 62px
+      );
+    background-size: 180px 180px;
+  }
+  
+  @keyframes hero-drift {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 180px 180px;
+    }
+  }
+}
+
+/* Scroll reveal animations */
+@keyframes fade-in-up {
   from {
-    transform: rotate(0);
+    opacity: 0;
+    transform: translateY(30px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion) {
+@keyframes bounce-subtle {
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-8px); 
+  }
+}
+
+@keyframes pulse-energy {
+  0%, 100% { 
+    opacity: 0.1; 
+  }
+  50% { 
+    opacity: 0.2; 
+  }
+}
+
+/* Subtle particle animations */
+@keyframes particle-float {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px); 
+  }
+  33% { 
+    transform: translateY(-8px) translateX(3px); 
+  }
+  66% { 
+    transform: translateY(-4px) translateX(-2px); 
+  }
+}
+
+@keyframes particle-drift {
+  0%, 100% { 
+    transform: translateX(0px) translateY(0px); 
+  }
+  50% { 
+    transform: translateX(6px) translateY(-3px); 
+  }
+}
+
+@keyframes particle-sway {
+  0%, 100% { 
+    transform: translateX(0px) rotate(0deg); 
+  }
+  25% { 
+    transform: translateX(-4px) rotate(-1deg); 
+  }
+  75% { 
+    transform: translateX(4px) rotate(1deg); 
+  }
+}
+
+@keyframes particle-pulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.5; 
+  }
+  50% { 
+    transform: scale(1.1); 
+    opacity: 0.7; 
+  }
+}
+
+/* Utility classes for animations */
+.animate-bounce-subtle {
+  animation: bounce-subtle 3s ease-in-out infinite;
+}
+
+.animate-pulse-energy {
+  animation: pulse-energy 4s ease-in-out infinite;
+}
+
+.animate-particle-float {
+  animation: particle-float 8s ease-in-out infinite;
+}
+
+.animate-particle-drift {
+  animation: particle-drift 12s ease-in-out infinite;
+}
+
+.animate-particle-sway {
+  animation: particle-sway 10s ease-in-out infinite;
+}
+
+.animate-particle-pulse {
+  animation: particle-pulse 6s ease-in-out infinite;
+}
+
+.scroll-reveal {
+  animation: fade-in-up 0.8s ease-out;
+}
+
+/* Fitness-focused accent colors */
+.text-accent-energy { 
+  color: hsl(45 100% 60%); 
+}
+
+.text-accent-progress { 
+  color: hsl(120 60% 50%); 
+}
+
+.text-accent-intensity { 
+  color: hsl(15 85% 55%); 
+}
+
+.bg-accent-energy { 
+  background-color: hsl(45 100% 60%); 
+}
+
+.bg-accent-progress { 
+  background-color: hsl(120 60% 50%); 
+}
+
+.bg-accent-intensity { 
+  background-color: hsl(15 85% 55%); 
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .text-accent-energy { 
+    color: hsl(45 80% 65%); 
+  }
+  
+  .text-accent-progress { 
+    color: hsl(120 50% 60%); 
+  }
+  
+  .text-accent-intensity { 
+    color: hsl(15 75% 60%); 
+  }
+}
+
+/* Optimized button interactions - Essential animations only */
+.btn-primary {
+  transition: all 0.2s ease-out;
+  will-change: transform, box-shadow;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid hsl(var(--accent-energy));
+  outline-offset: 2px;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Feature card hover effects */
+.feature-card:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease-out;
+}
+
+/* Enhanced accessibility and reduced motion support */
+@media (prefers-reduced-motion: reduce) {
   *,
-  ::before,
-  ::after {
+  *::before,
+  *::after {
     animation: none !important;
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+  }
+  
+  .scroll-reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .animate-bounce-subtle,
+  .animate-pulse-energy,
+  .animate-particle-float,
+  .animate-particle-drift,
+  .animate-particle-sway,
+  .animate-particle-pulse {
+    animation: none;
+    transform: none;
+  }
+  
+  .hero-background::before {
+    animation: none;
+  }
+  
+  /* Keep essential hover states for accessibility */
+  .btn-primary:hover {
+    transform: none;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .feature-card:hover {
+    transform: none;
+    transition: box-shadow 0.2s ease;
   }
 }

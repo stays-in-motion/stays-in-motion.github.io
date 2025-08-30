@@ -1,11 +1,13 @@
 # GitHub Copilot Instructions - Stays in Motion Site
 
 ## Project Context
+
 You are working on **Stays in Motion Site**, the marketing website for the Mova fitness platform. Built with Bun runtime, React 19, TailwindCSS v4, and Radix UI components. This serves as the marketing front-end, documentation hub, and conversion funnel for the Mova mobile app.
 
 ## Technical Stack & Framework Preferences
 
 ### Core Technologies
+
 - **Runtime**: Bun (NOT Node.js) - use Bun.serve() and Bun-native APIs
 - **Framework**: React 19 with modern patterns (NO Next.js/Vite)
 - **Styling**: TailwindCSS v4 with CSS custom properties and design tokens
@@ -15,6 +17,7 @@ You are working on **Stays in Motion Site**, the marketing website for the Mova 
 - **Build System**: Custom Bun-based build process with optimization
 
 ### Import Patterns
+
 ```typescript
 // React 19 with modern features
 import { useState, useTransition, startTransition } from 'react';
@@ -42,6 +45,7 @@ import { HeroSection } from '../components/sections/HeroSection';
 ## Code Style & Architecture Patterns
 
 ### Bun Server Structure
+
 ```typescript
 // src/index.tsx - Main server entry point
 import { Bun } from 'bun';
@@ -59,7 +63,7 @@ function createServer({ port = 3000, development = false }: ServerOptions) {
     development,
     fetch: async (request: Request) => {
       const url = new URL(request.url);
-      
+
       // Serve static assets
       if (url.pathname.startsWith('/assets/')) {
         const file = Bun.file(`./public${url.pathname}`);
@@ -72,11 +76,11 @@ function createServer({ port = 3000, development = false }: ServerOptions) {
           });
         }
       }
-      
+
       // Server-side render React app
       try {
         const html = renderToString(<App pathname={url.pathname} />);
-        
+
         return new Response(createHTMLDocument(html, url.pathname), {
           headers: {
             'Content-Type': 'text/html',
@@ -123,6 +127,7 @@ console.log(`🚀 Server running at http://localhost:${server.port}`);
 ```
 
 ### React 19 Component Patterns
+
 ```typescript
 // Use modern React 19 features
 import { useState, useTransition } from 'react';
@@ -130,7 +135,7 @@ import { useState, useTransition } from 'react';
 export function ContactForm() {
   const [isPending, startTransition] = useTransition();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  
+
   // React 19 form actions
   const handleSubmit = async (formData: FormData) => {
     startTransition(async () => {
@@ -139,9 +144,9 @@ export function ContactForm() {
           method: 'POST',
           body: formData,
         });
-        
+
         if (!response.ok) throw new Error('Failed to submit');
-        
+
         // Handle success
         console.log('Form submitted successfully');
       } catch (error) {
@@ -149,7 +154,7 @@ export function ContactForm() {
       }
     });
   };
-  
+
   return (
     <form action={handleSubmit} className="space-y-6">
       <div>
@@ -165,7 +170,7 @@ export function ContactForm() {
           placeholder="Your name"
         />
       </div>
-      
+
       <button
         type="submit"
         disabled={isPending}
@@ -179,9 +184,10 @@ export function ContactForm() {
 ```
 
 ### TailwindCSS v4 Design System
+
 ```css
 /* styles/globals.css - TailwindCSS v4 configuration */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   /* Color palette */
@@ -191,18 +197,18 @@ export function ContactForm() {
   --color-secondary-foreground: #ffffff;
   --color-destructive: #ef4444;
   --color-muted: #f1f5f9;
-  
+
   /* Spacing scale */
   --spacing-xs: 0.5rem;
   --spacing-sm: 0.75rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
-  
+
   /* Typography */
   --font-sans: ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, monospace;
-  
+
   /* Border radius */
   --radius: 0.5rem;
   --radius-lg: 0.75rem;
@@ -256,6 +262,7 @@ export function ContactForm() {
 ```
 
 ### UI Component Patterns with Radix
+
 ```typescript
 // components/ui/Button.tsx
 import * as React from 'react';
@@ -335,6 +342,7 @@ export function HeroSection() {
 ```
 
 ### Form Validation with React Hook Form + Zod
+
 ```typescript
 // components/forms/ContactForm.tsx
 import { useForm } from 'react-hook-form';
@@ -368,7 +376,7 @@ export function ContactForm() {
       consent: false,
     },
   });
-  
+
   const onSubmit = async (data: ContactFormData) => {
     try {
       const response = await fetch('/api/contact', {
@@ -376,9 +384,9 @@ export function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      
+
       if (!response.ok) throw new Error('Failed to submit form');
-      
+
       // Success handling
       reset();
       console.log('Form submitted successfully');
@@ -386,7 +394,7 @@ export function ContactForm() {
       console.error('Submission error:', error);
     }
   };
-  
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -404,7 +412,7 @@ export function ContactForm() {
             <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>
           )}
         </div>
-        
+
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
             Email *
@@ -420,7 +428,7 @@ export function ContactForm() {
           )}
         </div>
       </div>
-      
+
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
           Message *
@@ -435,7 +443,7 @@ export function ContactForm() {
           <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>
         )}
       </div>
-      
+
       <div className="flex items-start space-x-2">
         <input
           {...register('consent')}
@@ -449,7 +457,7 @@ export function ContactForm() {
       {errors.consent && (
         <p className="text-sm text-destructive">{errors.consent.message}</p>
       )}
-      
+
       <Button
         type="submit"
         disabled={isSubmitting}
@@ -466,6 +474,7 @@ export function ContactForm() {
 ## SEO & Marketing Optimization
 
 ### Meta Tags and Open Graph
+
 ```typescript
 // lib/seo.ts
 interface SEOData {
@@ -480,7 +489,7 @@ export function generateSEOTags({ title, description, image, url, type = 'websit
   const baseUrl = 'https://staysinmotion.com';
   const fullUrl = url ? `${baseUrl}${url}` : baseUrl;
   const ogImage = image || `${baseUrl}/images/og-default.jpg`;
-  
+
   return {
     title: `${title} | Stays in Motion`,
     description,
@@ -515,7 +524,7 @@ export function HomePage() {
     description: 'Mova converts your Spotify playlists into structured workout intervals with AI-powered class generation. Download for iOS and Android.',
     url: '/',
   });
-  
+
   return (
     <>
       <Head {...seoData} />
@@ -529,6 +538,7 @@ export function HomePage() {
 ```
 
 ### Analytics Integration
+
 ```typescript
 // lib/analytics.ts
 interface AnalyticsEvent {
@@ -538,14 +548,14 @@ interface AnalyticsEvent {
 
 export class Analytics {
   private static instance: Analytics;
-  
+
   static getInstance(): Analytics {
     if (!Analytics.instance) {
       Analytics.instance = new Analytics();
     }
     return Analytics.instance;
   }
-  
+
   track(event: AnalyticsEvent): void {
     if (typeof window !== 'undefined') {
       // Google Analytics 4
@@ -555,14 +565,14 @@ export class Analytics {
           timestamp: new Date().toISOString(),
         });
       }
-      
+
       // Additional analytics providers
       if (window.mixpanel) {
         window.mixpanel.track(event.name, event.properties);
       }
     }
   }
-  
+
   page(pathname: string): void {
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('config', 'GA_MEASUREMENT_ID', {
@@ -580,7 +590,7 @@ export function useAnalytics() {
 // Usage in components
 export function DownloadButton({ platform }: { platform: 'ios' | 'android' }) {
   const analytics = useAnalytics();
-  
+
   const handleDownload = () => {
     analytics.track({
       name: 'download_button_clicked',
@@ -590,16 +600,16 @@ export function DownloadButton({ platform }: { platform: 'ios' | 'android' }) {
         timestamp: new Date().toISOString(),
       },
     });
-    
+
     // Open app store
     const links = {
       ios: 'https://apps.apple.com/app/mova-fitness',
       android: 'https://play.google.com/store/apps/details?id=com.mova.app',
     };
-    
+
     window.open(links[platform], '_blank');
   };
-  
+
   return (
     <Button onClick={handleDownload} size="lg">
       Download for {platform === 'ios' ? 'iOS' : 'Android'}
@@ -611,6 +621,7 @@ export function DownloadButton({ platform }: { platform: 'ios' | 'android' }) {
 ## Performance Optimization
 
 ### Build Configuration
+
 ```typescript
 // build.ts - Custom Bun build script
 import { build } from 'bun';
@@ -622,7 +633,7 @@ interface BuildOptions {
 
 export async function buildSite({ production = false, analyze = false }: BuildOptions) {
   console.log(`🏗️  Building for ${production ? 'production' : 'development'}`);
-  
+
   try {
     // Build client bundle
     const clientResult = await build({
@@ -637,7 +648,7 @@ export async function buildSite({ production = false, analyze = false }: BuildOp
       },
       naming: production ? '[name]-[hash].[ext]' : '[name].[ext]',
     });
-    
+
     // Build server bundle
     const serverResult = await build({
       entrypoints: ['./src/server.tsx'],
@@ -647,18 +658,17 @@ export async function buildSite({ production = false, analyze = false }: BuildOp
       sourcemap: production ? 'external' : 'inline',
       external: ['bun'],
     });
-    
+
     // Copy static assets
     await copyStaticAssets();
-    
+
     console.log('✅ Build completed successfully');
-    
+
     if (analyze) {
       console.log('📊 Bundle analysis:');
       console.log(`Client bundle: ${getFileSize('./dist/assets/bundle.js')}`);
       console.log(`Server bundle: ${getFileSize('./dist/server.js')}`);
     }
-    
   } catch (error) {
     console.error('❌ Build failed:', error);
     process.exit(1);
@@ -670,12 +680,13 @@ if (import.meta.main) {
   const args = process.argv.slice(2);
   const production = args.includes('--production');
   const analyze = args.includes('--analyze');
-  
+
   await buildSite({ production, analyze });
 }
 ```
 
 ### Image Optimization
+
 ```typescript
 // components/ui/OptimizedImage.tsx
 interface OptimizedImageProps {
@@ -699,7 +710,7 @@ export function OptimizedImage({
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(false);
-  
+
   // Generate responsive srcset
   const generateSrcSet = (baseSrc: string) => {
     const sizes = [320, 640, 768, 1024, 1280, 1536];
@@ -707,13 +718,13 @@ export function OptimizedImage({
       .map(size => `${baseSrc}?w=${size}&q=${quality} ${size}w`)
       .join(', ');
   };
-  
+
   return (
     <div className={cn('relative overflow-hidden', className)}>
       {!isLoaded && (
         <div className="absolute inset-0 bg-muted animate-pulse" />
       )}
-      
+
       <img
         src={`${src}?w=${width}&h=${height}&q=${quality}`}
         srcSet={generateSrcSet(src)}
@@ -730,7 +741,7 @@ export function OptimizedImage({
           error && 'hidden'
         )}
       />
-      
+
       {error && (
         <div className="flex items-center justify-center bg-muted text-muted-foreground p-4">
           <span>Failed to load image</span>
@@ -744,61 +755,52 @@ export function OptimizedImage({
 ## Content Management
 
 ### Static Content Organization
+
 ```typescript
 // content/site-content.ts
 export const siteContent = {
   hero: {
     title: 'Transform Your Playlists Into Perfect Workouts',
-    subtitle: 'Mova converts your Spotify playlists into structured workout intervals with AI-powered class generation.',
+    subtitle:
+      'Mova converts your Spotify playlists into structured workout intervals with AI-powered class generation.',
     cta: {
       primary: 'Download for iOS',
       secondary: 'Download for Android',
     },
   },
-  
+
   features: [
     {
       id: 'playlist-conversion',
       title: 'Playlist to Workout Conversion',
       description: 'Convert any Spotify playlist into structured workout intervals with customizable timing.',
       icon: 'Music',
-      benefits: [
-        'Automatic BPM analysis',
-        'Customizable interval lengths',
-        'Smart song ordering',
-      ],
+      benefits: ['Automatic BPM analysis', 'Customizable interval lengths', 'Smart song ordering'],
     },
     {
       id: 'ai-generation',
       title: 'AI-Powered Class Generator',
       description: 'Generate complete fitness classes with AI that understands your coaching style.',
       icon: 'Sparkles',
-      benefits: [
-        'Personalized to your style',
-        'Music and movement sync',
-        'Instant class creation',
-      ],
+      benefits: ['Personalized to your style', 'Music and movement sync', 'Instant class creation'],
     },
     {
       id: 'offline-support',
       title: 'Offline Workout Support',
       description: 'Download classes and work out anywhere, even without internet connection.',
       icon: 'Download',
-      benefits: [
-        'Full offline functionality',
-        'Pre-cached music metadata',
-        'Sync when connected',
-      ],
+      benefits: ['Full offline functionality', 'Pre-cached music metadata', 'Sync when connected'],
     },
   ],
-  
+
   testimonials: [
     {
       id: 1,
       name: 'Sarah Johnson',
       role: 'Certified Personal Trainer',
       company: 'FitLife Studio',
-      content: 'Mova has completely transformed how I create workout playlists. What used to take hours now takes minutes, and my clients love the perfectly timed intervals.',
+      content:
+        'Mova has completely transformed how I create workout playlists. What used to take hours now takes minutes, and my clients love the perfectly timed intervals.',
       image: '/images/testimonials/sarah-johnson.jpg',
       rating: 5,
     },
@@ -807,12 +809,13 @@ export const siteContent = {
       name: 'Marcus Chen',
       role: 'Group Fitness Instructor',
       company: 'Elite Fitness',
-      content: 'The AI class generator is incredible. It learns my teaching style and creates classes that feel like I made them myself. My participants have noticed the improvement.',
+      content:
+        'The AI class generator is incredible. It learns my teaching style and creates classes that feel like I made them myself. My participants have noticed the improvement.',
       image: '/images/testimonials/marcus-chen.jpg',
       rating: 5,
     },
   ],
-  
+
   pricing: {
     free: {
       title: 'Free',
@@ -874,6 +877,7 @@ bun update                     # Update dependencies
 ## Common Anti-Patterns to Avoid
 
 ❌ **Don't:**
+
 - Use Node.js patterns (use Bun-specific APIs)
 - Mix TailwindCSS versions (stick to v4)
 - Skip SEO optimization for marketing pages
@@ -884,6 +888,7 @@ bun update                     # Update dependencies
 - Hardcode content (use structured content management)
 
 ✅ **Do:**
+
 - Use modern React 19 patterns and features
 - Implement proper SEO meta tags and structured data
 - Optimize images and assets for performance
@@ -896,32 +901,33 @@ bun update                     # Update dependencies
 ## Integration with Mova Platform
 
 ### Deep Linking to Mobile App
+
 ```typescript
 // components/sections/CTASection.tsx
 export function CTASection() {
   const handleAppDownload = (platform: 'ios' | 'android') => {
     const analytics = useAnalytics();
-    
+
     analytics.track({
       name: 'app_download_initiated',
       properties: { platform, location: 'cta_section' },
     });
-    
+
     const links = {
       ios: 'https://apps.apple.com/app/mova-fitness',
       android: 'https://play.google.com/store/apps/details?id=com.mova.app',
     };
-    
+
     // Try deep link first, fallback to store
     const deepLink = `mova://open?utm_source=website&utm_campaign=cta`;
     window.location.href = deepLink;
-    
+
     // Fallback to app store after delay
     setTimeout(() => {
       window.open(links[platform], '_blank');
     }, 2000);
   };
-  
+
   return (
     <section className="bg-primary/5 py-16">
       <div className="container mx-auto px-4 text-center">
@@ -932,15 +938,15 @@ export function CTASection() {
           Join thousands of fitness professionals who use Mova to create perfect workout experiences.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             onClick={() => handleAppDownload('ios')}
             className="text-lg px-8 py-3"
           >
             Download for iOS
           </Button>
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             variant="outline"
             onClick={() => handleAppDownload('android')}
             className="text-lg px-8 py-3"
