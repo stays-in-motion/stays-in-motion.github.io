@@ -230,6 +230,7 @@ VITE_ANALYTICS_ID=your-analytics-id
 - **Working notes**: `../SCRATCHPAD.md` (temporary monorepo coordination)
 - **Status tracking**: `../STATUS.md` (committed milestone tracking)
 - **Strategic plan**: `../MASTER-PLAN.md` (committed roadmap)
+- **Project index**: `PROJECT_INDEX.json` (site structure & content/component index—use to locate sections, data sources, and shared UI primitives quickly before implementing changes).
 
 ## Common Tasks
 
