@@ -284,11 +284,6 @@
     "src/test-utils.tsx": {
       "language": "typescript",
       "parsed": true,
-      "purpose": "Test file",
-      "imports": [
-        "@testing-library/react",
-        "react"
-      ],
       "functions": {
         "renderWithProviders": "(ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>)",
         "mockMatchMedia": "(matches: boolean = false)",
@@ -297,10 +292,9 @@
         "mockExternalLinks": "()"
       },
       "classes": {},
-      "variables": [
-        "mockChangelogEntry"
-      ],
-      "call_graph": {}
+      "updated_by_hook": true,
+      "updated_at": "2025-09-03T20:54:11.972902",
+      "purpose": "Test file"
     },
     "src/index.css": {
       "language": "css",
@@ -310,6 +304,10 @@
     "src/test-setup.ts": {
       "language": "typescript",
       "parsed": false,
+      "functions": {},
+      "classes": {},
+      "updated_by_hook": true,
+      "updated_at": "2025-09-03T20:54:06.640707",
       "purpose": "Test file"
     },
     "src/APITester.tsx": {
@@ -455,6 +453,10 @@
     "src/__tests__/App.test.tsx": {
       "language": "typescript",
       "parsed": false,
+      "functions": {},
+      "classes": {},
+      "updated_by_hook": true,
+      "updated_at": "2025-09-03T20:53:20.348725",
       "purpose": "Test file"
     },
     "src/lib/utils.ts": {
@@ -844,6 +846,60 @@
       "updated_by_hook": true,
       "updated_at": "2025-08-24T09:07:00.897497",
       "purpose": "Configuration"
+    },
+    "src/hooks/useNavigation.ts": {
+      "language": "typescript",
+      "parsed": true,
+      "functions": {
+        "useNavigation": "(options: UseNavigationOptions = {})",
+        "useMobileNavigation": "()",
+        "useScrollPosition": "()",
+        "useHashNavigation": {
+          "calls": [
+            "updateHash"
+          ],
+          "signature": "()"
+        },
+        "useSmoothScroll": "()",
+        "handleEscape": "(event: KeyboardEvent)",
+        "updateHash": "()"
+      },
+      "classes": {},
+      "updated_by_hook": true,
+      "updated_at": "2025-09-03T20:55:13.272292"
+    },
+    "src/types/test.d.ts": {
+      "language": "typescript",
+      "parsed": false,
+      "functions": {},
+      "classes": {},
+      "updated_by_hook": true,
+      "updated_at": "2025-09-03T20:54:47.772637",
+      "purpose": "Test file"
+    },
+    "src/components/common/FeatureCard.tsx": {
+      "language": "typescript",
+      "parsed": true,
+      "functions": {
+        "FeatureCard": "({ icon, title, description, accent, onClick, active = false, className, delay, variant = 'default', children, }: FeatureCardProps)",
+        "InteractiveFeatureCard": "({ children, className, ...props }: FeatureCardProps)",
+        "CompactFeatureCard": "({ icon, title, description, accent, className, ...props }: Omit<FeatureCardProps, 'variant'>)",
+        "StatCard": "({ label, value, suffix, accent, trend, className, }: { label: string; value: string | number; suffix?: string; accent?: AccentColorType; trend?: 'up' | 'down' | 'neutral'; className?: string; })",
+        "TestimonialCard": "({ quote, author, role, avatar, className, }: { quote: string; author: string; role?: string; avatar?: string; className?: string; })",
+        "PricingCard": "({ title, price, period = 'month', features, buttonText = 'Get Started', onButtonClick, popular = false, className, }: { title: string; price: string | number; period?: string; features: string[]; buttonText?: string; onButtonClick?: ()"
+      },
+      "classes": {},
+      "updated_by_hook": true,
+      "updated_at": "2025-09-03T20:55:58.839529"
+    },
+    "test-types.d.ts": {
+      "language": "typescript",
+      "parsed": false,
+      "functions": {},
+      "classes": {},
+      "updated_by_hook": true,
+      "updated_at": "2025-09-03T21:16:07.498075",
+      "purpose": "Test file"
     }
   },
   "dependency_graph": {

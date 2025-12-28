@@ -30,7 +30,7 @@ export function useNavigation(options: UseNavigationOptions = {}) {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const cleanupRef = useRef<(() => void) | null>(null);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout>();
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   /**
    * Navigate to a section

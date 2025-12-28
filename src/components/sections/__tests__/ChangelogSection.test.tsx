@@ -85,7 +85,7 @@ describe('ChangelogSection', () => {
   });
 
   test('displays features section with correct styling', () => {
-    render(<DownloadSection />);
+    render(<ChangelogSection />);
 
     expect(screen.getByText('✨ New Features')).toBeInTheDocument();
     expect(screen.getByText('• New workout categories')).toBeInTheDocument();

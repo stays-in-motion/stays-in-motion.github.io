@@ -59,8 +59,8 @@ describe('App Component Layout and Footer Positioning', () => {
         scrollIntoView: mock(),
         offsetTop: 100,
       };
-      return mockElement;
-    });
+      return mockElement as any;
+    }) as any;
 
     // Mock scroll events
     global.window.scrollY = 0;

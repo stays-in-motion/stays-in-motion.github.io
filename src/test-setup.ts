@@ -1,4 +1,5 @@
 import { beforeAll, mock } from 'bun:test';
+import '@testing-library/jest-dom';
 
 // Mock window.open and window.location for tests
 beforeAll(() => {
@@ -27,12 +28,15 @@ beforeAll(() => {
         textContent: '',
       };
     }
-    return {};
-  });
+    return {} as any;
+  }) as any;
 
-  global.document.head = {
-    appendChild: mock(),
-  } as any;
+  Object.defineProperty(global.document, 'head', {
+    value: {
+      appendChild: mock(),
+    },
+    writable: true,
+  });
 
   // Mock matchMedia for responsive tests
   global.window.matchMedia = mock((query: string) => ({

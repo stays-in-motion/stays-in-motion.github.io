@@ -18,6 +18,7 @@ interface FeatureCardProps {
   className?: string;
   delay?: string;
   variant?: 'default' | 'outlined' | 'gradient' | 'minimal';
+  children?: React.ReactNode;
 }
 
 /**
@@ -33,6 +34,7 @@ export function FeatureCard({
   className,
   delay,
   variant = 'default',
+  children,
 }: FeatureCardProps) {
   const accentColors = accent ? getAccentColorSet(accent) : null;
   const isClickable = !!onClick;
@@ -89,6 +91,7 @@ export function FeatureCard({
         >
           {description}
         </p>
+        {children}
       </CardContent>
     </Card>
   );
@@ -97,11 +100,7 @@ export function FeatureCard({
 /**
  * Interactive feature card with hover states
  */
-export function InteractiveFeatureCard({
-  children,
-  className,
-  ...props
-}: FeatureCardProps & { children?: React.ReactNode }) {
+export function InteractiveFeatureCard({ children, className, ...props }: FeatureCardProps) {
   return (
     <FeatureCard
       variant="outlined"

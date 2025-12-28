@@ -1,5 +1,5 @@
 import { mock } from 'bun:test';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 // Mock Card components
 export const Card = ({
