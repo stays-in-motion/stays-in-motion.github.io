@@ -2,10 +2,51 @@
 
 Date: 2026-09-27
 
-This packet records the release-site candidate, current hosting fault, exact
-external changes needed to publish it, verification, and rollback. No publish,
-GitHub Pages setting, DNS, or App Store mutation was performed while preparing
-this packet.
+## Execution update
+
+The site publication and authoritative DNS cutover were subsequently authorized
+and executed:
+
+- `master` was pushed through packet commit
+  `9cfcdb0313f0e3fd0e10aae71c8b0c94224ab6a2`.
+- GitHub Pages workflow run `36349597329` completed successfully.
+- `https://stays-in-motion.github.io/`, `/privacy/`, and `/terms/` each returned
+  HTTP 200 with the expected page titles.
+- The GitHub Pages custom domain is now `staysinmotion.com`.
+- At approximately 2026-09-27 21:20 UTC, Namecheap host records were changed
+  from the obsolete apex A record `34.111.179.208` to GitHub Pages' four apex A
+  records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, and
+  `185.199.111.153`.
+- `www CNAME stays-in-motion.github.io.` was added. All new records use
+  Namecheap's `Automatic` TTL; the authoritative answers reported a 1,800
+  second TTL.
+- Existing SPF, DMARC, DKIM, mail-forwarding, nameserver, and unrelated records
+  were preserved unchanged. No wildcard record was added.
+- Both authoritative Namecheap servers returned exactly the four new apex A
+  records, and the authoritative `www` answer returned the new CNAME. Cloudflare
+  `1.1.1.1` and Google `8.8.8.8` also returned the new records immediately.
+- The workstation's default recursive resolver still returned the cached old
+  apex address during the first post-cutover check. This is expected propagation
+  lag within the prior TTL, not an authoritative DNS mismatch. A later bounded
+  `dig` check returned the new apex records and `www` CNAME, although the client
+  path used by `curl` still could not resolve `www` during that same check.
+- GitHub Pages remained `built` with `cname: staysinmotion.com`, but
+  `https_enforced` was still `false`. Direct TLS verification against a GitHub
+  Pages edge failed because the custom-domain certificate had not yet been
+  issued.
+- A diagnostic request pinned to the GitHub Pages edge (certificate checking
+  bypassed only for this content check) returned the expected deployed pages
+  and canonical URLs for `/`, `/privacy/`, and `/terms/`. The `www` edge issued
+  the expected 301 redirect to `https://staysinmotion.com/`; following it via
+  the workstation resolver still reached the cached obsolete destination.
+
+The remaining work is propagation-dependent: allow remaining client caches to
+expire and wait for GitHub certificate issuance, then verify normal trusted
+HTTPS for all three canonical routes, the `www` redirect, and Pages HTTPS
+enforcement. No further repository push or GitHub Pages custom-domain mutation
+is needed.
+
+The original preparation record follows for audit context.
 
 ## Candidate
 
