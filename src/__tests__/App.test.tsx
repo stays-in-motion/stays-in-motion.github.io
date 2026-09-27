@@ -1,6 +1,7 @@
 import { test, expect, describe, beforeEach, mock } from 'bun:test';
 import { render, screen, fireEvent, cleanup, waitFor } from '@testing-library/react';
 import { App } from '../App';
+import { MOVA_LINKS } from '@/constants/links';
 import '../test-setup';
 
 // Mock all the section components
@@ -123,13 +124,14 @@ describe('App Component Layout and Footer Positioning', () => {
     expect(screen.getByRole('heading', { name: /quick links/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /about mova/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /get support/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /privacy policy/i })).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: /privacy policy/i }).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByRole('link', { name: /terms of service/i }).length).toBeGreaterThanOrEqual(1);
     expect(screen.getByRole('button', { name: /what's new/i })).toBeInTheDocument();
 
     // Contact section
     expect(screen.getByRole('heading', { name: /get in touch/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /support@staysinmotion.com/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /support form/i })).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /support form/i })).not.toBeInTheDocument();
   });
 
   test('footer grid layout is responsive', () => {
@@ -163,19 +165,22 @@ describe('App Component Layout and Footer Positioning', () => {
     expect(changelogLink).toHaveClass('hover:text-accent-intensity', 'transition-colors');
   });
 
-  test('external links have proper security attributes', () => {
+  test('legal links use canonical direct-load routes', () => {
     render(<App />);
 
-    const supportFormLink = screen.getByRole('link', { name: /support form/i });
-    expect(supportFormLink).toHaveAttribute('target', '_blank');
-    expect(supportFormLink).toHaveAttribute('rel', 'noopener noreferrer');
+    for (const privacyLink of screen.getAllByRole('link', { name: /privacy policy/i })) {
+      expect(privacyLink).toHaveAttribute('href', MOVA_LINKS.privacy);
+    }
+    for (const termsLink of screen.getAllByRole('link', { name: /terms of service/i })) {
+      expect(termsLink).toHaveAttribute('href', MOVA_LINKS.terms);
+    }
   });
 
   test('email link has correct mailto href', () => {
     render(<App />);
 
     const emailLink = screen.getByRole('link', { name: /support@staysinmotion.com/i });
-    expect(emailLink).toHaveAttribute('href', 'mailto:support@staysinmotion.com');
+    expect(emailLink).toHaveAttribute('href', MOVA_LINKS.supportEmail);
   });
 
   test('hero section download button scrolls to download section', () => {
@@ -201,17 +206,14 @@ describe('App Component Layout and Footer Positioning', () => {
 
     const aboutButton = screen.getByRole('button', { name: /about mova/i });
     const supportButton = screen.getByRole('button', { name: /get support/i });
-    const privacyButton = screen.getByRole('button', { name: /privacy policy/i });
     const changelogButton = screen.getByRole('button', { name: /what's new/i });
 
     fireEvent.click(aboutButton);
     fireEvent.click(supportButton);
-    fireEvent.click(privacyButton);
     fireEvent.click(changelogButton);
 
     expect(global.document.getElementById).toHaveBeenCalledWith('about');
     expect(global.document.getElementById).toHaveBeenCalledWith('support');
-    expect(global.document.getElementById).toHaveBeenCalledWith('privacy');
     expect(global.document.getElementById).toHaveBeenCalledWith('changelog');
   });
 

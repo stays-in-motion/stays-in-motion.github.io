@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 import { render, screen } from '@testing-library/react';
 import { PrivacySection } from '../PrivacySection';
+import { MOVA_LINKS } from '@/constants/links';
 import '../../../test-setup';
 
 describe('PrivacySection', () => {
@@ -30,6 +31,6 @@ describe('PrivacySection', () => {
   test('standalone page links back to support', () => {
     render(<PrivacySection standalone />);
 
-    expect(screen.getByRole('link', { name: /back to mova support/i })).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: /back to mova support/i })).toHaveAttribute('href', MOVA_LINKS.home);
   });
 });

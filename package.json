@@ -10,6 +10,7 @@
     "start": "NODE_ENV=production bun src/index.tsx",
     "build": "bun run build.ts",
     "build:pages": "bun run build.ts --outdir=dist --minify --source-map=linked",
+    "verify:release-site": "bun run build:pages && bun scripts/verify-release-site.ts",
     "preview": "cd dist && bun --port 3000 --serve .",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "type-check": "tsc --noEmit -p tsconfig.json"

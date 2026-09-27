@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { HelpCircle, User, Settings, Play, Mail, MessageSquare } from 'lucide-react';
+import { MOVA_LINKS } from '@/constants/links';
+import { HelpCircle, User, Settings, Play, Mail } from 'lucide-react';
 
 interface HelpCategoryProps {
   icon: React.ReactNode;
@@ -31,21 +32,20 @@ function HelpCategory({ icon, title, onClick, active }: HelpCategoryProps) {
 }
 
 interface ContactCardProps {
-  type: 'form' | 'email';
   title: string;
   description: string;
   action: string;
   onClick?: () => void;
 }
 
-function ContactCard({ type, title, description, action, onClick }: ContactCardProps) {
-  const icon = type === 'form' ? <MessageSquare size={24} /> : <Mail size={24} />;
-
+function ContactCard({ title, description, action, onClick }: ContactCardProps) {
   return (
     <Card className="h-full">
       <CardContent className="p-6 text-center">
         <div className="flex items-start gap-4 mb-4">
-          <div className="p-2 rounded-lg bg-primary/10">{icon}</div>
+          <div className="p-2 rounded-lg bg-primary/10">
+            <Mail size={24} />
+          </div>
           <div className="flex-1 text-left">
             <h4 className="font-semibold mb-2">{title}</h4>
             <p className="text-sm text-muted-foreground">{description}</p>
@@ -67,15 +67,8 @@ function ContactCard({ type, title, description, action, onClick }: ContactCardP
 export function SupportSection() {
   const [activeHelpCategory, setActiveHelpCategory] = useState('FAQ');
 
-  const handleSupportForm = () => {
-    window.open(
-      'https://docs.google.com/forms/d/e/1FAIpQLSeOpCWZYp8dD2lPWSu5dPNjbx_TdKtl0UCe7t-ku3O9Zth12Q/viewform',
-      '_blank',
-    );
-  };
-
   const handleEmailSupport = () => {
-    window.location.href = 'mailto:support@staysinmotion.com';
+    window.location.href = MOVA_LINKS.supportEmail;
   };
 
   return (
@@ -259,16 +252,8 @@ export function SupportSection() {
         <div className="bg-card rounded-2xl p-8 max-w-2xl mx-auto scroll-reveal">
           <h3 className="text-2xl font-bold mb-6 text-center">Still Need Help?</h3>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="max-w-md mx-auto">
             <ContactCard
-              type="form"
-              title="Send Message"
-              description="Get personalized help with your question"
-              action="Open Support Form"
-              onClick={handleSupportForm}
-            />
-            <ContactCard
-              type="email"
               title="Email Us"
               description="Reach out directly for support and feedback"
               action="Send Email"

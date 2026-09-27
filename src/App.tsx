@@ -6,6 +6,7 @@ import { SupportSection } from '@/components/sections/SupportSection';
 import { PrivacySection } from '@/components/sections/PrivacySection';
 import { ChangelogSection } from '@/components/sections/ChangelogSection';
 import { DownloadSection } from '@/components/sections/DownloadSection';
+import { MOVA_LINKS, MOVA_SUPPORT_EMAIL } from '@/constants/links';
 import './index.css';
 
 export function App() {
@@ -103,12 +104,18 @@ export function App() {
                 >
                   Get Support
                 </button>
-                <button
-                  onClick={() => document.getElementById('privacy')?.scrollIntoView({ behavior: 'smooth' })}
+                <a
+                  href={MOVA_LINKS.privacy}
                   className="block text-muted-foreground hover:text-accent-progress transition-colors"
                 >
                   Privacy Policy
-                </button>
+                </a>
+                <a
+                  href={MOVA_LINKS.terms}
+                  className="block text-muted-foreground hover:text-accent-progress transition-colors"
+                >
+                  Terms of Service
+                </a>
                 <button
                   onClick={() => document.getElementById('changelog')?.scrollIntoView({ behavior: 'smooth' })}
                   className="block text-muted-foreground hover:text-accent-intensity transition-colors"
@@ -123,18 +130,22 @@ export function App() {
               <h4 className="font-semibold">Get in Touch</h4>
               <div className="space-y-2">
                 <a
-                  href="mailto:support@staysinmotion.com"
+                  href={MOVA_LINKS.supportEmail}
                   className="block text-muted-foreground hover:text-accent-energy transition-colors"
                 >
-                  support@staysinmotion.com
+                  {MOVA_SUPPORT_EMAIL}
                 </a>
                 <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSeOpCWZYp8dD2lPWSu5dPNjbx_TdKtl0UCe7t-ku3O9Zth12Q/viewform"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={MOVA_LINKS.privacy}
                   className="block text-muted-foreground hover:text-accent-progress transition-colors"
                 >
-                  Support Form
+                  Privacy Policy
+                </a>
+                <a
+                  href={MOVA_LINKS.terms}
+                  className="block text-muted-foreground hover:text-accent-progress transition-colors"
+                >
+                  Terms of Service
                 </a>
               </div>
             </div>

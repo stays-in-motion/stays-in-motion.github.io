@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-
-const SUPPORT_EMAIL = 'support@staysinmotion.com';
+import { MOVA_LINKS, MOVA_SUPPORT_EMAIL } from '@/constants/links';
 
 interface PrivacySectionProps {
   standalone?: boolean;
@@ -12,7 +11,7 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           {standalone ? (
-            <a href="/" className="inline-block mb-8 text-primary underline underline-offset-4">
+            <a href={MOVA_LINKS.home} className="inline-block mb-8 text-primary underline underline-offset-4">
               ← Back to Mova support
             </a>
           ) : null}
@@ -113,8 +112,8 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
                     Verified metadata may be cached without being treated as your private account content.
                   </li>
                   <li>
-                    <strong className="text-foreground">Google Forms and email providers</strong> when you choose to
-                    contact support through those external services.
+                    <strong className="text-foreground">Email providers</strong> when you choose to contact support by
+                    email.
                   </li>
                 </ul>
               </CardContent>
@@ -167,8 +166,8 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
               </CardHeader>
               <CardContent className="text-sm text-muted-foreground leading-relaxed">
                 Privacy or account-data questions can be sent to{' '}
-                <a className="text-primary underline underline-offset-4" href={`mailto:${SUPPORT_EMAIL}`}>
-                  {SUPPORT_EMAIL}
+                <a className="text-primary underline underline-offset-4" href={MOVA_LINKS.supportEmail}>
+                  {MOVA_SUPPORT_EMAIL}
                 </a>
                 .
               </CardContent>

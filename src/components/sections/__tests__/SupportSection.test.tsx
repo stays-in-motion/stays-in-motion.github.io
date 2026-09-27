@@ -1,6 +1,7 @@
 import { test, expect, describe, beforeEach, mock } from 'bun:test';
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import { SupportSection } from '../SupportSection';
+import { MOVA_LINKS } from '@/constants/links';
 import '../../../test-setup';
 
 // Mock lucide-react icons
@@ -28,11 +29,6 @@ mock.module('lucide-react', () => ({
   Mail: ({ size, className }: { size?: number; className?: string }) => (
     <div data-testid="mail-icon" data-size={size} className={className}>
       Mail
-    </div>
-  ),
-  MessageSquare: ({ size, className }: { size?: number; className?: string }) => (
-    <div data-testid="message-square-icon" data-size={size} className={className}>
-      MessageSquare
     </div>
   ),
 }));
@@ -120,27 +116,13 @@ describe('SupportSection', () => {
     expect(faqTab.closest('.ring-2')).toBeNull();
   });
 
-  test('renders contact section with support form and email', () => {
+  test('renders the canonical email support channel', () => {
     render(<SupportSection />);
 
     expect(screen.getByRole('heading', { name: /still need help/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /open support form/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /send email/i })).toBeInTheDocument();
-
-    expect(screen.getByText(/send message/i)).toBeInTheDocument();
     expect(screen.getByText(/email us/i)).toBeInTheDocument();
-  });
-
-  test('support form button opens external URL', () => {
-    render(<SupportSection />);
-
-    const supportFormButton = screen.getByRole('button', { name: /open support form/i });
-    fireEvent.click(supportFormButton);
-
-    expect(global.window.open).toHaveBeenCalledWith(
-      'https://docs.google.com/forms/d/e/1FAIpQLSeOpCWZYp8dD2lPWSu5dPNjbx_TdKtl0UCe7t-ku3O9Zth12Q/viewform',
-      '_blank',
-    );
+    expect(screen.queryByRole('button', { name: /support form/i })).not.toBeInTheDocument();
   });
 
   test('email button triggers mailto link', () => {
@@ -149,7 +131,7 @@ describe('SupportSection', () => {
     const emailButton = screen.getByRole('button', { name: /send email/i });
     fireEvent.click(emailButton);
 
-    expect(global.window.location.href).toBe('mailto:support@staysinmotion.com');
+    expect(global.window.location.href).toBe(MOVA_LINKS.supportEmail);
   });
 
   test('FAQ content includes key questions and answers', () => {
@@ -198,7 +180,6 @@ describe('SupportSection', () => {
     expect(screen.getByTestId('play-icon')).toBeInTheDocument();
 
     // Contact card icons
-    expect(screen.getByTestId('message-square-icon')).toBeInTheDocument();
     expect(screen.getByTestId('mail-icon')).toBeInTheDocument();
   });
 
@@ -235,8 +216,8 @@ describe('SupportSection', () => {
 
     // Contact section should always be present
     expect(screen.getByRole('heading', { name: /still need help/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /open support form/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /send email/i })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /support form/i })).not.toBeInTheDocument();
 
     // Main heading should always be present
     expect(screen.getByRole('heading', { name: /how can we help/i })).toBeInTheDocument();
