@@ -61,7 +61,7 @@ describe('ChangelogSection', () => {
     // All titles should be present
     expect(screen.getByRole('heading', { name: /enhanced user experience/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /major release/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /bug fixes/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: /bug fixes/i })).toBeInTheDocument();
   });
 
   test('displays correct badge colors for different release types', () => {
@@ -87,13 +87,14 @@ describe('ChangelogSection', () => {
   test('displays features section with correct styling', () => {
     render(<ChangelogSection />);
 
-    expect(screen.getByText('✨ New Features')).toBeInTheDocument();
+    expect(screen.getAllByText('✨ New Features')).not.toHaveLength(0);
     expect(screen.getByText('• New workout categories')).toBeInTheDocument();
     expect(screen.getByText('• Improved playlist conversion speed')).toBeInTheDocument();
     expect(screen.getByText('• Complete UI redesign')).toBeInTheDocument();
 
-    const featuresHeading = screen.getByText('✨ New Features');
-    expect(featuresHeading).toHaveClass('text-accent-energy');
+    for (const featuresHeading of screen.getAllByText('✨ New Features')) {
+      expect(featuresHeading).toHaveClass('text-accent-energy');
+    }
   });
 
   test('displays improvements section with correct styling', () => {
@@ -110,13 +111,14 @@ describe('ChangelogSection', () => {
   test('displays bug fixes section with correct styling', () => {
     render(<ChangelogSection />);
 
-    expect(screen.getByText('🐛 Bug Fixes')).toBeInTheDocument();
+    expect(screen.getAllByText('🐛 Bug Fixes')).not.toHaveLength(0);
     expect(screen.getByText('• Fixed timer sync issues')).toBeInTheDocument();
     expect(screen.getByText('• Resolved crash on large playlists')).toBeInTheDocument();
     expect(screen.getByText('• Fixed login issues')).toBeInTheDocument();
 
-    const bugfixesHeading = screen.getByText('🐛 Bug Fixes');
-    expect(bugfixesHeading).toHaveClass('text-accent-intensity');
+    for (const bugfixesHeading of screen.getAllByText('🐛 Bug Fixes')) {
+      expect(bugfixesHeading).toHaveClass('text-accent-intensity');
+    }
   });
 
   test('displays breaking changes section with warning styling', () => {

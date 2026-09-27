@@ -12,7 +12,7 @@
     "build:pages": "bun run build.ts --outdir=dist --minify --source-map=linked",
     "preview": "cd dist && bun --port 3000 --serve .",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "type-check": "tsc --noEmit -p tsconfig.build.json"
+    "type-check": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.0",

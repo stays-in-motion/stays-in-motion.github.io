@@ -40,7 +40,7 @@ describe('DownloadSection', () => {
     render(<DownloadSection />);
 
     expect(screen.getByRole('heading', { name: /ready to get moving/i })).toBeInTheDocument();
-    expect(screen.getByText(/download mova and transform your music into motivation/i)).toBeInTheDocument();
+    expect(screen.getByText(/download mova and start building your next fitness class/i)).toBeInTheDocument();
   });
 
   test('renders App Store badge with correct styling', () => {
@@ -95,11 +95,11 @@ describe('DownloadSection', () => {
     expect(container).toHaveClass('flex-col', 'sm:flex-row');
   });
 
-  test('shows Android and Web coming soon notice', () => {
+  test('shows current platform availability', () => {
     render(<DownloadSection />);
 
-    expect(screen.getByText(/android & web versions.*coming in 2025/i)).toBeInTheDocument();
-    expect(screen.getByText(/currently available on ios only/i)).toBeInTheDocument();
+    expect(screen.getByText(/currently available on iphone/i)).toBeInTheDocument();
+    expect(screen.getByText(/android, tablet, and web versions are not currently available/i)).toBeInTheDocument();
   });
 
   test('renders device mockup grid with all platforms', () => {
@@ -113,7 +113,7 @@ describe('DownloadSection', () => {
 
     // Tablet (coming soon)
     expect(screen.getByText('Tablet & Android')).toBeInTheDocument();
-    expect(screen.getByText('In development for 2025')).toBeInTheDocument();
+    expect(screen.getByText('Not currently available')).toBeInTheDocument();
 
     // Web (coming soon)
     expect(screen.getByText('Web Experience')).toBeInTheDocument();

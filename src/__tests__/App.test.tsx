@@ -39,6 +39,10 @@ mock.module('@/components/sections/SupportSection', () => ({
   SupportSection: () => <div data-testid="support-section">Support Section</div>,
 }));
 
+mock.module('@/components/sections/PrivacySection', () => ({
+  PrivacySection: () => <div data-testid="privacy-section">Privacy Section</div>,
+}));
+
 mock.module('@/components/sections/ChangelogSection', () => ({
   ChangelogSection: () => <div data-testid="changelog-section">Changelog Section</div>,
 }));
@@ -63,7 +67,7 @@ describe('App Component Layout and Footer Positioning', () => {
     }) as any;
 
     // Mock scroll events
-    global.window.scrollY = 0;
+    Object.defineProperty(global.window, 'scrollY', { configurable: true, value: 0 });
     global.window.addEventListener = mock();
     global.window.removeEventListener = mock();
   });
@@ -88,6 +92,7 @@ describe('App Component Layout and Footer Positioning', () => {
     expect(screen.getByTestId('hero-section')).toBeInTheDocument();
     expect(screen.getByTestId('about-section')).toBeInTheDocument();
     expect(screen.getByTestId('support-section')).toBeInTheDocument();
+    expect(screen.getByTestId('privacy-section')).toBeInTheDocument();
     expect(screen.getByTestId('changelog-section')).toBeInTheDocument();
     expect(screen.getByTestId('download-section')).toBeInTheDocument();
   });
@@ -112,17 +117,18 @@ describe('App Component Layout and Footer Positioning', () => {
 
     // Brand section
     expect(screen.getByRole('heading', { name: /mova/i })).toBeInTheDocument();
-    expect(screen.getByText(/transform your playlists into perfect interval workouts/i)).toBeInTheDocument();
+    expect(screen.getByText(/build instructor-ready fitness classes/i)).toBeInTheDocument();
 
     // Quick Links section
     expect(screen.getByRole('heading', { name: /quick links/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /about mova/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /get support/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /privacy policy/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /what's new/i })).toBeInTheDocument();
 
     // Contact section
     expect(screen.getByRole('heading', { name: /get in touch/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /movastaysinmotionar@gmail.com/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /support@staysinmotion.com/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /support form/i })).toBeInTheDocument();
   });
 
@@ -168,8 +174,8 @@ describe('App Component Layout and Footer Positioning', () => {
   test('email link has correct mailto href', () => {
     render(<App />);
 
-    const emailLink = screen.getByRole('link', { name: /movastaysinmotionar@gmail.com/i });
-    expect(emailLink).toHaveAttribute('href', 'mailto:movastaysinmotionar@gmail.com');
+    const emailLink = screen.getByRole('link', { name: /support@staysinmotion.com/i });
+    expect(emailLink).toHaveAttribute('href', 'mailto:support@staysinmotion.com');
   });
 
   test('hero section download button scrolls to download section', () => {
@@ -195,14 +201,17 @@ describe('App Component Layout and Footer Positioning', () => {
 
     const aboutButton = screen.getByRole('button', { name: /about mova/i });
     const supportButton = screen.getByRole('button', { name: /get support/i });
+    const privacyButton = screen.getByRole('button', { name: /privacy policy/i });
     const changelogButton = screen.getByRole('button', { name: /what's new/i });
 
     fireEvent.click(aboutButton);
     fireEvent.click(supportButton);
+    fireEvent.click(privacyButton);
     fireEvent.click(changelogButton);
 
     expect(global.document.getElementById).toHaveBeenCalledWith('about');
     expect(global.document.getElementById).toHaveBeenCalledWith('support');
+    expect(global.document.getElementById).toHaveBeenCalledWith('privacy');
     expect(global.document.getElementById).toHaveBeenCalledWith('changelog');
   });
 
@@ -219,7 +228,7 @@ describe('App Component Layout and Footer Positioning', () => {
   test('sections have proper IDs for navigation', () => {
     render(<App />);
 
-    expect(document.getElementById('hero')).toBeInTheDocument();
+    expect(document.querySelector('#hero')).toBeInTheDocument();
     // Other sections are rendered by their components, IDs tested in individual component tests
   });
 
@@ -276,7 +285,7 @@ describe('App Component Layout and Footer Positioning', () => {
     expect(contactHeading).toHaveClass('font-semibold');
 
     // Copyright text should be smaller and muted
-    const copyrightText = screen.getByText(/© 2025 Mova/);
+    const copyrightText = screen.getByText(new RegExp(`© ${new Date().getFullYear()} Mova`));
     expect(copyrightText).toHaveClass('text-sm', 'text-muted-foreground');
   });
 

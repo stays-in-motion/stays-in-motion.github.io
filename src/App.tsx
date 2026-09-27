@@ -3,6 +3,7 @@ import { Navigation } from '@/components/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { SupportSection } from '@/components/sections/SupportSection';
+import { PrivacySection } from '@/components/sections/PrivacySection';
 import { ChangelogSection } from '@/components/sections/ChangelogSection';
 import { DownloadSection } from '@/components/sections/DownloadSection';
 import './index.css';
@@ -13,7 +14,7 @@ export function App() {
   // Handle scroll-based section detection
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'support', 'changelog', 'download'];
+      const sections = ['hero', 'about', 'support', 'privacy', 'changelog', 'download'];
       const scrollPosition = window.scrollY + 100; // Offset for header
 
       for (const sectionId of sections.reverse()) {
@@ -63,6 +64,9 @@ export function App() {
         {/* Support Section */}
         <SupportSection />
 
+        {/* Privacy Section */}
+        <PrivacySection />
+
         {/* Changelog Section */}
         <ChangelogSection />
 
@@ -78,7 +82,8 @@ export function App() {
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-accent-energy">Mova</h3>
               <p className="text-muted-foreground">
-                Transform your playlists into perfect interval workouts. Stay in motion with music that moves you.
+                Build instructor-ready fitness classes with structured intervals, music guidance, and plans you can edit
+                and reuse.
               </p>
             </div>
 
@@ -99,6 +104,12 @@ export function App() {
                   Get Support
                 </button>
                 <button
+                  onClick={() => document.getElementById('privacy')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="block text-muted-foreground hover:text-accent-progress transition-colors"
+                >
+                  Privacy Policy
+                </button>
+                <button
                   onClick={() => document.getElementById('changelog')?.scrollIntoView({ behavior: 'smooth' })}
                   className="block text-muted-foreground hover:text-accent-intensity transition-colors"
                 >
@@ -112,10 +123,10 @@ export function App() {
               <h4 className="font-semibold">Get in Touch</h4>
               <div className="space-y-2">
                 <a
-                  href="mailto:movastaysinmotionar@gmail.com"
+                  href="mailto:support@staysinmotion.com"
                   className="block text-muted-foreground hover:text-accent-energy transition-colors"
                 >
-                  movastaysinmotionar@gmail.com
+                  support@staysinmotion.com
                 </a>
                 <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLSeOpCWZYp8dD2lPWSu5dPNjbx_TdKtl0UCe7t-ku3O9Zth12Q/viewform"

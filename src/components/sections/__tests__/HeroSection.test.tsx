@@ -28,7 +28,7 @@ describe('HeroSection', () => {
   test('renders descriptive subtitle', () => {
     render(<HeroSection onDownloadClick={mockOnDownloadClick} onLearnMoreClick={mockOnLearnMoreClick} />);
 
-    expect(screen.getByText(/transform your playlists into perfect interval workouts/i)).toBeInTheDocument();
+    expect(screen.getByText(/build personalized fitness classes/i)).toBeInTheDocument();
   });
 
   test('renders Download App button with correct styling and functionality', () => {
@@ -102,7 +102,7 @@ describe('HeroSection', () => {
     render(<HeroSection onDownloadClick={mockOnDownloadClick} onLearnMoreClick={mockOnLearnMoreClick} />);
 
     // Additional particles should have animation delays
-    const delayedParticles = document.querySelectorAll('[style*="animationDelay"]');
+    const delayedParticles = document.querySelectorAll('[style*="animation-delay"]');
     expect(delayedParticles.length).toBe(2);
 
     // Verify specific delays
@@ -200,7 +200,7 @@ describe('HeroSection', () => {
     const heading = screen.getByRole('heading', { name: /stay in motion/i });
     expect(heading).toHaveClass('text-5xl', 'md:text-6xl', 'lg:text-7xl');
 
-    const subtitle = screen.getByText(/transform your playlists/i);
+    const subtitle = screen.getByText(/build personalized fitness classes/i);
     expect(subtitle).toHaveClass('text-xl', 'md:text-2xl');
   });
 
@@ -216,9 +216,9 @@ describe('HeroSection', () => {
   test('style injection works correctly', () => {
     render(<HeroSection onDownloadClick={mockOnDownloadClick} onLearnMoreClick={mockOnLearnMoreClick} />);
 
-    // Verify that document.createElement was called for style injection
+    // Verify that the module created and attached its animation stylesheet.
     expect(global.document.createElement).toHaveBeenCalledWith('style');
-    expect(global.document.head.appendChild).toHaveBeenCalled();
+    expect(document.head.textContent).toContain('@keyframes fade-in-up');
   });
 
   test('handles missing callback props gracefully', () => {
@@ -245,7 +245,7 @@ describe('HeroSection', () => {
   test('subtitle has proper constraints and spacing', () => {
     render(<HeroSection onDownloadClick={mockOnDownloadClick} onLearnMoreClick={mockOnLearnMoreClick} />);
 
-    const subtitle = screen.getByText(/transform your playlists/i);
+    const subtitle = screen.getByText(/build personalized fitness classes/i);
     expect(subtitle).toHaveClass('max-w-2xl', 'mx-auto', 'leading-relaxed', 'mb-8');
   });
 });

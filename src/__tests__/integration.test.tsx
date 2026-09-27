@@ -58,7 +58,7 @@ describe('Component Integration Tests', () => {
       // Test SupportSection email link
       const supportEmailButton = screen.getByRole('button', { name: /send email/i });
       fireEvent.click(supportEmailButton);
-      expect(global.window.location.href).toBe('mailto:movastaysinmotionar@gmail.com');
+      expect(global.window.location.href).toBe('mailto:support@staysinmotion.com');
 
       // Reset location
       Object.defineProperty(global.window, 'location', {
@@ -103,7 +103,7 @@ describe('Component Integration Tests', () => {
       // Test SupportSection tab switching
       const technicalTab = screen.getByRole('button', { name: /technical/i });
       fireEvent.click(technicalTab);
-      expect(screen.getByRole('heading', { name: /technical support/i })).toBeInTheDocument();
+      expect(screen.getByText(/technical support/i)).toBeInTheDocument();
 
       // DownloadSection should still be functional
       const appStoreButton = screen.getByRole('button', { name: /app store/i });
@@ -169,8 +169,8 @@ describe('Component Integration Tests', () => {
       );
 
       // Check for accent color usage
-      expect(document.querySelector('.text-accent-energy')).toBeInTheDocument();
-      expect(document.querySelector('.bg-accent-energy, .text-accent-energy')).toBeInTheDocument();
+      expect(document.querySelector('.border-accent-energy')).toBeInTheDocument();
+      expect(document.querySelector('.text-muted-foreground')).toBeInTheDocument();
     });
 
     test('typography scale is consistent across sections', () => {

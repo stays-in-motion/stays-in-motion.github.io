@@ -1,42 +1,27 @@
 import { beforeAll, mock } from 'bun:test';
+import { Window } from 'happy-dom';
 import '@testing-library/jest-dom';
+
+const testWindow = new Window({ url: 'https://staysinmotion.com/' });
+
+Object.assign(globalThis, {
+  document: testWindow.document,
+  Element: testWindow.Element,
+  HTMLElement: testWindow.HTMLElement,
+  navigator: testWindow.navigator,
+  Node: testWindow.Node,
+  window: testWindow,
+});
+
+const createElement = global.document.createElement.bind(global.document);
+global.document.createElement = mock((tagName: string, options?: ElementCreationOptions) =>
+  createElement(tagName, options),
+) as typeof global.document.createElement;
 
 // Mock window.open and window.location for tests
 beforeAll(() => {
   // Mock window.open
   global.window.open = mock(() => null);
-
-  // Mock window.location.href setter
-  Object.defineProperty(global.window, 'location', {
-    value: {
-      href: '',
-      assign: mock(),
-      reload: mock(),
-    },
-    writable: true,
-  });
-
-  // Mock document.createElement and DOM APIs
-  const mockStyle = {
-    textContent: '',
-  };
-
-  global.document.createElement = mock((tagName: string) => {
-    if (tagName === 'style') {
-      return {
-        ...mockStyle,
-        textContent: '',
-      };
-    }
-    return {} as any;
-  }) as any;
-
-  Object.defineProperty(global.document, 'head', {
-    value: {
-      appendChild: mock(),
-    },
-    writable: true,
-  });
 
   // Mock matchMedia for responsive tests
   global.window.matchMedia = mock((query: string) => ({

@@ -79,6 +79,7 @@ export const DEFAULT_SECTIONS: NavigationSection[] = [
   { id: 'hero', label: 'Home', href: '#hero' },
   { id: 'about', label: 'About', href: '#about' },
   { id: 'support', label: 'Support', href: '#support' },
+  { id: 'privacy', label: 'Privacy', href: '#privacy' },
   { id: 'download', label: 'Download', href: '#download' },
 ];
 

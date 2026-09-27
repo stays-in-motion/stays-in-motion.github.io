@@ -44,14 +44,7 @@ describe('SupportSection', () => {
     if (global.window.open) {
       (global.window.open as any).mockClear();
     }
-    Object.defineProperty(global.window, 'location', {
-      value: {
-        href: '',
-        assign: mock(),
-        reload: mock(),
-      },
-      writable: true,
-    });
+    global.window.location.href = 'https://staysinmotion.com/';
   });
 
   test('renders main heading and description', () => {
@@ -77,8 +70,8 @@ describe('SupportSection', () => {
     expect(faqTab.closest('.ring-2')).toBeInTheDocument(); // Active state ring
 
     // FAQ content should be visible
-    expect(screen.getByRole('heading', { name: /frequently asked questions/i })).toBeInTheDocument();
-    expect(screen.getByText(/how do i convert a spotify playlist/i)).toBeInTheDocument();
+    expect(screen.getByText(/frequently asked questions/i)).toBeInTheDocument();
+    expect(screen.getByText(/how do i create a class/i)).toBeInTheDocument();
   });
 
   test('clicking Technical tab switches content', () => {
@@ -88,27 +81,25 @@ describe('SupportSection', () => {
     fireEvent.click(technicalTab);
 
     // Technical content should be visible
-    expect(screen.getByRole('heading', { name: /technical support/i })).toBeInTheDocument();
+    expect(screen.getByText(/technical support/i)).toBeInTheDocument();
     expect(screen.getByText(/system requirements/i)).toBeInTheDocument();
-    expect(screen.getByText(/ios 15.1 or later required/i)).toBeInTheDocument();
+    expect(screen.getByText(/a supported iphone and current version of ios/i)).toBeInTheDocument();
 
     // FAQ content should no longer be visible
-    expect(screen.queryByRole('heading', { name: /frequently asked questions/i })).not.toBeInTheDocument();
+    expect(screen.queryByText(/frequently asked questions/i)).not.toBeInTheDocument();
   });
 
-  test('Account and Workouts tabs show coming soon content', () => {
+  test('Account and Workouts tabs expose current help content', () => {
     render(<SupportSection />);
 
-    // These tabs are not clickable, just display "Coming Soon"
-    const accountTab = screen.getByText('Account').closest('.cursor-pointer');
-    const workoutsTab = screen.getByText('Workouts').closest('.cursor-pointer');
+    const accountTab = screen.getByRole('button', { name: /account/i });
+    const workoutsTab = screen.getByRole('button', { name: /workouts/i });
 
-    expect(accountTab).toBeNull(); // Should not be clickable
-    expect(workoutsTab).toBeNull(); // Should not be clickable
+    fireEvent.click(accountTab);
+    expect(screen.getByText(/archive account/i)).toBeInTheDocument();
 
-    // They should have "Coming Soon" text
-    const comingSoonTexts = screen.getAllByText('Coming Soon');
-    expect(comingSoonTexts.length).toBeGreaterThanOrEqual(2);
+    fireEvent.click(workoutsTab);
+    expect(screen.getByText(/review every generated class/i)).toBeInTheDocument();
   });
 
   test('active tab has visual highlighting', () => {
@@ -158,21 +149,21 @@ describe('SupportSection', () => {
     const emailButton = screen.getByRole('button', { name: /send email/i });
     fireEvent.click(emailButton);
 
-    expect(global.window.location.href).toBe('mailto:movastaysinmotionar@gmail.com');
+    expect(global.window.location.href).toBe('mailto:support@staysinmotion.com');
   });
 
   test('FAQ content includes key questions and answers', () => {
     render(<SupportSection />);
 
     // Should be on FAQ by default
-    expect(screen.getByText(/how do i convert a spotify playlist/i)).toBeInTheDocument();
-    expect(screen.getByText(/simply paste your spotify playlist url/i)).toBeInTheDocument();
+    expect(screen.getByText(/how do i create a class/i)).toBeInTheDocument();
+    expect(screen.getByText(/open create class/i)).toBeInTheDocument();
 
-    expect(screen.getByText(/can i save my workout conversions/i)).toBeInTheDocument();
-    expect(screen.getByText(/create an account to save/i)).toBeInTheDocument();
+    expect(screen.getByText(/can i edit and save a generated class/i)).toBeInTheDocument();
+    expect(screen.getByText(/saved classes can be reopened/i)).toBeInTheDocument();
 
-    expect(screen.getByText(/is there a guest mode/i)).toBeInTheDocument();
-    expect(screen.getByText(/you can use the converter without creating an account/i)).toBeInTheDocument();
+    expect(screen.getByText(/how do subscriptions work/i)).toBeInTheDocument();
+    expect(screen.getByText(/monthly or yearly auto-renewing subscription/i)).toBeInTheDocument();
   });
 
   test('Technical content includes system requirements and troubleshooting', () => {
@@ -182,14 +173,19 @@ describe('SupportSection', () => {
     fireEvent.click(technicalTab);
 
     expect(screen.getByText(/system requirements/i)).toBeInTheDocument();
-    expect(screen.getByText(/ios 15.1 or later required/i)).toBeInTheDocument();
-    expect(screen.getByText(/internet connection needed/i)).toBeInTheDocument();
+    expect(screen.getByText(/a supported iphone and current version of ios/i)).toBeInTheDocument();
+    expect(screen.getByText(/internet connection for sign-in/i)).toBeInTheDocument();
 
     expect(screen.getByText(/common issues & solutions/i)).toBeInTheDocument();
-    expect(screen.getByText(/app crashes.*force close and restart/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        (_, element) =>
+          element?.tagName === 'LI' && /app crashes: force close and restart/i.test(element.textContent ?? ''),
+      ),
+    ).toBeInTheDocument();
 
     expect(screen.getByText(/performance tips/i)).toBeInTheDocument();
-    expect(screen.getByText(/close other apps before converting/i)).toBeInTheDocument();
+    expect(screen.getByText(/keep mova and ios updated/i)).toBeInTheDocument();
   });
 
   test('renders all required icons', () => {
@@ -211,9 +207,13 @@ describe('SupportSection', () => {
 
     const faqTab = screen.getByRole('button', { name: /faq/i });
     const technicalTab = screen.getByRole('button', { name: /technical/i });
+    const accountTab = screen.getByRole('button', { name: /account/i });
+    const workoutsTab = screen.getByRole('button', { name: /workouts/i });
 
     expect(faqTab.closest('.cursor-pointer')).toBeInTheDocument();
     expect(technicalTab.closest('.cursor-pointer')).toBeInTheDocument();
+    expect(accountTab.closest('.cursor-pointer')).toBeInTheDocument();
+    expect(workoutsTab.closest('.cursor-pointer')).toBeInTheDocument();
   });
 
   test('includes device information request in contact section', () => {

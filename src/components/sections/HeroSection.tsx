@@ -41,7 +41,7 @@ export function HeroSection({ onDownloadClick, onLearnMoreClick }: HeroSectionPr
             Stay in <span className="text-accent-energy">Motion</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Transform your playlists into perfect interval workouts
+            Build personalized fitness classes with structured intervals and music guidance
           </p>
 
           {/* Optimized CTA buttons - Essential animations only */}

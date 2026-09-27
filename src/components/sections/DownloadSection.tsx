@@ -74,7 +74,7 @@ function DeviceMockupGrid() {
           </div>
         </div>
         <h4 className="font-semibold mb-2 text-muted-foreground">Tablet & Android</h4>
-        <p className="text-sm text-muted-foreground">In development for 2025</p>
+        <p className="text-sm text-muted-foreground">Not currently available</p>
       </div>
 
       {/* Coming Soon - Desktop */}
@@ -98,12 +98,14 @@ export function DownloadSection() {
   };
 
   return (
-    <section id="download" className="py-20">
+    <section id="download" className="py-20" aria-labelledby="download-heading">
       <div className="container mx-auto px-6 text-center">
         <div className="scroll-reveal mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Get Moving?</h2>
+          <h2 id="download-heading" className="text-4xl md:text-5xl font-bold mb-6">
+            Ready to Get Moving?
+          </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Download Mova and transform your music into motivation
+            Download Mova and start building your next fitness class
           </p>
         </div>
 
@@ -122,7 +124,7 @@ export function DownloadSection() {
         {/* Coming Soon Notice */}
         <div className="bg-muted/30 rounded-lg p-4 max-w-md mx-auto mb-12 scroll-reveal">
           <p className="text-sm text-muted-foreground text-center">
-            <strong>Android & Web versions</strong> coming in 2025. Currently available on iOS only.
+            Mova is currently available on iPhone. Android, tablet, and web versions are not currently available.
           </p>
         </div>
 

@@ -22,6 +22,7 @@ export function Navigation({ activeSection }: NavigationProps) {
     { id: 'hero', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'support', label: 'Support' },
+    { id: 'privacy', label: 'Privacy' },
     { id: 'changelog', label: 'Changelog' },
     { id: 'download', label: 'Download' },
   ];

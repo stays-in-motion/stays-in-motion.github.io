@@ -99,7 +99,7 @@ export function Changelog() {
         <div className="space-y-2">
           <div>
             <a
-              href="mailto:movastaysinmotionar@gmail.com"
+              href="mailto:support@staysinmotion.com"
               className="text-primary hover:text-primary/80 underline text-sm transition-colors"
             >
               Subscribe to release notifications

@@ -29,7 +29,7 @@ export function AboutSection() {
         <div className="text-center mb-12 scroll-reveal">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Why Mova?</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            The perfect blend of music and movement for your fitness journey
+            A practical planning workspace for fitness instructors
           </p>
         </div>
 
@@ -37,20 +37,20 @@ export function AboutSection() {
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <FeatureCard
             icon={<Play size={32} className="text-accent-energy" />}
-            title="Playlist Power"
-            description="Convert any Spotify playlist into timed workout intervals that match your music's energy"
+            title="Guided Class Builder"
+            description="Choose the class style, duration, intensity, equipment, music, and interval structure"
             delay="0ms"
           />
           <FeatureCard
             icon={<User size={32} className="text-accent-progress" />}
             title="Personal Library"
-            description="Save and organize your favorite workout conversions for quick access anytime"
+            description="Save generated classes, reopen them for editing, and keep reusable plans together"
             delay="100ms"
           />
           <FeatureCard
             icon={<Zap size={32} className="text-accent-intensity" />}
-            title="Instant Energy"
-            description="Quick setup gets you moving in seconds - no complex configuration needed"
+            title="Editable Results"
+            description="Review every generated interval and music recommendation before teaching your class"
             delay="200ms"
           />
         </div>

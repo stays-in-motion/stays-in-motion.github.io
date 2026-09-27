@@ -101,10 +101,12 @@ function TimelineEntry({ release, index, isLast }: TimelineEntryProps) {
 
 export function ChangelogSection() {
   return (
-    <section id="changelog" className="py-20 bg-secondary/30">
+    <section id="changelog" className="py-20 bg-secondary/30" aria-labelledby="changelog-heading">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 scroll-reveal">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">App Evolution</h2>
+          <h2 id="changelog-heading" className="text-4xl md:text-5xl font-bold mb-4">
+            App Evolution
+          </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Follow Mova's journey as we continuously improve your workout experience
           </p>
