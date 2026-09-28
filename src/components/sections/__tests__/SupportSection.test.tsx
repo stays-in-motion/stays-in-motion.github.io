@@ -1,3 +1,4 @@
+import { MOVA_ACCOUNT_DELETION_COPY } from '@/constants/account-deletion';
 import { test, expect, describe, beforeEach, mock } from 'bun:test';
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import { SupportSection } from '../SupportSection';
@@ -92,7 +93,16 @@ describe('SupportSection', () => {
     const workoutsTab = screen.getByRole('button', { name: /workouts/i });
 
     fireEvent.click(accountTab);
-    expect(screen.getByText(/archive account/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: MOVA_ACCOUNT_DELETION_COPY.label })).toBeInTheDocument();
+    expect(screen.getByText(MOVA_ACCOUNT_DELETION_COPY.receipt)).toBeInTheDocument();
+    expect(screen.getByText(MOVA_ACCOUNT_DELETION_COPY.fulfillment)).toBeInTheDocument();
+    expect(screen.getByText(MOVA_ACCOUNT_DELETION_COPY.billingWarning)).toBeInTheDocument();
+    expect(screen.getByText(/separate Manage Subscriptions link/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: MOVA_ACCOUNT_DELETION_COPY.privacyLinkLabel })).toHaveAttribute(
+      'href',
+      MOVA_LINKS.privacy,
+    );
+    expect(screen.queryByRole('heading', { name: /archive account/i })).not.toBeInTheDocument();
 
     fireEvent.click(workoutsTab);
     expect(screen.getByText(/review every generated class/i)).toBeInTheDocument();

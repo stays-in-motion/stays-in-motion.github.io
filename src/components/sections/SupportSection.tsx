@@ -1,3 +1,4 @@
+import { MOVA_ACCOUNT_DELETION_COPY } from '@/constants/account-deletion';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -210,12 +211,26 @@ export function SupportSection() {
                   </p>
                 </div>
                 <div className="border-l-4 border-accent-intensity pl-4">
-                  <h4 className="font-semibold mb-2">Archive Account</h4>
-                  <p className="text-muted-foreground text-sm">
-                    Archiving signs you out and prevents continued app access. It retains the account record and related
-                    information for support and compliance; it is not permanent deletion. Contact support for a data
-                    deletion request.
-                  </p>
+                  <h4 className="font-semibold mb-2">{MOVA_ACCOUNT_DELETION_COPY.label}</h4>
+                  <div className="text-muted-foreground text-sm space-y-3">
+                    <p>{MOVA_ACCOUNT_DELETION_COPY.initiation}</p>
+                    <p>{MOVA_ACCOUNT_DELETION_COPY.receipt}</p>
+                    <p>{MOVA_ACCOUNT_DELETION_COPY.fulfillment}</p>
+                    <p>{MOVA_ACCOUNT_DELETION_COPY.billingWarning}</p>
+                    <p>
+                      The separate Manage Subscriptions link in Settings opens Apple's subscription management. If Mova
+                      cannot confirm your deletion request, your session remains open so you can try again or contact
+                      support. See the{' '}
+                      <a
+                        className="text-primary underline underline-offset-4"
+                        href={MOVA_LINKS.privacy}
+                        aria-label={MOVA_ACCOUNT_DELETION_COPY.privacyLinkLabel}
+                      >
+                        Privacy Policy
+                      </a>{' '}
+                      for retained financial records and service-provider handling.
+                    </p>
+                  </div>
                 </div>
               </CardContent>
             </Card>

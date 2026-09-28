@@ -1,3 +1,4 @@
+import { MOVA_ACCOUNT_DELETION_COPY } from '@/constants/account-deletion';
 import { describe, expect, test } from 'bun:test';
 import { render, screen } from '@testing-library/react';
 import { PrivacySection } from '../PrivacySection';
@@ -15,10 +16,24 @@ describe('PrivacySection', () => {
     expect(screen.getByText('Apple Music, MusicBrainz, and Spotify')).toBeInTheDocument();
   });
 
-  test('states that archive is not permanent deletion', () => {
+  test('explains a pending request, manual completion, retained records, and historical archive', () => {
     render(<PrivacySection />);
 
-    expect(screen.getByText(/it is not permanent account deletion/i)).toBeInTheDocument();
+    for (const copy of [
+      MOVA_ACCOUNT_DELETION_COPY.initiation,
+      MOVA_ACCOUNT_DELETION_COPY.receipt,
+      MOVA_ACCOUNT_DELETION_COPY.fulfillment,
+      MOVA_ACCOUNT_DELETION_COPY.retainedRecords,
+      MOVA_ACCOUNT_DELETION_COPY.billingWarning,
+      MOVA_ACCOUNT_DELETION_COPY.historicalArchive,
+    ]) {
+      expect(screen.getByText(copy)).toBeInTheDocument();
+    }
+    expect(screen.getByText(/including saved classes, templates, uploaded documents/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/removed from the deletion-request record after that notice is confirmed/i),
+    ).toBeInTheDocument();
+    expect(screen.queryByText(/linked support form/i)).not.toBeInTheDocument();
   });
 
   test('provides the canonical support address', () => {

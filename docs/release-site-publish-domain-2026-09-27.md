@@ -155,3 +155,40 @@ Prefer content rollback over restoring the broken Replit target:
 
 Do not use the historical GitHub Pages artifact as a release fallback: it lacks
 the direct-load privacy and terms routes needed for App Store review.
+
+## September 28 account-deletion preparation
+
+The propagation/certificate wait described above is historical and now resolved.
+The closed trusted readback confirms HTTPS enforcement, approved apex/www
+certificate, 200 responses on canonical `/`, `/privacy/` and `/terms/`, and
+HTTPS-preserving redirect chains from www, HTTP apex and the default GitHub
+origin. No repeat domain/DNS mutation or publication was performed for this
+copy change.
+
+New deletion wording is prepared locally in Privacy, Account Help and Terms.
+It describes the in-app authenticated request, pending server receipt,
+seven-day manual fulfillment target, email confirmation, independent Apple
+subscription cancellation, retained financial/accounting records and historical
+Archive distinction. The obsolete support-form mention is removed. The site
+shares request/receipt/billing strings rather than duplicating them.
+
+This preparation is not public acceptance. Native's deletion delta is locally
+verified and awaiting the single combined review; installed build 36 still has
+Archive. Publish only after the deployed endpoint, operator completion and exact
+replacement signed artifact are accepted, the operational target/effective date
+are confirmed, and the exact rollout is authorized. A push to `master` runs the
+existing Pages workflow, so this source change is committed locally only.
+
+[Exact Apple field draft](release-account-deletion/APPLE_METADATA.md) contains
+field lengths, actual native review instructions, corrected RevenueCat privacy
+purposes, both logo-only subscription review-image findings, and current
+identity-bound iOS-on-Mac reference capture paths. These references are not final
+iPhone upload assets. Provider/mailbox/backup retention and retained-accounting
+periods remain explicit owner facts; no erasure guarantee is invented.
+
+[Local verification and review](release-account-deletion/TEST_RESULTS.md) records
+113 SITE tests across eight files, focused section checks, types and release-site
+build verification. The original local publication-progress commit `22e3914` is
+preserved. No Apple field save, screenshot upload, build selection, submission,
+purchase, provider generation, backend/native change, paid build or SITE push
+is part of this preparation. All future Pilates remains paused.

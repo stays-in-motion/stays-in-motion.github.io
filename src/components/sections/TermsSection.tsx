@@ -1,3 +1,4 @@
+import { MOVA_ACCOUNT_DELETION_COPY } from '@/constants/account-deletion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MOVA_LINKS, MOVA_SUPPORT_EMAIL } from '@/constants/links';
 
@@ -14,7 +15,7 @@ export function TermsSection() {
             <h1 id="terms-heading" className="text-4xl md:text-5xl font-bold mb-4">
               Mova Terms of Service
             </h1>
-            <p className="text-muted-foreground">Effective September 27, 2026</p>
+            <p className="text-muted-foreground">Effective September 28, 2026</p>
           </div>
 
           <div className="space-y-6">
@@ -88,6 +89,7 @@ export function TermsSection() {
                   Purchases, renewals, subscription management, and cancellation are handled through your Apple account.
                   Mova provides in-app actions to restore purchases and open Apple's subscription-management experience.
                 </p>
+                <p>{MOVA_ACCOUNT_DELETION_COPY.billingWarning}</p>
               </CardContent>
             </Card>
 
@@ -101,7 +103,7 @@ export function TermsSection() {
                   <a className="text-primary underline underline-offset-4" href={MOVA_LINKS.privacy}>
                     Privacy Policy
                   </a>{' '}
-                  explains the service's data handling and account-archiving behavior.
+                  explains the service's data handling, account-deletion requests, and retained records.
                 </p>
                 <p>
                   Questions about these terms or the service can be sent to{' '}

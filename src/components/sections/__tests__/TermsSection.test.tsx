@@ -1,3 +1,4 @@
+import { MOVA_ACCOUNT_DELETION_COPY } from '@/constants/account-deletion';
 import { describe, expect, test } from 'bun:test';
 import { render, screen } from '@testing-library/react';
 import { TermsSection } from '../TermsSection';
@@ -16,6 +17,8 @@ describe('TermsSection', () => {
     render(<TermsSection />);
 
     expect(screen.getByText(/monthly and yearly auto-renewing subscriptions/i)).toBeInTheDocument();
+    expect(screen.getByText(MOVA_ACCOUNT_DELETION_COPY.billingWarning)).toBeInTheDocument();
+    expect(screen.getByText(/account-deletion requests, and retained records/i)).toBeInTheDocument();
     expect(screen.getByText(/planning assistance, not medical advice/i)).toBeInTheDocument();
     expect(screen.getByText(/only upload or submit material you are permitted to use/i)).toBeInTheDocument();
   });

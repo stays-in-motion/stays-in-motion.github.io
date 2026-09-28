@@ -1,3 +1,4 @@
+import { MOVA_ACCOUNT_DELETION_COPY } from '@/constants/account-deletion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MOVA_LINKS, MOVA_SUPPORT_EMAIL } from '@/constants/links';
 
@@ -20,7 +21,7 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
             <h2 id="privacy-heading" className="text-4xl md:text-5xl font-bold mb-4">
               Privacy Policy
             </h2>
-            <p className="text-muted-foreground">Effective September 27, 2026</p>
+            <p className="text-muted-foreground">Effective September 28, 2026</p>
           </div>
 
           <div className="space-y-6">
@@ -59,8 +60,7 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
                     request or generated-output context needed to operate, secure, and troubleshoot the service.
                   </li>
                   <li>
-                    <strong className="text-foreground">Support information:</strong> the details you send by email or
-                    through the linked support form.
+                    <strong className="text-foreground">Support information:</strong> the details you send by email.
                   </li>
                 </ul>
               </CardContent>
@@ -98,7 +98,8 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
                   </li>
                   <li>
                     <strong className="text-foreground">RevenueCat and Apple</strong> for subscription offerings,
-                    purchases, restores, and entitlement status.
+                    purchases, restores, and entitlement status. RevenueCat also provides subscription and purchase
+                    reporting.
                   </li>
                   <li>
                     <strong className="text-foreground">Cloudflare AI Gateway and OpenAI</strong> to process class
@@ -112,8 +113,8 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
                     Verified metadata may be cached without being treated as your private account content.
                   </li>
                   <li>
-                    <strong className="text-foreground">Email providers</strong> when you choose to contact support by
-                    email.
+                    <strong className="text-foreground">Email providers</strong> for support correspondence and
+                    account-deletion completion notices.
                   </li>
                 </ul>
               </CardContent>
@@ -121,22 +122,27 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
 
             <Card>
               <CardHeader>
-                <CardTitle>Storage, control, and account archiving</CardTitle>
+                <CardTitle>Storage, control, and account deletion</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 text-sm text-muted-foreground leading-relaxed">
                 <p>
                   Mova keeps information for as long as it is needed to provide and secure the service, meet accounting
-                  or legal obligations, resolve disputes, and support users. Vendor systems may keep their own service
-                  and security records under their policies. Mova does not promise a fixed deletion period where the
-                  product and provider configuration do not enforce one.
+                  or legal obligations, resolve disputes, and support users. Service providers may retain their own
+                  service, security, or support records under their policies and configured controls.
                 </p>
+                <p>{MOVA_ACCOUNT_DELETION_COPY.initiation}</p>
+                <p>{MOVA_ACCOUNT_DELETION_COPY.receipt}</p>
+                <p>{MOVA_ACCOUNT_DELETION_COPY.fulfillment}</p>
                 <p>
-                  You can remove individual saved content where the app provides a delete or archive control. The
-                  current <strong className="text-foreground">Archive Account</strong> action signs you out and prevents
-                  continued app access, but it retains the account record and related information for support and
-                  compliance; it is not permanent account deletion. Contact support to request access, correction, or
-                  deletion review.
+                  Deletion removes your Mova account and owned class-planning content, including saved classes,
+                  templates, uploaded documents, and associated processing records. Your contact email is kept to send
+                  completion confirmation and is removed from the deletion-request record after that notice is
+                  confirmed.
                 </p>
+                <p>{MOVA_ACCOUNT_DELETION_COPY.retainedRecords}</p>
+                <p>{MOVA_ACCOUNT_DELETION_COPY.billingWarning}</p>
+                <p>{MOVA_ACCOUNT_DELETION_COPY.historicalArchive}</p>
+                <p>Contact support for access, correction, or help with a deletion request.</p>
               </CardContent>
             </Card>
 
