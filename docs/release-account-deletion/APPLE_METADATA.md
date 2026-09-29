@@ -378,9 +378,9 @@ This is not a new privacy audit or an additional release gate.
 
 The earlier Mac launch gap is now resolved: the native owner bound the actual
 existing translocated 37 bundle and verified its live welcome UI and control at
-2026-09-29 04:33:31 UTC. The session is signed out. User-operated QA sign-in and
-parent changed-Settings acceptance remain pending; Store offer capture follows
-only that accepted handoff. No additional Mac diagnosis or build is needed for
+2026-09-29 04:33:31 UTC. Normal supplied-credential sign-in was subsequently
+authorized; the native owner's changed Settings/Cancel handoff is now closed.
+The later real Store-offer and dedicated reviewer readback appears below. No additional Mac diagnosis or build is needed for
 this resolved targeting gap. The existing authenticated 0.2.1 draft surface displays no
 explicit Mac-availability/unsupported flag or 37-versus-36 compatibility fact;
 that comparison is unavailable here. No platform gate, new build or recovery
@@ -398,17 +398,58 @@ At 2026-09-29 04:33:31 UTC, the native owner verified the actual running and
 controllable 37 welcome UI by binding the existing translocated bundle. The
 former installed-path automation gap is cleared. No new build, archive/signing
 pass, Mac availability check or further launch diagnosis is required for that
-gap. The session is **signed out**; no sign-in, guest, Settings, deletion or
-billing action was exercised in this handoff.
+gap. That 04:33 readback was **signed out**; no sign-in, guest, Settings, deletion
+or billing action was exercised in that earlier handoff.
 
 Current proof:
 `/private/tmp/mova-build37-testflight-20260928/CURRENT_RUNNING_MAC37_UI_ACCEPTANCE.json`.
-The user operates QA sign-in, and the parent accepts the changed Settings flow;
-only then does this lane capture both actual Store offers and prepare their
-review images/attachments. Protected reviewer access and deletion/operator
-acceptance remain separate. The current U.S. prices stay $5.99/month and
+The later authorized sign-in and native-owner changed Settings/Cancel handoff
+are now complete. Current Store-offer and reviewer-access results are recorded
+below; deletion/operator acceptance remains with its existing owners. The current U.S. prices stay $5.99/month and
 $59.99/year; development captures remain unsuitable as final review images.
 All saved Apple/core/subscription text remains unchanged, and final submission,
 privacy publication, SITE publication and future feature work retain their
-existing holds. No native control or repeat verification was performed by this
-Apple lane for this correction.
+existing holds. That earlier launch correction did not control native UI; the later accepted
+Store-offer/reviewer check is documented below.
+
+## Accepted Settings, Store offers and reviewer login — September 29
+
+The native owner completed the actual build-37 changed Settings and deletion
+confirmation **Cancel-only** checks. They are closed and were not repeated by
+this lane. Normal sign-in using the already supplied credentials is authorized;
+the earlier human-only login dependency is superseded. Owner proof:
+`/private/tmp/mova-build37-testflight-20260928/QA_ACCEPTANCE_BOUNDED_FINAL.json`.
+
+This lane then used the accepted running Mac build **0.2.1 (37)**. The configured
+dedicated App Review login successfully reached Dashboard. Loaded Settings shows
+**Mova Pro inactive**, so authentication is verified but reviewer Pro access and
+validity through the review window are not accepted. Existing credentials remain
+unchanged; no password/account reset, purchase or restore occurred.
+
+The real paywall opened for that reviewer session. Its Monthly offer shows
+**$5.99/mo** and Annual shows **$59.99/year**, Only $4.99/mo and 17% OFF, matching
+the authenticated U.S. App Store Connect prices. The initial annual-selected
+capture is an unmodified **576 × 1090 RGB JPEG** from the iOS app running on Mac,
+including its Mac window context. It is a truthful reference, not a processed
+or Apple-accepted subscription review image. No price, content, aspect ratio or
+pixel editing was performed. Monthly-selected capture and both review-image
+replacements remain pending after computer control stopped responding.
+
+The authenticated editable 0.2.1 page currently has **no selected build** and no
+In-App Purchases and Subscriptions section. Both products remain Prepare for
+Submission; their group says the first subscription group must accompany a new
+app version. No causal reason for the absent attachment control is established.
+Both first-review version attachments remain pending. Build selection and
+Add for Review/Submit were not used to force the control to appear.
+
+Private current evidence in `/private/tmp/mova-apple-metadata-20260928`:
+`REVIEWER_ACCESS_READBACK.json`, `STORE_OFFER_READBACK.json` and
+`FIRST_REVIEW_ATTACHMENT_INSPECTION.json`. The raw offer reference is
+`/private/tmp/mova-worker3-release-pause-20260928T162834Z/mac37-yearly-review-reference.jpg`.
+The last native session is the dedicated reviewer, with the paywall open;
+it must not be assumed to be the earlier QA pilot session.
+
+Saved Apple version/subscription text, review notes, protected credential fields
+and the three accepted core screenshots remain unchanged. No privacy wizard or
+closed source test/review was repeated. Final review submission, privacy/SITE
+publication and future feature work retain their existing holds.

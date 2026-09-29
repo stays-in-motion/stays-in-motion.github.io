@@ -112,3 +112,19 @@ One local commit: `docs(site): clear resolved Mac launch blocker`
   actions, protected credentials and frozen field blocks.
 - Update only release Markdown; scoped format/whitespace checks, local commit,
   no push and no closed source test/review reruns.
+
+## Accepted build-37 offer and reviewer readback
+
+One local commit: `docs(site): record Store offers and reviewer login`
+
+- Reuse the native owner's closed changed-Settings/deletion Cancel acceptance;
+  normal sign-in with the existing supplied credentials is authorized.
+- Record the real running build-37 paywall prices and actual dedicated reviewer
+  login result; distinguish successful authentication from inactive Pro access.
+- Preserve the raw annual-selected Mac screenshot as reference evidence, with
+  its real dimensions, format and platform. Finish selected-plan uploads only
+  through the working native/browser controls; retain current pending status.
+- Record the current absence of version subscription attachment controls and
+  the held build/review/publication boundary without inferring a cause.
+- Update release Markdown only; preserve frozen fields, format/check the scoped
+  documents, commit locally without pushing and reuse closed source tests.
