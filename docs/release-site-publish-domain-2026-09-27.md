@@ -193,7 +193,7 @@ preserved. No Apple field save, screenshot upload, build selection, submission,
 purchase, provider generation, backend/native change, paid build or SITE push
 is part of this preparation. All future Pilates remains paused.
 
-## September 28 Apple packet closeout
+## September 28 initial Apple packet closeout
 
 The local deletion-copy source remains `78f2606b7947bf2ea5b7372ea3f8d654a5a60e1f`.
 The docs-only follow-up binds exact Apple text and real native iPhone captures
@@ -207,3 +207,25 @@ handling remain with their assigned release lanes. The complete paths and narrow
 [RELEASE_HANDOFF.md](release-account-deletion/RELEASE_HANDOFF.md).
 No Apple field, privacy publication, SITE push or backend rollout occurred here.
 The prior public-site/domain evidence remains closed and is not re-audited.
+
+## September 28 editable Apple draft save
+
+The approved 0.2.1 description, promotional text, What's New, keywords, support
+URL and App Review notes were saved through the standard existing EAS managed
+authentication route and read back exactly at 2026-09-29 02:45 UTC. Existing
+protected review login/contact fields and the old public privacy-policy URL were
+preserved. The editable draft now has three accepted current class-builder
+screenshots, replacing its retired converter images. Native Preview removed
+only the alpha channel in separate RGB PNG exports; dimensions and every
+decoded RGB pixel match the preserved originals. No source verification was
+repeated.
+
+Build 37's single TestFlight upload and Apple processing are complete, as
+reported by the native release owner. Installation still stalls with build 36
+installed, so signed-37 acceptance and production paywall correspondence remain
+pending. Both subscription review screenshots and first-review attachments,
+protected review account access, privacy changes and final candidate selection
+are listed in [SUBMISSION_SHEET.md](release-account-deletion/SUBMISSION_SHEET.md).
+Final App Review submission, public activation and SITE publication stay held.
+No personal OpenAI account work is required or performed. SITE master remains
+unpushed; prior public-site/domain evidence stays closed.

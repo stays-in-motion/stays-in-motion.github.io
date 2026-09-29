@@ -1,8 +1,12 @@
 # Mova 0.2.1 — exact Apple field draft
 
-Prepared September 28, 2026. **Local draft only; no Apple field was saved.**
-All field blocks below are ready to paste after the reviewed deletion replacement
-and deployed endpoint are accepted. Do not select installed build 36 as the final
+Prepared September 28, 2026. **Editable Apple 0.2.1 draft saved and read back
+2026-09-29 02:45 UTC.** The approved description, promotional text, What's New,
+keywords, support URL and review notes match exactly; three core screenshots
+were accepted. Existing protected review login/contact fields were preserved.
+These saves do not establish signed-build or deployed deletion acceptance.
+See [SUBMISSION_SHEET.md](SUBMISSION_SHEET.md) for remaining actions.
+Do not select installed build 36 as the final
 candidate. Its closed core-flow, signing/SDK and nine-manifest evidence remains
 valid reference evidence. Future Pilates and client features are excluded.
 
@@ -153,9 +157,10 @@ product artwork. The optional artwork was not edited.
 
 ## Marketing screenshot inventory
 
-The two existing English (U.S.) 6.9-inch screenshots `IMG_9321.PNG` and
-`IMG_9322.PNG` depict the retired Spotify-to-Seconds converter. The 6.5-inch slot
-inherits them. A bounded inventory found no class-builder or generated-class
+At the initial 0.2.0 inspection, the two English (U.S.) 6.9-inch screenshots
+`IMG_9321.PNG` and `IMG_9322.PNG` depicted the retired Spotify-to-Seconds
+converter, with the 6.5-inch slot inheriting them. They have now been replaced
+in the editable 0.2.1 draft by the three accepted core uploads below. A bounded inventory found no class-builder or generated-class
 marketing files. The prior simulator welcome capture is a layout reference,
 not the accepted replacement:
 
@@ -199,6 +204,21 @@ from reviewed native commit `6b9831b024d06ed4ff7c2625dfa31e12ffc35674` on
 `http://localhost:8081`. They are not installed build 37 acceptance.
 Dimensions, original paths, hashes and provenance are recorded in protected
 `/private/tmp/mova-worker3-release-pause-20260928T162834Z/IPHONE_EXPORTS.json`.
+
+Apple accepted and processed these three format-only derived PNGs in 0.2.1:
+`iphone69-dashboard-upload.png`, `iphone69-class-builder-upload.png` and
+`iphone69-builder-options-upload.png`, in the same protected folder. macOS
+Preview exported PNG with Alpha unchecked. Read-only verification confirms RGB,
+PNG color type 2, unchanged 1320 × 2868 dimensions and exact equality of every
+decoded RGB pixel to each original. Originals remain untouched. Source/export
+hashes are in `APPLE_UPLOAD_EXPORTS.json`.
+
+Apple's [screenshot specification](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications)
+requires files without an alpha channel, even when all alpha values are opaque.
+The API accepted these 6.9-inch dimensions in `APP_IPHONE_67`; the initial
+`APP_IPHONE_69` attempt failed before uploading images. Corrected EAS metadata
+validation had no findings; all three uploads reached processing complete.
+Normal metadata pull readback confirms the three-image set.
 
 The free and existing Pro QA fixtures both showed No Saved Classes. The empty
 list is preserved as `iphone69-saved-classes-empty-reference.png`; it is reference
@@ -305,3 +325,24 @@ allows manual fulfillment with clear timing and completed-deletion confirmation;
 [privacy requirements](https://developer.apple.com/app-store/review/guidelines/#privacy)
 require accurate retention/deletion disclosure. These sources support the wording,
 not an assertion that the replacement is already deployed or approved.
+
+## Saved editable draft readback
+
+The existing standard EAS metadata workflow used the already-configured managed
+App Store Connect authentication. No authentication keys/cookies were manually
+extracted or changed, and no new credentials were added. The isolated workspace is `/private/tmp/mova-apple-metadata-20260928`
+(mode 0700); normal metadata exports containing protected review fields are 0600
+and remain outside Git. Do not copy their contents into tickets or handoffs.
+
+`APPLE_DRAFT_READBACK.json` records only checks and counts: app `6738900718`,
+version `0.2.1`, five exact text matches, exact review-note match, every protected
+review contact/login field present and preserved, and three `APP_IPHONE_67`
+images. The existing public privacy-policy URL was preserved. No release action,
+final build selection, subscription review attachment or privacy-label publication
+was performed by this lane. The Apple browser session currently requires
+reauthentication for those remaining controls.
+
+The configured dedicated Apple review login is distinct from the ENV QA fixtures.
+Its current app access and Pro validity for the review window remain unverified;
+preserve it and check through the accepted signed candidate before submission.
+Do not assume QA fixture access proves the protected review account's access.

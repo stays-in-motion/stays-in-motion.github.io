@@ -40,7 +40,7 @@ The reviewer found the remaining request/target/billing/retention/Archive facts
 aligned with the contract. Root reduced source-code string coupling in the
 verifier; actual rendered section tests and built-output checks cover copy.
 
-## Apple preparation and screenshot evidence
+## Initial Apple preparation and screenshot evidence
 
 The exact field draft is [APPLE_METADATA.md](APPLE_METADATA.md). Every field fits
 its stated Apple length limit. Both subscription review images were inspected
@@ -81,7 +81,7 @@ Local commit `78f2606b7947bf2ea5b7372ea3f8d654a5a60e1f` completed the planned SI
 the prior local commit and keep `master` unpushed until the accepted replacement
 and exact publication rollout are authorized.
 
-## Docs-only screenshot and build-37 closeout
+## Earlier docs-only screenshot and build-37 closeout
 
 The original source verification above is unchanged and reused. This follow-up
 changes only release Markdown. Actual native 6.9-inch core/paywall/consent exports,
@@ -99,3 +99,29 @@ publication, provider setting change, backend deployment or live deletion was
 performed. Docs-only Prettier and `git diff --check` passed. All five exact Apple field
 lengths were rechecked against their declared counts and limits: 121/170,
 1023/4000, 367/4000, 77/100 and 2864/4000. SITE master must remain unpushed.
+
+## Editable Apple draft save and readback
+
+The source tests and clean native review above remain closed; no app source or
+new release test gate was added. Three native Preview PNG exports were checked
+read-only for RGB/no-alpha format, 1320 × 2868 dimensions and exact decoded RGB
+pixel equality with their untouched originals. `APPLE_UPLOAD_EXPORTS.json`
+records both hashes and each source/export pairing outside Git.
+
+Corrected standard EAS metadata lint returned no findings. The initial
+`APP_IPHONE_69` screenshot slot failed with an Apple API enum error after saving
+the text/review draft. The corrected `APP_IPHONE_67` push saved the same fields
+and processed all three uploads successfully. A subsequent normal pull at
+2026-09-29 02:45 UTC read back version 0.2.1, all five exact field strings,
+exact App Review notes, every protected contact/demo-login field unchanged,
+and the three-image set. Existing privacy-policy URL remained unchanged.
+The isolated CLI exports remain private and contain no new credentials.
+
+The native release owner reports one finished TestFlight upload and completed
+Apple processing. Same-build installation recovery remains stalled at installed
+build 36; signed-37 UI, protected reviewer access and production paywall
+correspondence are pending. Neither final review submission, privacy publication,
+SITE push, purchase nor inference was performed by this lane. Touched Markdown
+Prettier, all frozen field-block equality and whitespace checks passed. The five
+field lengths remain 121/170, 1023/4000, 367/4000, 77/100 and 2864/4000. These
+are the only local checks for this docs-only save follow-up.

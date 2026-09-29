@@ -65,3 +65,20 @@ The user's subsequent approval excludes OpenAI account sign-in/control work;
 it is not a shipping blocker. Runtime ownership resolves primary provider/billing
 separately from fallback. The coordinator owns approved rollout/upload operations;
 this commit remains local Apple/SITE Markdown preparation only.
+
+## Apple editable-draft save follow-up
+
+One local commit: `docs(site): record saved Apple 0.2.1 draft and submission steps`
+
+- Record the standard EAS managed-auth metadata save and exact readback of the
+  approved 0.2.1 fields, preserving existing protected review account/contact data.
+- Record three accepted screenshot uploads and native Preview RGB exports with
+  unchanged dimensions and decoded pixels; preserve original RGBA files outside Git.
+- Refresh build-37 upload/processing status while leaving signed installation and
+  production paywall acceptance pending with the native release owner.
+- Add a final submission action sheet with both subscription IDs, protected review
+  access checks, privacy publication and exact build selection still separated from
+  the editable draft operations already completed. Personal OpenAI account work
+  remains excluded.
+- Format and check only changed Markdown, verify frozen field blocks stayed exact,
+  commit locally and do not push. Reuse closed source tests and review.

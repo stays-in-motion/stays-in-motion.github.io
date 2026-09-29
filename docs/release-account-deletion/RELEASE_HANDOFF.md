@@ -1,9 +1,13 @@
 # Apple release preparation handoff
 
-Prepared September 28, 2026; closeout 2026-09-29 01:54 UTC. Local preparation
-only. SITE source commit `78f2606b7947bf2ea5b7372ea3f8d654a5a60e1f` is unpushed.
-Future Pilates/client work remains paused. No Apple field/save/upload/submission,
-backend rollout, privacy publication, purchase or inference occurred in this lane.
+Prepared September 28, 2026; updated 2026-09-29 02:45 UTC. The editable Apple
+0.2.1 text, review notes and three core screenshots are saved and read back.
+SITE source commit `78f2606b7947bf2ea5b7372ea3f8d654a5a60e1f` is unpushed.
+Future Pilates/client work remains paused. Final App Review submission, public
+activation and SITE publication remain held. No backend rollout, privacy-label
+publication, purchase or inference occurred in this lane.
+
+The concrete next steps are in [SUBMISSION_SHEET.md](SUBMISSION_SHEET.md).
 
 ## Replacement identity
 
@@ -20,15 +24,22 @@ backend rollout, privacy publication, purchase or inference occurred in this lan
   and nine selected packaged deletion/billing strings. Selected signature
   entitlement extraction was unavailable; the non-debug entitlement is confirmed
   in the profile only. Native fingerprint is not proof of JavaScript identity.
-- Not uploaded or installed; no signed-37 or live deletion acceptance is claimed.
-  Historical build 36 lacks deletion and remains reference evidence.
+- The single TestFlight upload `cffb4d13-ee0f-40f2-beb6-1deb70a624c9` finished
+  and Apple processing completed, as reported by the native release owner.
+  Installation still stalls after its bounded same-build recovery; actual
+  installed artifact remains 36. No signed-37 or live deletion acceptance is
+  claimed. Historical build 36 lacks deletion and remains reference evidence.
 
 ## Real native iPhone assets
 
 Folder: `/private/tmp/mova-worker3-release-pause-20260928T162834Z`.
 All seven files below are original, unmodified 1320 × 2868 native exports.
-Alpha values are uniformly 255; no transparent pixels. Originals, dimensions
-and hashes are in `IPHONE_EXPORTS.json`. No credentials/account identifiers,
+Original RGBA alpha values are uniformly 255. Apple requires no alpha channel;
+the three core `-upload.png` files are separate RGB exports from macOS Preview,
+with identical decoded RGB pixels and unchanged dimensions. Apple accepted all
+three in the editable 0.2.1 draft. Originals, dimensions and hashes are in
+`IPHONE_EXPORTS.json`; the derived export checks/hashes are in
+`APPLE_UPLOAD_EXPORTS.json`. No credentials/account identifiers,
 Mac window chrome, pointer or development overlay appear in these captures.
 
 | File                                         | Use                     | Truthful caption                                     |
@@ -51,8 +62,8 @@ This is development-client UI evidence, not signed-build-37 acceptance.
 RevenueCat key class is **Test Store**. The actual offer shows **$9.99/month**,
 **$79.99/year**, Only $6.66/mo and 33% OFF. Current App Store price/SKU
 correspondence is unverified; no actual mismatch is established. Match to
-production offers before upload and recapture only if accepted-candidate UI
-differs. Do not alter the displayed prices or fabricate a generated result.
+production offers before replacing either subscription review attachment and
+recapture only if accepted-candidate UI differs. Do not alter the displayed prices or fabricate a generated result.
 Both existing Apple subscription review attachments were inspected and are
 logo-only. Optional 1024-pixel product artwork is separate and unchanged.
 
@@ -69,8 +80,18 @@ open. No destructive request, receipt, replay, erasure or completion was tested.
 [APPLE_METADATA.md](APPLE_METADATA.md) contains exact English-US description,
 promotional text, What's New, keywords, App Review notes, subscription text and
 privacy matrix. Existing protected review credential/contact fields are preserved.
-The statements about active review access and live deletion remain conditional
-on accepted replacement/backend operations; no Apple field was saved.
+The approved five metadata fields and App Review notes were saved through normal
+EAS metadata and match the subsequent 0.2.1 readback exactly. Both contact and
+dedicated demo login fields remain present and unchanged. Their app access and
+Pro validity through the review window remain unverified; they differ from the
+ENV QA fixtures. Statements about review access and live deletion remain
+conditional on accepted replacement/backend operations. The existing public
+privacy-policy URL and privacy answers were not changed.
+
+The isolated metadata workspace is `/private/tmp/mova-apple-metadata-20260928`.
+Its `APPLE_DRAFT_READBACK.json` contains only verification booleans and counts.
+The standard CLI managed authentication was used without raw key/cookie access.
+Protected exports stay outside Git and must not be pasted into this handoff.
 
 Gateway's specific September 28 Settings readback: Collect Logs on, 100,000-log
 limit with Delete oldest logs, ZDR off, cache off. Payload logging is explicit;
@@ -97,9 +118,11 @@ that lane. No routing flag or key was removed or changed by this packet.
 
 ## Narrow remaining inputs and rollout actions
 
-1. **Apple reauthentication.** The existing App Store Connect tab expired during
-   preparation and redirected to login with `authResult=FAILED`. Sign into the
-   Mova account again before editable draft work. No Apple draft was created.
+1. **Remaining Apple browser controls.** The 0.2.1 editable text/review/core-image
+   draft was created and saved through standard EAS metadata. The browser still
+   redirects to Apple sign-in; reauthenticate for the subscription review controls,
+   build selector and privacy answers that this metadata workflow does not cover.
+   Final submission and publication remain held.
 2. **Production offer correspondence.** Read monthly `mova_pro_monthly_v1` and
    yearly `mova_pro_yearly_v1` pricing and match the actual offer to the Test Store
    captures. No product/price change or purchase is authorized by this check.
@@ -117,7 +140,8 @@ that lane. No routing flag or key was removed or changed by this packet.
    coordinator workflow, except OpenAI account work. Epic 1/Epic 2 own those
    actions; do not duplicate them here. Editable Apple draft preparation is
    approved. After their installed and backend/operator acceptance, continue
-   with the matching offer screenshots and accepted candidate. Final App Review
+   with both matching subscription review screenshots, both first-review
+   attachments, protected review access and the accepted candidate. Final App Review
    submission, public activation and SITE copy publication remain held for
    acceptance and specific final scope. Do not delete an
    existing QA/customer account, push SITE master, or select historical build 36.
