@@ -192,3 +192,18 @@ build verification. The original local publication-progress commit `22e3914` is
 preserved. No Apple field save, screenshot upload, build selection, submission,
 purchase, provider generation, backend/native change, paid build or SITE push
 is part of this preparation. All future Pilates remains paused.
+
+## September 28 Apple packet closeout
+
+The local deletion-copy source remains `78f2606b7947bf2ea5b7372ea3f8d654a5a60e1f`.
+The docs-only follow-up binds exact Apple text and real native iPhone captures
+to reviewed native `6b9831b024d06ed4ff7c2625dfa31e12ffc35674` and the separately
+finished production 0.2.1/build 37 archive. Screenshots are correctly labeled
+development client / RevenueCat Test Store; signed-37 installed acceptance and
+production price correspondence remain pending. Specific Gateway retention was
+read live; OpenAI account sign-in/control work is excluded by the user and is not a
+shipping blocker; actual primary-provider disclosure and owner-defined retention
+handling remain with their assigned release lanes. The complete paths and narrow release inputs are in
+[RELEASE_HANDOFF.md](release-account-deletion/RELEASE_HANDOFF.md).
+No Apple field, privacy publication, SITE push or backend rollout occurred here.
+The prior public-site/domain evidence remains closed and is not re-audited.

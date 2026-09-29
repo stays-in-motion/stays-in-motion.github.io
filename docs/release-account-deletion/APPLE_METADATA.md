@@ -6,28 +6,30 @@ and deployed endpoint are accepted. Do not select installed build 36 as the fina
 candidate. Its closed core-flow, signing/SDK and nine-manifest evidence remains
 valid reference evidence. Future Pilates and client features are excluded.
 
-Reuse the reviewed class-planning copy from native source
+Reuse the reviewed class-planning copy from historical core source
 `cbc345f42da11db8ce5432045a9e6c24457ba016`,
-`docs/app-store-review-draft-2026-09-27.md`. The only additions are the legal-link
-footer, the actual deletion change in What's New, and review instructions drawn
-from the locally verified native Settings implementation and shared contract.
-The deletion flow is not in build 36. Native SHA/build identity and the supplied
-review account's access must be accepted before these notes are used; the notes'
-statement that the account has access is conditional on that acceptance.
+`docs/app-store-review-draft-2026-09-27.md`. The deletion replacement is reviewed
+native commit `6b9831b024d06ed4ff7c2625dfa31e12ffc35674`; its closed 76-test,
+types/lint/format results are reused. Production **0.2.1 (37)** finished September
+28 at 19:48:13.607 UTC in EAS job `3b993a78-9e45-4ee5-a027-78b73492166f`.
+The archive and bounded static findings are linked in [RELEASE_HANDOFF.md](RELEASE_HANDOFF.md).
+It has not been uploaded, installed or accepted in a live deletion flow.
+The notes' statement that the review account has access remains conditional on
+accepted replacement/account access. No new baseline audit is introduced.
 
 ## Destination fields
 
-| Field                      | Value                                                                                                   |
-| -------------------------- | ------------------------------------------------------------------------------------------------------- |
-| App                        | Mova - Fitness Instruction, Apple ID 6738900718                                                         |
-| Locale                     | English (U.S.)                                                                                          |
-| Version                    | 0.2.1                                                                                                   |
-| Support URL                | `https://staysinmotion.com/`                                                                            |
-| Privacy Policy URL         | `https://staysinmotion.com/privacy/`                                                                    |
-| Terms URL                  | `https://staysinmotion.com/terms/`                                                                      |
-| Copyright                  | `2026 James Watts`                                                                                      |
-| Review credentials/contact | Preserve existing protected fields; verify access without copying values into notes or Git.             |
-| Final build/release choice | Held for exact accepted replacement and explicit release decision. No build number above 36 is assumed. |
+| Field                      | Value                                                                                                          |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| App                        | Mova - Fitness Instruction, Apple ID 6738900718                                                                |
+| Locale                     | English (U.S.)                                                                                                 |
+| Version                    | 0.2.1                                                                                                          |
+| Support URL                | `https://staysinmotion.com/`                                                                                   |
+| Privacy Policy URL         | `https://staysinmotion.com/privacy/`                                                                           |
+| Terms URL                  | `https://staysinmotion.com/terms/`                                                                             |
+| Copyright                  | `2026 James Watts`                                                                                             |
+| Review credentials/contact | Preserve existing protected fields; verify access without copying values into notes or Git.                    |
+| Final build/release choice | Build 37 is finished; selection remains held for accepted installed replacement and explicit release decision. |
 
 ## Exact field blocks
 
@@ -129,6 +131,22 @@ portrait image with a Mova Pro logo. They are **present**, but neither shows the
 current subscription offer, features, billing period or price. Replace each with
 an actual accepted-candidate subscription screen showing the applicable offer;
 opening the screen does not authorize purchase/restore/manage transactions.
+
+Actual monthly-selected and annual-selected iPhone offer captures are now saved:
+
+- `/private/tmp/mova-worker3-release-pause-20260928T162834Z/iphone69-monthly-review.png`
+- `/private/tmp/mova-worker3-release-pause-20260928T162834Z/iphone69-yearly-review.png`
+
+Both are native 1320 × 2868 exports from reviewed JavaScript in development client
+0.2.1/build 3. RevenueCat is configured with a **Test Store** key. The actual
+screen shows $9.99/month and $79.99/year (Only $6.66/mo, 33% OFF), with the
+applicable plan selected. These are real offer-screen draft candidates, not
+evidence of production App Store SKU/price correspondence or signed-build-37 UI.
+No price mismatch is established because current App Store prices were not read.
+Match the production offer to these values, durations and selection before using
+them as review attachments; recapture only if the accepted offer differs.
+No purchase, restore or manage action was invoked.
+
 Apple describes the [review screenshot](https://developer.apple.com/help/app-store-connect/reference/in-app-purchases-and-subscriptions/in-app-purchase-information/)
 as showing the offered item/service; it is separate from the optional 1024-pixel
 product artwork. The optional artwork was not edited.
@@ -166,12 +184,34 @@ Both inspected subscription attachment readbacks are retained beside them as
 `monthly-review-image-readback.jpg` and `yearly-review-image-readback.jpg`
 (1430 × 720 browser-window captures), outside Git. Both show the logo-only image.
 
-Capture clean Create Class, generated workout/music, and saved-class screens from
-an accepted iPhone artifact using generic content without account identifiers,
-developer overlays or credentials. Bind source/build identity and actual device
-size. Do not stretch old images or treat iOS-on-Mac window captures as iPhone
-upload files. A deletion marketing screen is not assumed mandatory; its consent
-and receipt belong in the focused review evidence.
+Native 6.9-inch core captures now replace the Mac-window references as the
+current iPhone draft candidates:
+
+- `/private/tmp/mova-worker3-release-pause-20260928T162834Z/iphone69-dashboard.png`
+- `/private/tmp/mova-worker3-release-pause-20260928T162834Z/iphone69-class-builder.png`
+- `/private/tmp/mova-worker3-release-pause-20260928T162834Z/iphone69-builder-options.png`
+
+These are unmodified native Simulator exports, 1320 × 2868, without Mac window
+chrome, pointer, capture controls, credentials or account identifiers. Original
+RGBA PNGs are fully opaque: every alpha value is 255. Captured device is iPhone
+17 Pro Max / iOS 26.5, development client 0.2.1/build 3, with JavaScript served
+from reviewed native commit `6b9831b024d06ed4ff7c2625dfa31e12ffc35674` on
+`http://localhost:8081`. They are not installed build 37 acceptance.
+Dimensions, original paths, hashes and provenance are recorded in protected
+`/private/tmp/mova-worker3-release-pause-20260928T162834Z/IPHONE_EXPORTS.json`.
+
+The free and existing Pro QA fixtures both showed No Saved Classes. The empty
+list is preserved as `iphone69-saved-classes-empty-reference.png`; it is reference
+evidence, not a generated-class marketing image. No inference or new class was
+created. A generated workout/music image is optional and is not an Apple
+readiness gate. The already-authorized later one-class acceptance may supply a
+real result if useful; this screenshot task does not authorize another call.
+
+`iphone69-deletion-consent.png` records the actual reviewed consent alert on a
+free QA account. Request Account Deletion was enabled without Pro. Only Cancel
+was pressed; Settings and its signed-in actions remained available afterward.
+No deletion POST, erasure, success receipt or completion email was exercised.
+A deletion marketing image is not assumed mandatory.
 
 ## Privacy answer delta
 
@@ -199,7 +239,7 @@ confirm the owner's actual use before publication. Do not apply Analytics to all
 other categories. Reconcile the replacement's actual delta with retained build
 36 embedded-manifest evidence; no new Xcode PDF requirement is introduced.
 
-## Actual privacy facts still unresolved
+## Specific retention facts and remaining decisions
 
 The shared operator runbook is explicit that Auth erasure alone does not erase
 Gateway/provider logs, application logs, support exports or backups. Completion
@@ -210,13 +250,45 @@ numeric accounting/provider/mailbox period is established in the inspected
 contract/runbook or SITE sources.
 
 The $2.50 one-day Sliding Gateway budget and `fdc` API-alias acceptance are closed;
-neither proves payload retention, Zero Data Retention or optional sharing. The
-September 27 notes reported Gateway Collect Logs on / ZDR off, while OpenAI
-optional-sharing controls were unverified. Those dated notes are not refreshed
-live settings. Keep these concrete owner inputs pending: current Gateway payload
-logging/retention, actual OpenAI sharing/retention controls, support-mailbox and
-backup handling, and the criteria/period for retained accounting identifiers.
-No setting or retention guarantee is guessed, and no broad audit is reopened.
+neither proves payload retention, Zero Data Retention or optional sharing.
+The specific Gateway Settings readback on September 28, approximately 19:00 UTC,
+showed **Collect Logs on**, **100,000-log limit / Delete oldest logs**, **Zero
+Data Retention off**, and **Cache Responses off**. The UI explicitly includes
+request/response payloads. Its capacity limit establishes no age-based expiry;
+[Cloudflare Legacy Logs](https://developers.cloudflare.com/ai-gateway/observability/logging/legacy-logs/)
+persist until deleted, with oldest-log removal at the limit. Per-request overrides
+still matter; content-free correlation metadata and `skipCache` do not disable
+payload logging. No setting or existing log was changed.
+
+The earlier OpenAI Organization Data controls attempt redirected to sign-in.
+The user excluded that sign-in/control step from the approved release operations;
+it is **not a required action or shipping blocker**. No personal OpenAI account,
+key or control is entered or changed, and no account readback is claimed.
+The serving and reviewed-candidate primary provider/billing path is being resolved
+by the runtime lane, separately from direct fallback. A Gateway-billed OpenAI
+primary would not establish use of the user's personal API account. Keep the
+upstream disclosure accurate for the actual path; do not claim zero retention
+or an account setting from published defaults. The protected readback preserves
+that narrow distinction without requiring another login or audit.
+
+The remaining owner decisions are approved expiry criteria or periods and access
+roles for accounting/UUID correlation and unsettled liabilities; support
+mailbox/exports and notification handoff disposal; backups and application logs;
+and the operator's means of finding/removing applicable Gateway/provider logs.
+The inspected runbook requires these decisions but supplies no actual periods.
+Confirming completion clears contact from the request record; it does not prove
+mailbox or exported-handoff disposal. The seven-day manual fulfillment target is
+not every store's expiry. Keep completion/publication held as applicable until
+these obligations are resolved. Detailed evidence is in protected
+`/private/tmp/mova-worker3-release-pause-20260928T162834Z/RETENTION_READBACK.md`.
+No broad audit or Xcode PDF gate is reopened.
+
+Source-path clarification from the runtime lane: pinned class generation and
+uploaded-document primary dispatch use Cloudflare AI Gateway unified billing / AI
+binding for OpenAI models and do not read a personal OpenAI key. Production
+authority requires gateway enabled and direct fallback disabled, with unknown
+configuration failing closed. Live serving flag/source readback remains owned by
+that lane. No routing flag or key was removed or changed by this packet.
 
 ## Rollout dependency
 

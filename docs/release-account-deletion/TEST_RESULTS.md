@@ -77,6 +77,25 @@ The installed RTK wrapper did not support its advertised `test`/`proxy` commands
 those attempts did not run tests. All results above come from successful direct
 Bun commands with fail-fast shell execution.
 
-One scoped local commit completes the planned SITE source preparation. Preserve
+Local commit `78f2606b7947bf2ea5b7372ea3f8d654a5a60e1f` completed the planned SITE source preparation. Preserve
 the prior local commit and keep `master` unpushed until the accepted replacement
 and exact publication rollout are authorized.
+
+## Docs-only screenshot and build-37 closeout
+
+The original source verification above is unchanged and reused. This follow-up
+changes only release Markdown. Actual native 6.9-inch core/paywall/consent exports,
+source and development-client/Test Store provenance, finished build-37 identity,
+the refreshed specific Gateway settings and exact remaining inputs are recorded
+in [RELEASE_HANDOFF.md](RELEASE_HANDOFF.md) and the field draft. All seven native
+PNGs were inspected for dimensions/hash/alpha; all are 1320 × 2868 and fully
+opaque. Core builder/options and both plan selections were visually inspected.
+The free-account consent was canceled and the signed-in Settings state remained.
+Free and Pro QA accounts both had empty saved-class lists; no inference occurred.
+A generated marketing image is optional and is not an acceptance gate.
+
+No source tests/review or baseline audit was repeated. No Apple changes, upload,
+publication, provider setting change, backend deployment or live deletion was
+performed. Docs-only Prettier and `git diff --check` passed. All five exact Apple field
+lengths were rechecked against their declared counts and limits: 121/170,
+1023/4000, 367/4000, 77/100 and 2864/4000. SITE master must remain unpushed.

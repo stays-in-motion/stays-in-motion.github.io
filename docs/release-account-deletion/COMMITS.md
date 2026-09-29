@@ -7,8 +7,10 @@ coordinator-authorized current-release preparation. Future Pilates is paused.
 
 The shared release account-deletion contract lives in
 `/Users/jameswatts/.codex/worktrees/release-build36/mova-workspace/SCRATCHPAD/release-account-deletion/COMMITS.md`.
-The native Settings implementation is locally verified, pending combined review
-and a replacement signed artifact. It is not in installed build 36.
+The native Settings implementation is reviewed at
+`6b9831b024d06ed4ff7c2625dfa31e12ffc35674`. Production build 37 is finished with
+bounded static archive verification; installed and live deletion acceptance remain
+pending. The deletion flow is not in historical build 36.
 
 Authenticated users request deletion in Settings without Pro or cancellation.
 An accepted server receipt records the original request/deadline; the app then
@@ -42,3 +44,24 @@ operational seven-day target and final effective date, and authorize the exact
 rollout. App Review submission/build selection, privacy-label publication,
 purchases and paid builds remain held. Build 36 evidence is reused; no new
 baseline audit or Xcode PDF gate is introduced.
+
+## Docs-only closeout follow-up
+
+One local commit: `docs(site): bind Apple handoff to build 37 and native captures`
+
+- Pin reviewed native source and the finished production build 37 archive.
+- Record native iPhone screenshot paths, source, development-client artifact and
+  RevenueCat Test Store mode; distinguish actual offer prices from unverified
+  App Store correspondence. Preserve originals outside Git.
+- Record the free-account consent/Cancel observation and empty QA class lists.
+  A generated-class marketing image is optional and introduces no release gate.
+- Refresh only the specific Gateway retention readback and actual-provider disclosure and
+  owner policy inputs; do not invent a universal erasure period.
+- Add a compact handoff with exact next actions and update the prior evidence
+  record. Format and check only changed Markdown and whitespace; reuse closed
+  source verification. No app-source change, test rerun, push or publication.
+
+The user's subsequent approval excludes OpenAI account sign-in/control work;
+it is not a shipping blocker. Runtime ownership resolves primary provider/billing
+separately from fallback. The coordinator owns approved rollout/upload operations;
+this commit remains local Apple/SITE Markdown preparation only.
