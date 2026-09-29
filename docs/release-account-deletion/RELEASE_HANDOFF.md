@@ -1,6 +1,6 @@
 # Apple release preparation handoff
 
-Prepared September 28, 2026; updated 2026-09-29 04:13 UTC. The editable Apple
+Prepared September 28, 2026; updated 2026-09-29 04:41 UTC. The editable Apple
 0.2.1 text, review notes and three core screenshots are saved and read back.
 Both approved subscription descriptions/product notes are now saved as well;
 Apple browser authentication is confirmed.
@@ -29,10 +29,11 @@ The concrete next steps are in [SUBMISSION_SHEET.md](SUBMISSION_SHEET.md).
 - The single TestFlight upload `cffb4d13-ee0f-40f2-beb6-1deb70a624c9` finished
   and Apple processing completed, as reported by the native release owner.
   Installation completed; actual on-disk app identity is 0.2.1 (37), as reported
-  by the native owner at 03:52/03:56 UTC. The user then supplied Finder's
-  unsupported-Mac launch dialog. Signed-37 launch/Settings/paywall acceptance
-  remains pending with the native owner's focused diagnosis. On-disk identity
-  alone is not runtime acceptance. Historical build 36 remains reference evidence.
+  by the native owner at 03:52/03:56 UTC. The prior Mac launch gap is resolved:
+  the actual existing translocated 37 bundle now runs and is controllable, with
+  live welcome UI verified at 04:33:31 UTC. The session is signed out. User-operated
+  QA sign-in and parent changed-Settings acceptance precede this lane's Store
+  paywall capture. Historical build 36 remains reference evidence.
   The current 0.2.1 Apple draft UI shows no explicit Mac support flag or
   37-versus-36 availability difference; that fact is unavailable on this surface.
 
@@ -134,10 +135,11 @@ signed-app and deletion/operator acceptance remain pending with the release owne
    both approved subscription descriptions and product notes were saved and
    verified. No Apple sign-in action remains for the user in this packet.
    Final submission and public publication remain held.
-2. **Signed-app access and matching offer images.** The actual installed 37
-   cannot open on this Mac, as shown by the user's Finder dialog; the native
-   owner is investigating. After launch/Settings acceptance, verify the protected
-   reviewer account and capture both real Store offers. Apple U.S. prices are
+2. **Signed-app access and matching offer images.** Actual 37 now runs and is
+   controllable on this Mac. Its handoff session is signed out; wait for the user's
+   QA sign-in and parent changed-Settings acceptance before this lane's paywall
+   capture. Then verify the protected reviewer account and capture both real
+   Store offers. Apple U.S. prices are
    $5.99/month and $59.99/year; preserved development captures show $9.99/$79.99
    and must not be used as final review attachments. No price change or purchase.
 3. **Provider-path disclosure.** Reuse the runtime lane's actual serving and
@@ -180,3 +182,24 @@ Private browser facts are in `/private/tmp/mova-apple-metadata-20260928`:
 saved Apple 0.2.1 draft, both subscription-copy and both U.S.-price screenshots.
 Protected app review contact/login fields remain unchanged and are never copied
 into these records.
+
+## Running build 37 — launch blocker cleared
+
+At 2026-09-29 04:33:31 UTC, the native owner verified the actual running and
+controllable 37 welcome UI by binding the existing translocated bundle. The
+former installed-path automation gap is cleared. No new build, archive/signing
+pass, Mac availability check or further launch diagnosis is required for that
+gap. The session is **signed out**; no sign-in, guest, Settings, deletion or
+billing action was exercised in this handoff.
+
+Current proof:
+`/private/tmp/mova-build37-testflight-20260928/CURRENT_RUNNING_MAC37_UI_ACCEPTANCE.json`.
+The user operates QA sign-in, and the parent accepts the changed Settings flow;
+only then does this lane capture both actual Store offers and prepare their
+review images/attachments. Protected reviewer access and deletion/operator
+acceptance remain separate. The current U.S. prices stay $5.99/month and
+$59.99/year; development captures remain unsuitable as final review images.
+All saved Apple/core/subscription text remains unchanged, and final submission,
+privacy publication, SITE publication and future feature work retain their
+existing holds. No native control or repeat verification was performed by this
+Apple lane for this correction.

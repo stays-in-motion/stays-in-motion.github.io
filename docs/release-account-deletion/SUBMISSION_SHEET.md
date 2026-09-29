@@ -1,6 +1,6 @@
 # Mova 0.2.1 (37) — final submission action sheet
 
-Updated 2026-09-29 04:13 UTC. App `6738900718`, bundle
+Updated 2026-09-29 04:41 UTC. App `6738900718`, bundle
 `com.staysinmotion.mova`. Final App Review submission, public activation and SITE
 publication remain held. Personal OpenAI account inspection is excluded and is
 not a shipping blocker. Future Pilates/client work remains paused.
@@ -34,10 +34,11 @@ them outside Git; do not paste their values into this sheet or a ticket.
 
 ## Remaining concrete preparation
 
-1. **Accepted signed candidate.** Native release owner resolves the current
-   launch failure and completes the approved Settings/deletion/paywall checks. Installation completed and on-disk identity is 37, but the user supplied
-   Finder's unsupported-Mac dialog and launch acceptance is pending with the
-   native owner. Do not treat on-disk identity as acceptance or substitute build 36.
+1. **Accepted signed candidate.** Actual 37 now runs and is controllable on this
+   Mac, with live welcome UI verified by the native owner at 04:33:31 UTC. The
+   former launch blocker is cleared. The session is signed out; user-operated QA
+   sign-in and parent changed-Settings acceptance come before this lane's paywall
+   capture. Full signed-app/reviewer acceptance remains pending.
    Runtime recovery `919352f6` now serves 100% with routing false, Gateway true,
    fallback false and working 0, reported by its owner. Reuse that readback and
    the release owners' actual deletion/operator acceptance; no new platform gate.
@@ -114,3 +115,24 @@ Private current proof: `SUBSCRIPTION_DRAFT_READBACK.json`,
 `PRIVACY_PREPARATION_STATUS.json` and `MAC_AVAILABILITY_UI_READBACK.json` under
 `/private/tmp/mova-apple-metadata-20260928`. Saved browser screenshots are in the
 protected capture folder named in [RELEASE_HANDOFF.md](RELEASE_HANDOFF.md).
+
+## Running build 37 — launch blocker cleared
+
+At 2026-09-29 04:33:31 UTC, the native owner verified the actual running and
+controllable 37 welcome UI by binding the existing translocated bundle. The
+former installed-path automation gap is cleared. No new build, archive/signing
+pass, Mac availability check or further launch diagnosis is required for that
+gap. The session is **signed out**; no sign-in, guest, Settings, deletion or
+billing action was exercised in this handoff.
+
+Current proof:
+`/private/tmp/mova-build37-testflight-20260928/CURRENT_RUNNING_MAC37_UI_ACCEPTANCE.json`.
+The user operates QA sign-in, and the parent accepts the changed Settings flow;
+only then does this lane capture both actual Store offers and prepare their
+review images/attachments. Protected reviewer access and deletion/operator
+acceptance remain separate. The current U.S. prices stay $5.99/month and
+$59.99/year; development captures remain unsuitable as final review images.
+All saved Apple/core/subscription text remains unchanged, and final submission,
+privacy publication, SITE publication and future feature work retain their
+existing holds. No native control or repeat verification was performed by this
+Apple lane for this correction.

@@ -99,3 +99,16 @@ One local commit: `docs(site): record subscription drafts and current release ga
 - Refresh only owner-reported runtime/acceptance facts and remaining submission
   steps. Format scoped Markdown, preserve frozen field blocks, commit locally
   without a push, and reuse closed source tests/review.
+
+## Running build-37 handoff correction
+
+One local commit: `docs(site): clear resolved Mac launch blocker`
+
+- Record the native owner's actual running/controllable 37 welcome UI, clearing
+  the former Mac launch blocker without another diagnosis or build.
+- Leave user-operated QA sign-in and parent changed-Settings acceptance pending;
+  the sole paywall capture lane starts only after that accepted handoff.
+- Preserve saved Apple/subscription copy, real Store prices, held privacy/public
+  actions, protected credentials and frozen field blocks.
+- Update only release Markdown; scoped format/whitespace checks, local commit,
+  no push and no closed source test/review reruns.

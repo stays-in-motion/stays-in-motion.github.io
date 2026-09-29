@@ -250,3 +250,24 @@ reviewed local matrix and existing final-publication facts remain in the handoff
 No personal OpenAI account requirement, new privacy audit, SITE push or App
 Review submission was added. The current remaining steps are in
 [SUBMISSION_SHEET.md](release-account-deletion/SUBMISSION_SHEET.md).
+
+## Running build 37 — launch blocker cleared
+
+At 2026-09-29 04:33:31 UTC, the native owner verified the actual running and
+controllable 37 welcome UI by binding the existing translocated bundle. The
+former installed-path automation gap is cleared. No new build, archive/signing
+pass, Mac availability check or further launch diagnosis is required for that
+gap. The session is **signed out**; no sign-in, guest, Settings, deletion or
+billing action was exercised in this handoff.
+
+Current proof:
+`/private/tmp/mova-build37-testflight-20260928/CURRENT_RUNNING_MAC37_UI_ACCEPTANCE.json`.
+The user operates QA sign-in, and the parent accepts the changed Settings flow;
+only then does this lane capture both actual Store offers and prepare their
+review images/attachments. Protected reviewer access and deletion/operator
+acceptance remain separate. The current U.S. prices stay $5.99/month and
+$59.99/year; development captures remain unsuitable as final review images.
+All saved Apple/core/subscription text remains unchanged, and final submission,
+privacy publication, SITE publication and future feature work retain their
+existing holds. No native control or repeat verification was performed by this
+Apple lane for this correction.

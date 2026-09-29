@@ -151,7 +151,7 @@ The authenticated App Store Connect U.S. current-pricing readback now shows
 **$5.99/month** for `mova_pro_monthly_v1` and **$59.99/year** for
 `mova_pro_yearly_v1`. The Test Store captures differ from those actual U.S. prices
 and remain development reference images. Actual signed-37 offer behavior is
-unaccepted: the installed Mac wrapper cannot open on this Mac. Obtain matching
+unaccepted: running 37 awaits QA sign-in and parent Settings acceptance. Obtain matching
 real Store offer screens after native acceptance; do not edit the displayed
 prices or use these development captures as final subscription review images.
 No purchase, restore or manage action was invoked.
@@ -376,9 +376,12 @@ User ID Analytics remains the same previously identified owner-use decision.
 `PRIVACY_PREPARATION_STATUS.json` records this narrow UI boundary outside Git.
 This is not a new privacy audit or an additional release gate.
 
-Build 37 is installed, but the user reported Finder's unsupported-Mac dialog;
-launch, Settings, production offer and reviewer-access acceptance remain with
-the native owner. The existing authenticated 0.2.1 draft surface displays no
+The earlier Mac launch gap is now resolved: the native owner bound the actual
+existing translocated 37 bundle and verified its live welcome UI and control at
+2026-09-29 04:33:31 UTC. The session is signed out. User-operated QA sign-in and
+parent changed-Settings acceptance remain pending; Store offer capture follows
+only that accepted handoff. No additional Mac diagnosis or build is needed for
+this resolved targeting gap. The existing authenticated 0.2.1 draft surface displays no
 explicit Mac-availability/unsupported flag or 37-versus-36 compatibility fact;
 that comparison is unavailable here. No platform gate, new build or recovery
 request is inferred. Private fact: `MAC_AVAILABILITY_UI_READBACK.json`.
@@ -388,3 +391,24 @@ Gateway true and direct fallback false, with working jobs 0 and zero paid spend.
 The earlier serving-flag gap is cleared by that owner-reported readback; no new
 runtime audit or paid call was performed by this lane. Actual deletion/operator
 and signed-native acceptance remain with their assigned release lanes.
+
+## Running build 37 — launch blocker cleared
+
+At 2026-09-29 04:33:31 UTC, the native owner verified the actual running and
+controllable 37 welcome UI by binding the existing translocated bundle. The
+former installed-path automation gap is cleared. No new build, archive/signing
+pass, Mac availability check or further launch diagnosis is required for that
+gap. The session is **signed out**; no sign-in, guest, Settings, deletion or
+billing action was exercised in this handoff.
+
+Current proof:
+`/private/tmp/mova-build37-testflight-20260928/CURRENT_RUNNING_MAC37_UI_ACCEPTANCE.json`.
+The user operates QA sign-in, and the parent accepts the changed Settings flow;
+only then does this lane capture both actual Store offers and prepare their
+review images/attachments. Protected reviewer access and deletion/operator
+acceptance remain separate. The current U.S. prices stay $5.99/month and
+$59.99/year; development captures remain unsuitable as final review images.
+All saved Apple/core/subscription text remains unchanged, and final submission,
+privacy publication, SITE publication and future feature work retain their
+existing holds. No native control or repeat verification was performed by this
+Apple lane for this correction.
