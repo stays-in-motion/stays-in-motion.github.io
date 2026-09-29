@@ -125,3 +125,31 @@ SITE push, purchase nor inference was performed by this lane. Touched Markdown
 Prettier, all frozen field-block equality and whitespace checks passed. The five
 field lengths remain 121/170, 1023/4000, 367/4000, 77/100 and 2864/4000. These
 are the only local checks for this docs-only save follow-up.
+
+## Authenticated subscription preparation readback
+
+Normal App Store Connect authentication is confirmed. Both subscriptions remain
+Prepare for Submission; the exact approved 37-character description and
+288-character product notes were saved and read back for monthly `6782429629`
+and annual `6782433231`, preserving their display names. Current U.S. prices
+read from their normal pricing controls are $5.99/month and $59.99/year. They
+have not been changed and differ from the $9.99/$79.99 Test Store references.
+Both saved descriptions and both price tables have private browser screenshots.
+
+The existing nine-type privacy wizard's initial Email Address setup ends with
+Publish. The unfinished wizard/type selection was canceled, then reload confirmed
+Data Not Collected, Published a year ago and the unchanged legacy policy URL.
+No privacy answers were saved or published. The local reviewed matrix and same
+owner-purpose/retention inputs remain ready for the coordinated final scope.
+
+Native owner readback now reports actual installed 37; the user supplied an
+unsupported-Mac launch dialog, so signed-app acceptance is pending. The current
+0.2.1 Apple draft UI provides no explicit Mac-availability flag or 37-versus-36
+comparison. Runtime owner reports recovery `919352f6` serving 100%, routing
+false, Gateway true, fallback false, working 0 and zero paid spend. These owner
+reports do not claim deletion/operator or reviewer-access acceptance by this lane.
+
+Only scoped release Markdown is updated. All frozen field blocks remain unchanged;
+scoped Prettier and whitespace checks passed. No closed source tests/review,
+baseline runtime check, privacy audit, new build, purchase, inference, final
+submission or public publication is introduced.

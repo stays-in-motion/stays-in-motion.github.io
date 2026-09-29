@@ -120,10 +120,11 @@ product IDs and billing durations. Proposed description for **both** products:
 Unlock class building and management.
 ```
 
-This preserves the reviewed feature claim in 37 characters, within Apple's
-45-character limit. The current monthly phrase is 46 characters; this removes
-only its final word. It also replaces the yearly `A 1 year subscription.`
-without inventing a feature or a price. Optional review notes for each product:
+The approved 37-character description is now saved in both English (U.S.)
+subscription localizations. Monthly Mova Pro and annual Mova Pro Yearly display
+names were preserved. The original monthly phrase was 46 characters; the annual
+phrase was `A 1 year subscription.` The same approved review notes were saved
+for each product:
 
 ```text
 This subscription unlocks Mova Pro class generation and management. Monthly and yearly plans provide the same features and differ only in billing duration. Review the subscription offer in Settings. The dedicated review account is supplied in the app version's Sign-In Information fields.
@@ -146,9 +147,13 @@ Both are native 1320 × 2868 exports from reviewed JavaScript in development cli
 screen shows $9.99/month and $79.99/year (Only $6.66/mo, 33% OFF), with the
 applicable plan selected. These are real offer-screen draft candidates, not
 evidence of production App Store SKU/price correspondence or signed-build-37 UI.
-No price mismatch is established because current App Store prices were not read.
-Match the production offer to these values, durations and selection before using
-them as review attachments; recapture only if the accepted offer differs.
+The authenticated App Store Connect U.S. current-pricing readback now shows
+**$5.99/month** for `mova_pro_monthly_v1` and **$59.99/year** for
+`mova_pro_yearly_v1`. The Test Store captures differ from those actual U.S. prices
+and remain development reference images. Actual signed-37 offer behavior is
+unaccepted: the installed Mac wrapper cannot open on this Mac. Obtain matching
+real Store offer screens after native acceptance; do not edit the displayed
+prices or use these development captures as final subscription review images.
 No purchase, restore or manage action was invoked.
 
 Apple describes the [review screenshot](https://developer.apple.com/help/app-store-connect/reference/in-app-purchases-and-subscriptions/in-app-purchase-information/)
@@ -339,10 +344,47 @@ version `0.2.1`, five exact text matches, exact review-note match, every protect
 review contact/login field present and preserved, and three `APP_IPHONE_67`
 images. The existing public privacy-policy URL was preserved. No release action,
 final build selection, subscription review attachment or privacy-label publication
-was performed by this lane. The Apple browser session currently requires
-reauthentication for those remaining controls.
+was performed by this lane. The normal Apple browser session is now authenticated, so the earlier
+reauthentication blocker is cleared. Both subscription descriptions and optional
+product review notes were subsequently saved and read back through that UI;
+review images and first-review attachments remain pending.
 
 The configured dedicated Apple review login is distinct from the ENV QA fixtures.
 Its current app access and Pro validity for the review window remain unverified;
 preserve it and check through the accepted signed candidate before submission.
 Do not assume QA fixture access proves the protected review account's access.
+
+## Authenticated subscription and privacy preparation
+
+Both subscriptions remain Prepare for Submission. Their approved description
+and 288-character product review notes match the normal browser readback. Actual
+U.S. prices are $5.99/month and $59.99/year; no price, optional artwork, purchase,
+subscription review image or final review status was changed. Private proof:
+`/private/tmp/mova-apple-metadata-20260928/SUBSCRIPTION_DRAFT_READBACK.json` and
+`apple-monthly-copy-saved.png`, `apple-yearly-copy-saved.png`,
+`apple-monthly-price-and-copy.png`, `apple-yearly-price.png` in the protected
+capture folder. The saved core draft is also visible in
+`apple-021-draft-readback.png`.
+
+The existing privacy wizard was opened using only the previously reviewed
+matrix. Its initial Email Address setup ends with **Publish**, rather than a
+Save-to-draft action. Publication is held, so setup was canceled. A reload
+confirms Published a year ago, Data Not Collected and the unchanged legacy gist
+policy URL, with no unfinished type setup persisted. No privacy answers were
+saved or published. Keep the matrix above for the coordinated publication;
+User ID Analytics remains the same previously identified owner-use decision.
+`PRIVACY_PREPARATION_STATUS.json` records this narrow UI boundary outside Git.
+This is not a new privacy audit or an additional release gate.
+
+Build 37 is installed, but the user reported Finder's unsupported-Mac dialog;
+launch, Settings, production offer and reviewer-access acceptance remain with
+the native owner. The existing authenticated 0.2.1 draft surface displays no
+explicit Mac-availability/unsupported flag or 37-versus-36 compatibility fact;
+that comparison is unavailable here. No platform gate, new build or recovery
+request is inferred. Private fact: `MAC_AVAILABILITY_UI_READBACK.json`.
+
+The runtime owner now reports recovery `919352f6` serving 100%, routing false,
+Gateway true and direct fallback false, with working jobs 0 and zero paid spend.
+The earlier serving-flag gap is cleared by that owner-reported readback; no new
+runtime audit or paid call was performed by this lane. Actual deletion/operator
+and signed-native acceptance remain with their assigned release lanes.

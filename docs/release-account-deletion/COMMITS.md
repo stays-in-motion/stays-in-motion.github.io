@@ -82,3 +82,20 @@ One local commit: `docs(site): record saved Apple 0.2.1 draft and submission ste
   remains excluded.
 - Format and check only changed Markdown, verify frozen field blocks stayed exact,
   commit locally and do not push. Reuse closed source tests and review.
+
+## Authenticated subscription follow-up
+
+One local commit: `docs(site): record subscription drafts and current release gaps`
+
+- Clear the browser-sign-in blocker after normal App Store Connect authentication.
+- Record both saved approved subscription descriptions/review notes and the actual
+  U.S. prices, distinguishing their mismatch with the development Test Store
+  captures from the still-unaccepted signed-build offer. No price changes.
+- Replace the old stalled-install status with installed 37 and the user-reported
+  unsupported-Mac launch failure; preserve native-owner diagnosis and acceptance.
+- Record the observed privacy wizard's final Publish action, canceled setup and
+  unchanged public answer. Keep the local reviewed matrix and existing final
+  publication/retention decisions; no new privacy audit or publication gate.
+- Refresh only owner-reported runtime/acceptance facts and remaining submission
+  steps. Format scoped Markdown, preserve frozen field blocks, commit locally
+  without a push, and reuse closed source tests/review.

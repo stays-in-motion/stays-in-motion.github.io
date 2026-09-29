@@ -1,7 +1,9 @@
 # Apple release preparation handoff
 
-Prepared September 28, 2026; updated 2026-09-29 02:45 UTC. The editable Apple
+Prepared September 28, 2026; updated 2026-09-29 04:13 UTC. The editable Apple
 0.2.1 text, review notes and three core screenshots are saved and read back.
+Both approved subscription descriptions/product notes are now saved as well;
+Apple browser authentication is confirmed.
 SITE source commit `78f2606b7947bf2ea5b7372ea3f8d654a5a60e1f` is unpushed.
 Future Pilates/client work remains paused. Final App Review submission, public
 activation and SITE publication remain held. No backend rollout, privacy-label
@@ -26,9 +28,13 @@ The concrete next steps are in [SUBMISSION_SHEET.md](SUBMISSION_SHEET.md).
   in the profile only. Native fingerprint is not proof of JavaScript identity.
 - The single TestFlight upload `cffb4d13-ee0f-40f2-beb6-1deb70a624c9` finished
   and Apple processing completed, as reported by the native release owner.
-  Installation still stalls after its bounded same-build recovery; actual
-  installed artifact remains 36. No signed-37 or live deletion acceptance is
-  claimed. Historical build 36 lacks deletion and remains reference evidence.
+  Installation completed; actual on-disk app identity is 0.2.1 (37), as reported
+  by the native owner at 03:52/03:56 UTC. The user then supplied Finder's
+  unsupported-Mac launch dialog. Signed-37 launch/Settings/paywall acceptance
+  remains pending with the native owner's focused diagnosis. On-disk identity
+  alone is not runtime acceptance. Historical build 36 remains reference evidence.
+  The current 0.2.1 Apple draft UI shows no explicit Mac support flag or
+  37-versus-36 availability difference; that fact is unavailable on this surface.
 
 ## Real native iPhone assets
 
@@ -60,10 +66,11 @@ Installed executable SHA-256:
 This is development-client UI evidence, not signed-build-37 acceptance.
 
 RevenueCat key class is **Test Store**. The actual offer shows **$9.99/month**,
-**$79.99/year**, Only $6.66/mo and 33% OFF. Current App Store price/SKU
-correspondence is unverified; no actual mismatch is established. Match to
-production offers before replacing either subscription review attachment and
-recapture only if accepted-candidate UI differs. Do not alter the displayed prices or fabricate a generated result.
+**$79.99/year**, Only $6.66/mo and 33% OFF. App Store Connect now confirms U.S.
+current prices **$5.99/month** (`mova_pro_monthly_v1`) and **$59.99/year**
+(`mova_pro_yearly_v1`). These development captures differ from the U.S. Store
+prices and cannot be final subscription review images. Obtain real matching
+Store offer captures after launched/native acceptance. Do not alter the displayed prices or fabricate a generated result.
 Both existing Apple subscription review attachments were inspected and are
 logo-only. Optional 1024-pixel product artwork is separate and unchanged.
 
@@ -115,21 +122,29 @@ binding for OpenAI models and do not read a personal OpenAI key. Production
 authority requires gateway enabled and direct fallback disabled, with unknown
 configuration failing closed. Live serving flag/source readback remains owned by
 that lane. No routing flag or key was removed or changed by this packet.
+The runtime owner subsequently reports recovery `919352f6` serving 100%, routing
+false, Gateway true and direct fallback false, working jobs 0 and zero paid
+spend. That owner-reported readback clears the old serving-flag gap. Actual
+signed-app and deletion/operator acceptance remain pending with the release owners.
 
 ## Narrow remaining inputs and rollout actions
 
-1. **Remaining Apple browser controls.** The 0.2.1 editable text/review/core-image
-   draft was created and saved through standard EAS metadata. The browser still
-   redirects to Apple sign-in; reauthenticate for the subscription review controls,
-   build selector and privacy answers that this metadata workflow does not cover.
-   Final submission and publication remain held.
-2. **Production offer correspondence.** Read monthly `mova_pro_monthly_v1` and
-   yearly `mova_pro_yearly_v1` pricing and match the actual offer to the Test Store
-   captures. No product/price change or purchase is authorized by this check.
+1. **Apple authentication and drafts are complete.** The normal browser session
+   is authenticated. In addition to the saved 0.2.1 text/review/core-image draft,
+   both approved subscription descriptions and product notes were saved and
+   verified. No Apple sign-in action remains for the user in this packet.
+   Final submission and public publication remain held.
+2. **Signed-app access and matching offer images.** The actual installed 37
+   cannot open on this Mac, as shown by the user's Finder dialog; the native
+   owner is investigating. After launch/Settings acceptance, verify the protected
+   reviewer account and capture both real Store offers. Apple U.S. prices are
+   $5.99/month and $59.99/year; preserved development captures show $9.99/$79.99
+   and must not be used as final review attachments. No price change or purchase.
 3. **Provider-path disclosure.** Reuse the runtime lane's actual serving and
    reviewed-candidate primary provider/billing evidence. Describe that upstream
-   accurately, separately from configured direct fallback. OpenAI personal-account
-   login/control work was excluded by the user and is not required for shipping.
+   accurately, separately from configured direct fallback. Recovery `919352f6`
+   now serves with Gateway true and direct fallback false, reported by its owner.
+   OpenAI personal-account work remains excluded and is not required for shipping.
 4. **Owner retention/fulfillment decisions.** Approve expiry criteria/periods and
    access roles for accounting UUIDs/unsettled liabilities, support email/exports
    and notification handoffs, backups/application logs, and applicable
@@ -148,3 +163,20 @@ that lane. No routing flag or key was removed or changed by this packet.
 
 These inputs do not require repeating the closed source review, baseline runtime,
 HTTPS acceptance or nine-manifest audit. No new Xcode PDF requirement is added.
+
+## Privacy browser boundary and current proof
+
+The already-reviewed nine-type matrix remains local. In the existing initial
+privacy setup, the final action is Publish; it does not save completed answers
+as an editable draft. The temporary type selection/email setup was canceled,
+and reload confirms the unchanged Data Not Collected/public gist URL. No
+privacy answer was saved or published. Continue only in the coordinated final
+publication after the existing owner/live-deletion facts and User ID Analytics
+purpose are resolved. This introduces no new audit or policy period.
+
+Private browser facts are in `/private/tmp/mova-apple-metadata-20260928`:
+`SUBSCRIPTION_DRAFT_READBACK.json`, `PRIVACY_PREPARATION_STATUS.json` and
+`MAC_AVAILABILITY_UI_READBACK.json`. The protected capture folder now also has
+saved Apple 0.2.1 draft, both subscription-copy and both U.S.-price screenshots.
+Protected app review contact/login fields remain unchanged and are never copied
+into these records.

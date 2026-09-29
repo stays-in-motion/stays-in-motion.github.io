@@ -229,3 +229,24 @@ are listed in [SUBMISSION_SHEET.md](release-account-deletion/SUBMISSION_SHEET.md
 Final App Review submission, public activation and SITE publication stay held.
 No personal OpenAI account work is required or performed. SITE master remains
 unpushed; prior public-site/domain evidence stays closed.
+
+## September 28 authenticated subscription follow-up
+
+The normal App Store Connect session is authenticated, clearing the earlier
+login blocker. Both approved subscription descriptions/product review notes
+are now saved and verified. Apple U.S. prices remain $5.99/month and $59.99/year;
+development Test Store offer captures differ and stay reference-only. Both
+subscription review images/first-review attachments and protected reviewer
+access await real signed-app acceptance. Existing app text/core screenshots
+were not resaved.
+
+Installation completed as actual 0.2.1(37), but the user's Finder screenshot
+shows the app cannot open on this Mac; the native owner owns that focused issue.
+Runtime owner reports recovery `919352f6` serving 100%, Gateway true and direct
+fallback false. Actual signed-app/deletion/operator acceptance remains separate.
+The observed initial privacy setup ends with Publish, so unfinished setup was
+canceled and the existing public answer/policy URL remained unchanged. The
+reviewed local matrix and existing final-publication facts remain in the handoff.
+No personal OpenAI account requirement, new privacy audit, SITE push or App
+Review submission was added. The current remaining steps are in
+[SUBMISSION_SHEET.md](release-account-deletion/SUBMISSION_SHEET.md).

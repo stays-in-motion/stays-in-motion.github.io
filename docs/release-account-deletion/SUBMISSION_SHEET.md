@@ -1,6 +1,6 @@
 # Mova 0.2.1 (37) — final submission action sheet
 
-Updated 2026-09-29 02:45 UTC. App `6738900718`, bundle
+Updated 2026-09-29 04:13 UTC. App `6738900718`, bundle
 `com.staysinmotion.mova`. Final App Review submission, public activation and SITE
 publication remain held. Personal OpenAI account inspection is excluded and is
 not a shipping blocker. Future Pilates/client work remains paused.
@@ -13,13 +13,16 @@ not a shipping blocker. Future Pilates/client work remains paused.
   `3b993a78-9e45-4ee5-a027-78b73492166f`, IPA SHA-256
   `fd001826324c0fdddea06e30733df0ad64ae9b946eee1ba20282f9d3719402d1`.
 - One TestFlight upload `cffb4d13-ee0f-40f2-beb6-1deb70a624c9` finished and Apple
-  processing completed, reported by the native release owner. No new build or
-  upload is needed.
+  processing completed, reported by the native release owner. The single approved
+  build/upload is complete; native launch/acceptance remains pending.
 - Editable Apple version **0.2.1**: approved description, promotional text,
   What's New, keywords, support URL and review notes saved and read back exactly.
 - Three core native 1320 × 2868 screenshots accepted and processed. Separate
   Preview RGB/no-alpha exports preserve every original RGB pixel. Their source
   is reviewed JavaScript in development client build 3, recorded truthfully.
+- Both approved subscription descriptions and 288-character product notes saved
+  and verified through authenticated App Store Connect; display names preserved.
+  Current U.S. prices read without changes: $5.99/month and $59.99/year.
 - Protected review contact and demo login fields remain present and unchanged.
   The existing public privacy URL/answers were preserved; no release choice
   was configured by this lane.
@@ -31,17 +34,21 @@ them outside Git; do not paste their values into this sheet or a ticket.
 
 ## Remaining concrete preparation
 
-1. **Accepted signed candidate.** Native release owner completes the existing
-   same-build TestFlight installation and its approved Settings/deletion/paywall
-   checks. The installation remains stalled and the actual installed artifact is
-   36; do not capture it as 37 or choose it for final review. Reuse the owner lane's
-   backend/operator acceptance and actual serving provider/fallback evidence.
-2. **Both production subscription offers.** After actual 37 is handed off,
+1. **Accepted signed candidate.** Native release owner resolves the current
+   launch failure and completes the approved Settings/deletion/paywall checks. Installation completed and on-disk identity is 37, but the user supplied
+   Finder's unsupported-Mac dialog and launch acceptance is pending with the
+   native owner. Do not treat on-disk identity as acceptance or substitute build 36.
+   Runtime recovery `919352f6` now serves 100% with routing false, Gateway true,
+   fallback false and working 0, reported by its owner. Reuse that readback and
+   the release owners' actual deletion/operator acceptance; no new platform gate.
+2. **Both production subscription offers.** After the native owner hands off
+   the accepted Store app,
    inspect its paywall without purchase, restore or manage actions. Read monthly
-   and yearly App Store prices and verify product, duration and price match.
-   Existing Test Store captures show $9.99/month and $79.99/year, which are not
-   production-price proof. Preserve them; recapture only if the accepted offer
-   differs. Replace each logo-only Review Information image with the matching
+   and yearly offers against the current U.S. App Store prices: **$5.99/month**
+   and **$59.99/year**. Existing Test Store captures show $9.99/month and
+   $79.99/year and differ from those Store prices. Preserve them as development
+   references; final subscription review images require real matching Store offers.
+   Replace each logo-only Review Information image with the matching
    real plan-selected screen. Leave optional 1024-pixel artwork unchanged.
 3. **Protected reviewer access.** Use the existing dedicated Sign-In Information
    account, without printing or copying its credentials. It is distinct from
@@ -57,8 +64,11 @@ them outside Git; do not paste their values into this sheet or a ticket.
    [APPLE_METADATA.md](APPLE_METADATA.md), including purpose-specific Purchase
    History and User ID decisions. Reuse approved retention/fulfillment decisions
    and live upstream evidence. The old Data Not Collected/public policy answer
-   remains unchanged. After accepted native/backend/operator behavior and the
-   authorized SITE publication, use `https://staysinmotion.com/privacy`, the
+   remains unchanged. The observed initial browser setup ends with **Publish**;
+   temporary setup was canceled and no answers were saved. Keep the local matrix
+   until the existing final publication scope and owner facts are ready. After
+   accepted native/backend/operator behavior and authorized SITE publication,
+   use `https://staysinmotion.com/privacy`, the
    accurate effective date and the reviewed privacy answers. Publication is held.
 6. **Final exact candidate.** Once acceptance is complete, select **0.2.1 (37)**
    in the 0.2.1 build selector and verify the version/build labels. Final build
@@ -66,10 +76,12 @@ them outside Git; do not paste their values into this sheet or a ticket.
    require the coordinator's final authorized rollout; do not execute them from
    this preparation sheet. SITE master remains unpushed.
 
-The current Chrome App Store Connect tab redirects to sign-in. Reauthenticate
-for the remaining subscription, build and privacy controls. Normal EAS metadata
-already completed the text/review/core-image draft; browser login is not needed
-to repeat those saves. Do not add credentials or bypass normal authentication.
+The current Chrome App Store Connect session is authenticated; no new Apple
+sign-in is needed for this packet. Both subscription copy/notes drafts are now
+saved in addition to the unchanged text/review/core-image draft. Protected
+credentials remain unchanged. Native acceptance, real matching offer images and
+reviewer access remain pending. Privacy setup ends with Publish in the observed
+flow, so no privacy answers were saved and public publication remains held.
 
 ## Exact subscription fields and identities
 
@@ -82,9 +94,11 @@ Group: `22171622`. Both plans offer Mova Pro and use the same approved
 | Yearly  | `mova_pro_yearly_v1`  | `6782433231`          | Mova Pro Yearly | Actual annual-selected offer  |
 
 Use the exact optional product notes from [APPLE_METADATA.md](APPLE_METADATA.md).
-Both existing review images were inspected and are logo-only. Subscription text,
-review-image replacement and first-review attachments were not changed by EAS
-metadata. App-level promotional text/core screenshots are already saved.
+Both existing review images were inspected and are logo-only. Review-image
+replacement and first-review attachments remain pending. The approved
+descriptions and optional product notes have now been saved through
+the authenticated browser. App-level promotional text/core screenshots are
+already saved.
 
 ## SITE publication boundary
 
@@ -95,3 +109,8 @@ manual target and actual effective date at the authorized publication; seven day
 is not a promise that every financial record, backup or provider log expires.
 No source test/review, baseline HTTPS check, manifest audit or Xcode PDF gate
 needs repeating for this sheet.
+
+Private current proof: `SUBSCRIPTION_DRAFT_READBACK.json`,
+`PRIVACY_PREPARATION_STATUS.json` and `MAC_AVAILABILITY_UI_READBACK.json` under
+`/private/tmp/mova-apple-metadata-20260928`. Saved browser screenshots are in the
+protected capture folder named in [RELEASE_HANDOFF.md](RELEASE_HANDOFF.md).
