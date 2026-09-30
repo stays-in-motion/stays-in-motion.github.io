@@ -135,9 +135,8 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
                 <p>{MOVA_ACCOUNT_DELETION_COPY.fulfillment}</p>
                 <p>
                   Deletion removes your Mova account and owned class-planning content, including saved classes,
-                  templates, uploaded documents, and associated processing records. Your contact email is kept to send
-                  completion confirmation and is removed from the deletion-request record after that notice is
-                  confirmed.
+                  templates, and uploaded documents. Your contact email is kept to send completion confirmation and is
+                  removed from the deletion-request record after that notice is confirmed.
                 </p>
                 <p>{MOVA_ACCOUNT_DELETION_COPY.retainedRecords}</p>
                 <p>{MOVA_ACCOUNT_DELETION_COPY.billingWarning}</p>
