@@ -149,3 +149,7 @@ One local follow-up commit: `fix(site): avoid unverified deletion timing promise
 - Update the affected Privacy assertion and local handoff. Run scoped Prettier, focused section tests with a strict bound, the release-site verifier, and diff checks. Record timeouts as unverified. Commit locally without SITE push or Apple privacy Publish.
 
 The signed 0.2.1/build-37 native UI and backend receipt still expose a seven-day deadline and email confirmation method; narrowing SITE copy cannot remove that review-time operating requirement. Preserve this as an explicit App Review readiness gap.
+
+## October 2 operations-audit handoff
+
+One local docs-only commit: `docs(site): record deletion operations readiness gap`. Add Epic1's read-only finding to the release handoff, with the minimal primary/backup, daily inspection, escalation and actual manual email-attestation steps for keeping build 37. Do not run the held deletion case or change native/backend/public state. Format and diff-check the touched Markdown before the local commit.
