@@ -128,3 +128,14 @@ One local commit: `docs(site): record Store offers and reviewer login`
   the held build/review/publication boundary without inferring a cause.
 - Update release Markdown only; preserve frozen fields, format/check the scoped
   documents, commit locally without pushing and reuse closed source tests.
+
+## October 2 version-aware policy correction
+
+One local commit: `fix(site): describe deletion paths by app version`
+
+- Keep the current public 0.2.0 playlist app and pending 0.2.1 class-planning app distinct in Privacy and Support.
+- State that Archive Account in older versions retains data; give those users the support email path for a permanent deletion request. Scope the in-app receipt, deadline, manual seven-day target and completion notice to accepted in-app requests.
+- Synchronize the focused section assertions and the built-copy verifier with the interpolated support email.
+- Leave the draft effective date unchanged until an approved publication date is known. Format and check the touched files, run the bounded release-site build verifier, and record any focused-test/type-check timeouts honestly. Commit locally; do not push or deploy.
+
+Public SITE publication and Apple privacy Publish remain separate final actions. The live deletion/operator and current-version data-use facts still need acceptance before a public claim or data-label change. App Review submission is outside this commit.

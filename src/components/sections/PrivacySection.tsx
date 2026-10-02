@@ -31,8 +31,9 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
               </CardHeader>
               <CardContent className="space-y-4 text-sm text-muted-foreground leading-relaxed">
                 <p>
-                  Mova is a fitness-class planning app. To provide the service, it handles the information you submit
-                  and the records created while you use the app.
+                  Mova supports fitness-class planning and music-based intervals. Available features vary by app
+                  version. To provide those features, it handles the information you submit and the records created
+                  while you use the app.
                 </p>
                 <ul className="list-disc pl-6 space-y-2">
                   <li>
@@ -134,9 +135,10 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
                 <p>{MOVA_ACCOUNT_DELETION_COPY.receipt}</p>
                 <p>{MOVA_ACCOUNT_DELETION_COPY.fulfillment}</p>
                 <p>
-                  Deletion removes your Mova account and owned class-planning content, including saved classes,
-                  templates, and uploaded documents. Your contact email is kept to send completion confirmation and is
-                  removed from the deletion-request record after that notice is confirmed.
+                  When completed, account deletion removes your Mova account and owned content such as saved playlists,
+                  class plans, templates, and uploaded documents, where those features are available. For accepted
+                  in-app requests, your contact email is kept to send completion confirmation and is removed from the
+                  deletion-request record after that notice is confirmed.
                 </p>
                 <p>{MOVA_ACCOUNT_DELETION_COPY.retainedRecords}</p>
                 <p>{MOVA_ACCOUNT_DELETION_COPY.billingWarning}</p>

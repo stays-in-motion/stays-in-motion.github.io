@@ -94,6 +94,7 @@ describe('SupportSection', () => {
 
     fireEvent.click(accountTab);
     expect(screen.getByRole('heading', { name: MOVA_ACCOUNT_DELETION_COPY.label })).toBeInTheDocument();
+    expect(screen.getByText(MOVA_ACCOUNT_DELETION_COPY.historicalArchive)).toBeInTheDocument();
     expect(screen.getByText(MOVA_ACCOUNT_DELETION_COPY.receipt)).toBeInTheDocument();
     expect(screen.getByText(MOVA_ACCOUNT_DELETION_COPY.fulfillment)).toBeInTheDocument();
     expect(screen.getByText(MOVA_ACCOUNT_DELETION_COPY.billingWarning)).toBeInTheDocument();

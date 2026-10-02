@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { MOVA_ACCOUNT_DELETION_COPY } from '../src/constants/account-deletion';
+import { MOVA_SUPPORT_EMAIL } from '../src/constants/links';
 
 const rootDirectory = process.cwd();
 const outputDirectory = path.join(rootDirectory, 'dist');
@@ -58,9 +59,16 @@ const builtJavaScript = collectFiles(outputDirectory)
   .filter((file) => file.endsWith('.js'))
   .map((file) => readFileSync(file, 'utf8'))
   .join('\n');
-for (const copy of Object.values(MOVA_ACCOUNT_DELETION_COPY)) {
-  if (!builtJavaScript.includes(copy)) {
-    errors.push(`Built site is missing deletion copy: ${copy}`);
+for (const [key, copy] of Object.entries(MOVA_ACCOUNT_DELETION_COPY)) {
+  // The support email is interpolated at runtime, so the minified bundle stores this sentence in parts.
+  const fragments =
+    key === 'historicalArchive'
+      ? ['If your version shows Archive Account instead', MOVA_SUPPORT_EMAIL, 'to request permanent deletion.']
+      : [copy];
+  for (const fragment of fragments) {
+    if (!builtJavaScript.includes(fragment)) {
+      errors.push(`Built site is missing deletion copy fragment: ${fragment}`);
+    }
   }
 }
 

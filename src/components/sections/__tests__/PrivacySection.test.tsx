@@ -29,7 +29,7 @@ describe('PrivacySection', () => {
     ]) {
       expect(screen.getByText(copy)).toBeInTheDocument();
     }
-    expect(screen.getByText(/including saved classes, templates, and uploaded documents/i)).toBeInTheDocument();
+    expect(screen.getByText(/saved playlists, class plans, templates, and uploaded documents/i)).toBeInTheDocument();
     expect(
       screen.getByText(/removed from the deletion-request record after that notice is confirmed/i),
     ).toBeInTheDocument();

@@ -214,13 +214,14 @@ export function SupportSection() {
                   <h4 className="font-semibold mb-2">{MOVA_ACCOUNT_DELETION_COPY.label}</h4>
                   <div className="text-muted-foreground text-sm space-y-3">
                     <p>{MOVA_ACCOUNT_DELETION_COPY.initiation}</p>
+                    <p>{MOVA_ACCOUNT_DELETION_COPY.historicalArchive}</p>
                     <p>{MOVA_ACCOUNT_DELETION_COPY.receipt}</p>
                     <p>{MOVA_ACCOUNT_DELETION_COPY.fulfillment}</p>
                     <p>{MOVA_ACCOUNT_DELETION_COPY.billingWarning}</p>
                     <p>
-                      The separate Manage Subscriptions link in Settings opens Apple's subscription management. If Mova
-                      cannot confirm your deletion request, your session remains open so you can try again or contact
-                      support. See the{' '}
+                      Where available, the separate Manage Subscriptions link in Settings opens Apple's subscription
+                      management. If Mova cannot confirm an in-app deletion request, your session remains open so you
+                      can try again or contact support. See the{' '}
                       <a
                         className="text-primary underline underline-offset-4"
                         href={MOVA_LINKS.privacy}

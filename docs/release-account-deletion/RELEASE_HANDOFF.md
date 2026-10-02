@@ -243,3 +243,11 @@ Saved Apple version/subscription text, review notes, protected credential fields
 and the three accepted core screenshots remain unchanged. No privacy wizard or
 closed source test/review was repeated. Final review submission, privacy/SITE
 publication and future feature work retain their existing holds.
+
+## October 2 policy and Apple review-prep readback
+
+The SITE draft now distinguishes versions. The live 0.2.0 user who sees Archive Account is told that Archive retains account information and does not file a deletion request; that user can email support to request permanent deletion. The pending 0.2.1 in-app flow is conditional, and only an accepted in-app request is described as yielding a receipt, server deadline, manual seven-day target and completion notice. Privacy also acknowledges saved playlists alongside class plans. The effective date remains the September 28 draft until actual publication.
+
+On October 2, App Store Connect still showed 0.2.0 Ready for Distribution, 0.2.1 Prepare for Submission, three core iPhone screenshots, and no 0.2.1 build selection. Privacy Policy URL `https://staysinmotion.com/privacy/` remained saved with an Edited marker; the public data label remained Data Not Collected. The Mova Pro group and both products remained Prepare for Submission; Apple says the first subscription group must accompany a new app version. The false reviewer-Pro assertion had already been removed from App Review Notes; reviewer Pro access remains unverified/inactive.
+
+This local source preparation does not establish live deletion/fulfillment, the older version's full data matrix, a supported-size build-37 offer image, first-review attachment, or App Review readiness. Public SITE push/deployment, Apple privacy Publish, and App Review submission remain separate actions.

@@ -215,3 +215,11 @@ Saved Apple version/subscription text, review notes, protected credential fields
 and the three accepted core screenshots remain unchanged. No privacy wizard or
 closed source test/review was repeated. Final review submission, privacy/SITE
 publication and future feature work retain their existing holds.
+
+## October 2 version-aware copy follow-up
+
+The local source now explains the different account controls in the distributed 0.2.0 app and pending 0.2.1 release. The change was reviewed against the visible 0.2.0/0.2.1 App Store Connect version states and the saved deletion contract. It does not make the draft policy public. The displayed September 28 effective date remains a draft and must be changed to the actual Chicago publication date before deployment.
+
+Scoped Prettier and `git diff --check` pass. `bun run verify:release-site` passes after the verifier was adjusted for the runtime-interpolated support email; it builds the site and checks all three direct routes and required copy. The focused Support section test and `bun run type-check` were each attempted with a 30-second bound, stalled without a result, and exited 124. They are **not** reported as passing for this follow-up. The prior 113-test full-suite and type-check pass apply to the earlier source only. No configured lint script exists.
+
+Authenticated App Store Connect readback on October 2 confirms 0.2.0 Ready for Distribution and 0.2.1 Prepare for Submission, with no build selected for 0.2.1. The saved Privacy Policy URL is `https://staysinmotion.com/privacy/` with an Edited marker, while the public preview still says Data Not Collected. Monthly and Yearly remain Prepare for Submission. No public SITE push, Apple privacy Publish, subscription Add for Review, app Add for Review, purchase, or account deletion was performed.
