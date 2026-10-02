@@ -153,3 +153,7 @@ The signed 0.2.1/build-37 native UI and backend receipt still expose a seven-day
 ## October 2 operations-audit handoff
 
 One local docs-only commit: `docs(site): record deletion operations readiness gap`. Add Epic1's read-only finding to the release handoff, with the minimal primary/backup, daily inspection, escalation and actual manual email-attestation steps for keeping build 37. Do not run the held deletion case or change native/backend/public state. Format and diff-check the touched Markdown before the local commit.
+
+## October 2 proposed publication date
+
+One local commit: `docs(site): set proposed October 2 policy dates`. Set the displayed Privacy and Terms effective dates to the current America/Chicago day for review; rerun scoped formatting, diff and release-site build verification. The date is a proposed local draft, not evidence of publication. Recheck and update it if the eventual authorized deployment happens on another day. No push or Apple action.
