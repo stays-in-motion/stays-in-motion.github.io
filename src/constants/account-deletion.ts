@@ -9,7 +9,7 @@ export const MOVA_ACCOUNT_DELETION_COPY = {
   receipt:
     'For an in-app request Mova accepts, the app shows a receipt with your deletion deadline and request reference, then signs you out. The receipt confirms your request; deletion is still pending.',
   fulfillment:
-    'Mova handles accepted in-app requests manually and targets completion within seven days of acceptance. Your receipt shows the server-assigned deadline. We email your account address when deletion is complete. Repeating an in-app request does not restart its original deadline.',
+    'An accepted in-app request remains pending until it is fulfilled manually. Repeating the request preserves its original reference and server-assigned deadline. Contact support if you need a status update or the deadline passes.',
   billingWarning:
     'Deleting your Mova account does not cancel your App Store subscription. Manage your subscription with Apple to stop future charges. You can request deletion without canceling first.',
   retainedRecords:

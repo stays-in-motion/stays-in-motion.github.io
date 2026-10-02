@@ -31,7 +31,7 @@ describe('PrivacySection', () => {
     }
     expect(screen.getByText(/saved playlists, class plans, templates, and uploaded documents/i)).toBeInTheDocument();
     expect(
-      screen.getByText(/removed from the deletion-request record after that notice is confirmed/i),
+      screen.getByText(/cleared from that record only when completion is separately confirmed/i),
     ).toBeInTheDocument();
     expect(screen.queryByText(/linked support form/i)).not.toBeInTheDocument();
   });

@@ -114,8 +114,8 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
                     Verified metadata may be cached without being treated as your private account content.
                   </li>
                   <li>
-                    <strong className="text-foreground">Email providers</strong> for support correspondence and
-                    account-deletion completion notices.
+                    <strong className="text-foreground">Email providers</strong> for support correspondence, including
+                    account-deletion status or completion notices where applicable.
                   </li>
                 </ul>
               </CardContent>
@@ -136,9 +136,9 @@ export function PrivacySection({ standalone = false }: PrivacySectionProps) {
                 <p>{MOVA_ACCOUNT_DELETION_COPY.fulfillment}</p>
                 <p>
                   When completed, account deletion removes your Mova account and owned content such as saved playlists,
-                  class plans, templates, and uploaded documents, where those features are available. For accepted
-                  in-app requests, your contact email is kept to send completion confirmation and is removed from the
-                  deletion-request record after that notice is confirmed.
+                  class plans, templates, and uploaded documents, where those features are available. For an accepted
+                  in-app request, the contact email stays on the request while completion is pending and is cleared from
+                  that record only when completion is separately confirmed.
                 </p>
                 <p>{MOVA_ACCOUNT_DELETION_COPY.retainedRecords}</p>
                 <p>{MOVA_ACCOUNT_DELETION_COPY.billingWarning}</p>

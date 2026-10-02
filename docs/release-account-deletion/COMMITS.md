@@ -139,3 +139,13 @@ One local commit: `fix(site): describe deletion paths by app version`
 - Leave the draft effective date unchanged until an approved publication date is known. Format and check the touched files, run the bounded release-site build verifier, and record any focused-test/type-check timeouts honestly. Commit locally; do not push or deploy.
 
 Public SITE publication and Apple privacy Publish remain separate final actions. The live deletion/operator and current-version data-use facts still need acceptance before a public claim or data-label change. App Review submission is outside this commit.
+
+## October 2 unsupported-promise correction
+
+One local follow-up commit: `fix(site): avoid unverified deletion timing promise`
+
+- Keep the conditional version-aware Archive and in-app request paths. Describe the server-assigned deadline as a receipt fact, but remove the SITE's categorical seven-day manual SLA and completion-email promise until live operations are accepted.
+- State the documented pending/manual status, stable request reference/deadline, and support route; retain the verified distinction between erased account data and separately confirmed completion.
+- Update the affected Privacy assertion and local handoff. Run scoped Prettier, focused section tests with a strict bound, the release-site verifier, and diff checks. Record timeouts as unverified. Commit locally without SITE push or Apple privacy Publish.
+
+The signed 0.2.1/build-37 native UI and backend receipt still expose a seven-day deadline and email confirmation method; narrowing SITE copy cannot remove that review-time operating requirement. Preserve this as an explicit App Review readiness gap.
