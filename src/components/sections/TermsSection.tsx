@@ -15,7 +15,7 @@ export function TermsSection() {
             <h1 id="terms-heading" className="text-4xl md:text-5xl font-bold mb-4">
               Mova Terms of Service
             </h1>
-            <p className="text-muted-foreground">Effective October 2, 2026</p>
+            <p className="text-muted-foreground">Effective October 5, 2026</p>
           </div>
 
           <div className="space-y-6">
