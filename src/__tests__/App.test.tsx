@@ -19,11 +19,13 @@ describe('instructor website journey', () => {
       'about',
       'download',
       'support',
-      'privacy',
       'changelog',
     ]);
     expect(screen.getByTestId('illustrative-plan')).toBeInTheDocument();
     expect(screen.getByTestId('hero-preview-cta')).toHaveAttribute('href', INSTRUCTOR_OFFER.href);
+    expect(container.textContent).not.toMatch(
+      /Supabase|RevenueCat|Cloudflare|OpenAI|service providers and AI processing/i,
+    );
   });
 
   test('keeps canonical legal/support links and current iPhone access', () => {

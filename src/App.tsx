@@ -3,7 +3,6 @@ import { Navigation } from '@/components/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { SupportSection } from '@/components/sections/SupportSection';
-import { PrivacySection } from '@/components/sections/PrivacySection';
 import { ChangelogSection } from '@/components/sections/ChangelogSection';
 import { DownloadSection } from '@/components/sections/DownloadSection';
 import { MOVA_LINKS, MOVA_SUPPORT_EMAIL } from '@/constants/links';
@@ -16,7 +15,7 @@ export function App() {
   // Handle scroll-based section detection
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'download', 'support', 'privacy', 'changelog'];
+      const sections = ['hero', 'about', 'download', 'support', 'changelog'];
       const scrollPosition = window.scrollY + 100; // Offset for header
 
       for (const sectionId of sections.reverse()) {
@@ -61,9 +60,6 @@ export function App() {
 
         {/* Support Section */}
         <SupportSection />
-
-        {/* Privacy Section */}
-        <PrivacySection />
 
         {/* Changelog Section */}
         <ChangelogSection />
