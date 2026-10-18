@@ -80,7 +80,7 @@ export function SupportSection() {
             How Can We Help?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Get the support you need to make the most of your Mova experience
+            Questions about class planning, a walkthrough or your Mova account? Start here.
           </p>
         </div>
 
@@ -121,24 +121,26 @@ export function SupportSection() {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="border-l-4 border-accent-energy pl-4">
-                  <h4 className="font-semibold mb-2">How do I create a class?</h4>
+                  <h4 className="font-semibold mb-2">How do I start planning a class?</h4>
                   <p className="text-muted-foreground text-sm">
-                    Sign in, open Create Class, choose your workout style, duration, intensity, equipment, music, and
-                    class structure, then tap Generate Class. Mova Pro is required for AI class generation.
+                    Mova is available for iPhone. Sign in and open Create Class to choose your inputs. Mova Pro is
+                    required for AI class generation. You can also email support to request a walkthrough before
+                    deciding.
                   </p>
                 </div>
                 <div className="border-l-4 border-accent-progress pl-4">
-                  <h4 className="font-semibold mb-2">Can I edit and save a generated class?</h4>
+                  <h4 className="font-semibold mb-2">Can I edit and save a class plan?</h4>
                   <p className="text-muted-foreground text-sm">
-                    Yes. Review the generated intervals and music guidance, make any needed edits, then save the class.
-                    Saved classes can be reopened from your library.
+                    Ask about current access and we can walk through reviewing and editing a class plan. Review every
+                    plan yourself and adapt it before teaching.
                   </p>
                 </div>
                 <div className="border-l-4 border-accent-intensity pl-4">
                   <h4 className="font-semibold mb-2">How do subscriptions work?</h4>
                   <p className="text-muted-foreground text-sm">
-                    Mova Pro is available as a monthly or yearly auto-renewing subscription through Apple. Open Settings
-                    to view plans, restore purchases, or manage an existing subscription.
+                    Mova Pro uses monthly or yearly auto-renewing subscriptions through Apple. Review current terms
+                    before purchase and manage renewal in your Apple subscription settings. Contact support if payment
+                    succeeded but access is missing; do not purchase again to resolve activation.
                   </p>
                 </div>
               </CardContent>
@@ -252,11 +254,10 @@ export function SupportSection() {
                   </p>
                 </div>
                 <div className="border-l-4 border-accent-progress pl-4">
-                  <h4 className="font-semibold mb-2">Teach the App documents</h4>
+                  <h4 className="font-semibold mb-2">What should I share for a preview?</h4>
                   <p className="text-muted-foreground text-sm">
-                    You can upload a supported training document to help personalize future classes. Only use material
-                    you are permitted to share, avoid unnecessary personal information, and delete documents you no
-                    longer want associated with your account.
+                    Tell us your class format and preparation goals. Please avoid sending client details, health
+                    information or material you do not have permission to share.
                   </p>
                 </div>
               </CardContent>

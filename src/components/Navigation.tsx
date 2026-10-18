@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { INSTRUCTOR_OFFER } from '@/constants/offer';
 
 interface NavigationProps {
   activeSection: string;
@@ -20,11 +21,11 @@ export function Navigation({ activeSection }: NavigationProps) {
 
   const navItems = [
     { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About' },
+    { id: 'about', label: 'How it works' },
     { id: 'support', label: 'Support' },
     { id: 'privacy', label: 'Privacy' },
     { id: 'changelog', label: 'Changelog' },
-    { id: 'download', label: 'Download' },
+    { id: 'download', label: 'Walkthrough & app' },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -50,20 +51,20 @@ export function Navigation({ activeSection }: NavigationProps) {
           {/* Logo */}
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-xl font-bold text-foreground hover:text-accent-energy transition-colors"
+            className="text-xl font-bold text-foreground offer-energy-hover transition-colors"
             aria-label="Mova - Go to top"
           >
             Mova
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8">
             {navItems.slice(1).map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors hover:text-accent-energy ${
-                  activeSection === item.id ? 'text-accent-energy' : 'text-muted-foreground'
+                className={`text-sm font-medium transition-colors offer-energy-hover ${
+                  activeSection === item.id ? 'offer-energy' : 'text-muted-foreground'
                 }`}
                 aria-label={`Navigate to ${item.label} section`}
               >
@@ -73,11 +74,11 @@ export function Navigation({ activeSection }: NavigationProps) {
           </nav>
 
           {/* Mobile Navigation Menu */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="lg:hidden flex items-center space-x-2">
             <select
               value={activeSection}
               onChange={(e) => scrollToSection(e.target.value)}
-              className="text-sm bg-transparent border border-border rounded px-3 py-1 text-foreground"
+              className="max-w-40 text-sm bg-transparent border border-border rounded px-3 py-1 text-foreground"
               aria-label="Navigate to section"
             >
               {navItems.map((item) => (
@@ -94,9 +95,10 @@ export function Navigation({ activeSection }: NavigationProps) {
               variant="outline"
               size="sm"
               onClick={() => scrollToSection('download')}
+              aria-label={INSTRUCTOR_OFFER.navCta}
               className="hidden sm:inline-flex btn-primary"
             >
-              Download
+              {INSTRUCTOR_OFFER.navCta}
             </Button>
             <ThemeToggle />
           </div>

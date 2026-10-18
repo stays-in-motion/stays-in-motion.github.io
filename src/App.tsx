@@ -8,6 +8,7 @@ import { ChangelogSection } from '@/components/sections/ChangelogSection';
 import { DownloadSection } from '@/components/sections/DownloadSection';
 import { MOVA_LINKS, MOVA_SUPPORT_EMAIL } from '@/constants/links';
 import './index.css';
+import './offer.css';
 
 export function App() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -15,7 +16,7 @@ export function App() {
   // Handle scroll-based section detection
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'support', 'privacy', 'changelog', 'download'];
+      const sections = ['hero', 'about', 'download', 'support', 'privacy', 'changelog'];
       const scrollPosition = window.scrollY + 100; // Offset for header
 
       for (const sectionId of sections.reverse()) {
@@ -33,13 +34,6 @@ export function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleDownloadClick = () => {
-    const element = document.getElementById('download');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const handleLearnMoreClick = () => {
     const element = document.getElementById('about');
     if (element) {
@@ -56,11 +50,14 @@ export function App() {
       <main className="flex-1">
         {/* Hero Section */}
         <section id="hero" className="hero-background">
-          <HeroSection onDownloadClick={handleDownloadClick} onLearnMoreClick={handleLearnMoreClick} />
+          <HeroSection onLearnMoreClick={handleLearnMoreClick} />
         </section>
 
         {/* About Section */}
         <AboutSection />
+
+        {/* Walkthrough offer and current iPhone app listing */}
+        <DownloadSection />
 
         {/* Support Section */}
         <SupportSection />
@@ -70,9 +67,6 @@ export function App() {
 
         {/* Changelog Section */}
         <ChangelogSection />
-
-        {/* Download Section */}
-        <DownloadSection />
       </main>
 
       {/* Footer */}
@@ -81,10 +75,9 @@ export function App() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Brand */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-accent-energy">Mova</h3>
+              <h3 className="text-2xl font-bold offer-energy">Mova</h3>
               <p className="text-muted-foreground">
-                Build instructor-ready fitness classes with structured intervals, music guidance, and plans you can edit
-                and reuse.
+                Explore a class-planning workflow built around instructor review, editing and reuse.
               </p>
             </div>
 

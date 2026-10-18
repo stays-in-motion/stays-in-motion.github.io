@@ -1,0 +1,17 @@
+{
+  "checked_date": "2026-10-17",
+  "evidence_urls": [
+    "https://apps.apple.com/us/app/mova-fitness-instruction/id6738900718",
+    "https://itunes.apple.com/lookup?id=6738900718&country=us"
+  ],
+  "public_ios": {
+    "version": "0.2.1",
+    "current_version_release_date_utc": "2026-10-15T03:33:09Z",
+    "historical_versions": [
+      {
+        "version": "0.2.0",
+        "release_date": "2025-08-03"
+      }
+    ]
+  }
+}

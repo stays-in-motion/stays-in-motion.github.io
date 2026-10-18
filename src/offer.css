@@ -1,0 +1,18 @@
+/* Scoped to the instructor offer; follow the app's selected .dark theme. */
+.offer-energy,
+.offer-energy-hover:hover {
+  color: #b45309;
+}
+
+.offer-progress {
+  color: #047857;
+}
+
+.dark .offer-energy,
+.dark .offer-energy-hover:hover {
+  color: #ffcc33;
+}
+
+.dark .offer-progress {
+  color: #4ade80;
+}

@@ -38,9 +38,6 @@ describe('SupportSection', () => {
   beforeEach(() => {
     cleanup();
     // Reset mocks
-    if (global.window.open) {
-      (global.window.open as any).mockClear();
-    }
     global.window.location.href = 'https://staysinmotion.com/';
   });
 
@@ -48,7 +45,7 @@ describe('SupportSection', () => {
     render(<SupportSection />);
 
     expect(screen.getByRole('heading', { name: /how can we help/i })).toBeInTheDocument();
-    expect(screen.getByText(/get the support you need to make the most of your mova experience/i)).toBeInTheDocument();
+    expect(screen.getByText(/questions about class planning, a walkthrough or your mova account/i)).toBeInTheDocument();
   });
 
   test('renders all help category tabs', () => {
@@ -68,7 +65,7 @@ describe('SupportSection', () => {
 
     // FAQ content should be visible
     expect(screen.getByText(/frequently asked questions/i)).toBeInTheDocument();
-    expect(screen.getByText(/how do i create a class/i)).toBeInTheDocument();
+    expect(screen.getByText(/how do i start planning a class/i)).toBeInTheDocument();
   });
 
   test('clicking Technical tab switches content', () => {
@@ -149,11 +146,11 @@ describe('SupportSection', () => {
     render(<SupportSection />);
 
     // Should be on FAQ by default
-    expect(screen.getByText(/how do i create a class/i)).toBeInTheDocument();
+    expect(screen.getByText(/how do i start planning a class/i)).toBeInTheDocument();
     expect(screen.getByText(/open create class/i)).toBeInTheDocument();
 
-    expect(screen.getByText(/can i edit and save a generated class/i)).toBeInTheDocument();
-    expect(screen.getByText(/saved classes can be reopened/i)).toBeInTheDocument();
+    expect(screen.getByText(/can i edit and save a class plan/i)).toBeInTheDocument();
+    expect(screen.getByText(/review every plan yourself/i)).toBeInTheDocument();
 
     expect(screen.getByText(/how do subscriptions work/i)).toBeInTheDocument();
     expect(screen.getByText(/monthly or yearly auto-renewing subscription/i)).toBeInTheDocument();

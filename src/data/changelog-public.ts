@@ -9,39 +9,28 @@ export interface ChangelogEntry {
   breaking?: string[];
 }
 
+// Public US App Store history/official lookup checked October 17, 2026.
+// Dates use Apple's published UTC calendar dates, not internal preparation dates.
 export const changelogData: ChangelogEntry[] = [
   {
     version: '0.2.1',
-    date: '2026-09-27',
+    date: '2026-10-15',
     title: 'Personalized Class Planning',
     type: 'major',
     features: [
-      'Build personalized fitness classes from guided style, timing, intensity, equipment, and music choices',
-      'Review structured workout intervals and music guidance before teaching',
+      'Create fitness classes with a guided class builder',
+      'Review structured workout intervals and music guidance',
       'Save generated classes and reopen them for editing',
-      'Use optional uploaded training documents to personalize class guidance',
-      'Manage Mova Pro purchases, restores, and subscription access in the app',
+      'Manage Mova Pro access from Settings',
+      'Request account deletion with a receipt and completion confirmation',
     ],
-    improvements: [
-      'Clearer generation, sign-in, and class-import feedback',
-      'More reliable entitlement and account-state handling',
-      'Updated privacy and support information for the current product',
-    ],
-    bugfixes: [
-      'Improved generated-class validation and duration handling',
-      'Improved saved-class navigation and release acceptance coverage',
-    ],
+    improvements: ['Improved sign-in, class import errors, and generation feedback'],
   },
   {
     version: '0.2.0',
-    date: '2026-01-25',
-    title: 'Class Builder Foundations',
+    date: '2025-08-03',
+    title: 'Accounts and Saved Playlists',
     type: 'minor',
-    features: [
-      'Account-based fitness class library',
-      'Structured class editing and playback',
-      'Music recommendations aligned to class timing',
-    ],
-    improvements: ['Streamlined navigation and dark and light appearance support'],
+    features: ['Create an account and save playlists'],
   },
 ];
