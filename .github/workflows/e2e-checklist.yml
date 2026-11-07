@@ -1,0 +1,43 @@
+name: E2E checklist
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  coverage:
+    name: E2E coverage decision
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate the PR coverage decision
+        run: |
+          python3 - <<'PYTHON'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
+          body = event["pull_request"].get("body") or ""
+          decisions = [
+              line.partition(":")[2].strip()
+              for line in body.splitlines()
+              if line.startswith("E2E-Coverage:")
+          ]
+          case_id = r"BB-[A-Z]+-[0-9]{2}"
+          reference = (
+              rf"cases {case_id}(?:, *{case_id})*"
+              r"|docs https://github\.com/stays-in-motion/mova-workspace/pull/[1-9][0-9]*"
+              r"|none"
+          )
+          if len(decisions) != 1 or not re.fullmatch(
+              rf"(?:{reference}) - \S.*", decisions[0]
+          ):
+              raise SystemExit(
+                  "Add one E2E-Coverage decision with case IDs, a workspace "
+                  "checklist PR URL, or none, followed by ' - ' and a reason."
+              )
+          PYTHON
